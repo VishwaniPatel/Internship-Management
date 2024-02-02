@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Group, Code, Image, Divider } from "@mantine/core";
+import { Group, Image, Divider } from "@mantine/core";
 import {
   IconHome2,
   IconFingerprint,
   IconTimeline,
   IconReceipt2,
-  IconSwitchHorizontal,
   IconLogout,
   IconMenu2,
 } from "@tabler/icons-react";
@@ -14,14 +13,14 @@ import classes from "./Sidebar.module.css";
 import { Link } from "react-router-dom";
 
 const data = [
-  { link: "/interns-list", label: "Home", icon: IconHome2 },
-  { link: "/interns", label: "Intern", icon: IconReceipt2 },
+  { link: "/", label: "Home", icon: IconHome2 },
+  { link: "/intern", label: "Intern", icon: IconReceipt2 },
   { link: "/mentors", label: "Mentor", icon: IconFingerprint },
   { link: "/roadmap", label: "Roadmap", icon: IconTimeline },
 ];
 
 export default function Sidebar() {
-  const [active, setActive] = useState("Billing");
+  const [active, setActive] = useState("home");
 
   const links = data.map((item, index) => (
     // For navigation routes added link

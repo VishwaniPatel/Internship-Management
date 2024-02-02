@@ -10,7 +10,7 @@ export function RoadMapTables() {
     getRoadMapData().then((res) => {
       setRecords(res.data);
     });
-  }, [records]);
+  }, []);
 
   const rows = records.map((tabData) => (
     <Table.Tr key={tabData.topic}>

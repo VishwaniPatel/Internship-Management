@@ -5,7 +5,7 @@ import "./index.css";
 import { MantineProvider } from "@mantine/core";
 // core styles are required for all packages
 import "@mantine/core/styles.css";
-import "@mantine/dates/styles.css";
+// import "@mantine/dates/styles.css";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,5 +1,4 @@
 import { Flex } from "@mantine/core";
-import Roadmap from "./pages/Roadmap/roadmap";
 import Sidebar from "./core/components/sidebar/Sidebar";
 import Header from "./core/components/header/Header";
 import Routing from "./App.routing";
