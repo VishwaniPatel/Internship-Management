@@ -10,7 +10,6 @@ import {
   UnstyledButton,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
-import classes from "../../../assets/header/HeaderTabs.module.css";
 import {
   deleteInternData,
   getInternData,
@@ -95,7 +94,7 @@ const InternList = () => {
       >
         <Table stickyHeader withTableBorder withColumnBorders>
           <Table.Thead
-            className={cx(classes.header, { [classes.scrolled]: scrolled })}
+            
           >
             <Table.Tr>
               <Table.Th>FirstName</Table.Th>

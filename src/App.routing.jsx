@@ -1,25 +1,15 @@
-import { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
+import Roadmap from "./pages/Roadmap/roadmap";
+import FormModal from "./pages/Roadmap/components/AddRoadmapModal";
+import InternList from "./pages/intern/components/InternList";
 
-const InternListComponent = lazy(() =>
-  import("./pages/intern/components/InternList")
-);
-
-const AppRouting = () => {
-  // let navigate = useNavigate();
-  // const location = useLocation();
+export default function Routing() {
   return (
-    <Suspense fallback={<p>loading</p>}>
-      <Routes>
-        <Route path="/" element={<InternListComponent />} />
-        {/* <Route
-            path="/edit/:id"
-            element={
-              <InternListComponent navigate={navigate} location={location} />
-            }
-          /> */}
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="/intern" element={<InternList/>} />
+      <Route path="/roadmap" element={<Roadmap />}></Route>
+      <Route path="/roadmap/add/new" element={<FormModal />}></Route>
+      <Route path="/edit-roadmap/:id" element={<FormModal />}></Route>
+    </Routes>
   );
-};
-export default AppRouting;
+}

@@ -1,15 +1,18 @@
 import { Flex } from "@mantine/core";
-import AppRouting from "./App.routing";
-import { HeaderTabs } from "./core/components/Header";
-import SideBarTabs from "./core/components/Sidebar";
+import Sidebar from "./core/components/sidebar/Sidebar";
+import Header from "./core/components/header/Header";
+import Routing from "./App.routing";
 
 function App() {
   return (
-    <Flex  style={{ height: "100%" }}>
-      <SideBarTabs></SideBarTabs>
-      <Flex direction="column" w="100%">
-        <HeaderTabs></HeaderTabs>
-        <AppRouting></AppRouting>
+    <Flex className="main-wrapper">
+      <Sidebar />
+      <Flex
+        style={{ width: "100%", height: "100%", overflow: "hidden" }}
+        direction="column"
+      >
+        <Header />
+        <Routing></Routing>
       </Flex>
     </Flex>
   );

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:4500/intern";
+const url = "http://localhost:3000/intern";
 
 export const getInternData = () => {
   return axios.get(url);
