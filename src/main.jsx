@@ -5,11 +5,14 @@ import "./index.css";
 // core styles are required for all packages
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
+import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <MantineProvider>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </MantineProvider>
   </React.StrictMode>
 );
