@@ -27,7 +27,7 @@
     {
       "topic": "Table Element",
       "subtopic": "Manually updating the DOM: changing text content and adding/removing classes and",
-      "duration": "1hr 30m",
+      "duration": "1hr",
       "id": "6ce7"
     },
     {
@@ -106,12 +106,12 @@
       "domain": "Frontend"
     },
     {
-      "firstName": "Nikunj",
-      "lastName": "Patel",
-      "emailId": "nikunjpatel@1rivet.com",
-      "domain": "Frontend",
-      "date": "",
-      "id": "b600"
+      "id": "581c",
+      "firstName": "",
+      "lastName": "",
+      "emailId": "",
+      "domain": "",
+      "date": ""
     }
   ],
   "domain": [

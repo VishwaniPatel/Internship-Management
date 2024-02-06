@@ -4,6 +4,7 @@ import { deleteRoadMap } from "../service/Roadmap.service";
 import { Link } from "react-router-dom";
 
 function handleDelete(id) {
+  // Delete Record from List
   deleteRoadMap(id).then((res) => {
     alert("Record has been deleted Successfully !");
   });

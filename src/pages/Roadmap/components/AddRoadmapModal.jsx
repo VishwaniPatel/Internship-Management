@@ -1,5 +1,4 @@
 import {
-  Modal,
   Button,
   TextInput,
   Textarea,
@@ -11,33 +10,39 @@ import {
   Anchor,
   Grid,
 } from "@mantine/core";
-import { IconPlus, IconChevronDown } from "@tabler/icons-react";
+import { IconChevronDown } from "@tabler/icons-react";
 import {
   addRoadMap,
   updateRoadmap,
   getRoadmapById,
 } from "../service/Roadmap.service";
-import { useForm } from "@mantine/form";
-import { useState, useEffect } from "react";
+import { isNotEmpty, useForm } from "@mantine/form";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function FormModal() {
   const navigate = useNavigate();
   const { id } = useParams();
-  let isId = true;
+  const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
+  const btnText = id ? "Update" : "Add";
+
   // Form Values
   const form = useForm({
+    validateInputOnChange: true,
     initialValues: {
       topic: "",
       subtopic: "",
       duration: "",
     },
+    validate: {
+      // Empty strings are considered to be invalid
+      topic: isNotEmpty("Topic cannot be empty"),
+      subtopic: isNotEmpty("Subtopic cannot be empty"),
+      duration: isNotEmpty("Duration cannot be empty"),
+    },
   });
-  if (id) {
-    isId = true;
-  } else {
-    isId = false;
-  }
+  const isFormValidate = form.isValid();
+
   // Form Submit button
   function handleFormSubmit(values) {
     if (id) {
@@ -60,7 +65,7 @@ export default function FormModal() {
           // Populate the form with fetched details
           form.setValues(roadmapDetails.data);
         } catch (error) {
-          console.error("Error fetching mentor details:", error);
+          console.error("Error fetching roadmap details:", error);
         }
       }
     };
@@ -82,8 +87,7 @@ export default function FormModal() {
   function handleCancel() {
     navigate("/roadmap");
   }
-  let title = isId ? "Update Roadmap Detail" : "Add Roadmap Detail";
-  let btnText = isId ? "Update" : "Add";
+
   return (
     <>
       <Flex direction="column" className="content-wrapper">
@@ -132,7 +136,9 @@ export default function FormModal() {
                 <Button variant="default" onClick={handleCancel} type="submit">
                   Cancle
                 </Button>
-                <Button type="submit">{btnText}</Button>
+                <Button disabled={!isFormValidate} type="submit">
+                  {btnText}
+                </Button>
               </Group>
             </form>
           </Grid.Col>
