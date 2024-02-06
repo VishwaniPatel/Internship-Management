@@ -6,6 +6,7 @@ import {
   Flex,
   Select,
   rem,
+  em,
   Breadcrumbs,
   Anchor,
   Grid,
@@ -19,12 +20,14 @@ import {
 import { isNotEmpty, useForm } from "@mantine/form";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function FormModal() {
   const navigate = useNavigate();
   const { id } = useParams();
   const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
   const btnText = id ? "Update" : "Add";
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
 
   // Form Values
   const form = useForm({
@@ -98,7 +101,7 @@ export default function FormModal() {
           </div>
         </Flex>
         <Grid className="form-wrapper" columns={24}>
-          <Grid.Col style={{ height: "100%" }} span={12}>
+          <Grid.Col style={{ height: "100%" }} span={isMobile ? "24" : "12"}>
             <form
               className="add-form"
               style={{ backgroundColor: "white" }}
