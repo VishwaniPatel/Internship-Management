@@ -1,7 +1,6 @@
-import cx from "clsx";
 import {
   Box,
-  // Button,
+  Button,
   Group,
   Menu,
   ScrollArea,
@@ -15,14 +14,10 @@ import {
   getInternData,
 } from "../utility/service/intern.service";
 import { IconDotsVertical } from "@tabler/icons-react";
-import InternForm from "./InternForm";
-import { useDisclosure } from "@mantine/hooks";
+import { Link } from "react-router-dom";
 
 const InternList = () => {
-  const [opened, { open, close }] = useDisclosure(false);
-  const [scrolled, setScrolled] = useState(false);
   const [internList, setInternList] = useState([]);
-  const [id, setGetId] = useState(null);
 
   const getInternList = () => {
     getInternData().then((response) => {
@@ -34,16 +29,15 @@ const InternList = () => {
     getInternList();
   }, []);
 
-  const getIdByCall = (id) => {
-    setGetId(id);
-    open();
-  };
-
+  
+/** Remove the intern data  */
   const removeItem = (id) => {
-    deleteInternData(id);
-    getInternData().then((response) => {
-      setInternList(response.data);
-    });
+    if (window.confirm("Sure you want to delete the item?")) {
+      deleteInternData(id);
+      getInternData().then((response) => {
+        setInternList(response.data);
+      });
+    }
   };
 
   const rows =
@@ -63,7 +57,7 @@ const InternList = () => {
               </UnstyledButton>
             </Menu.Target>
             <Menu.Dropdown>
-              <Menu.Item onClick={() => getIdByCall(row.id)}>Edit</Menu.Item>
+              <Link to={`/edit-intern/${row.id}`}><Menu.Item>Edit</Menu.Item></Link>
               <Menu.Item onClick={() => removeItem(row.id)}>Delete</Menu.Item>
             </Menu.Dropdown>
           </Menu>
@@ -75,27 +69,14 @@ const InternList = () => {
     <Box style={{ flexGrow: 1 }} p="lg">
       <Group justify="space-between">
         <Text>Internship Batch &gt; July-2023</Text>
-        <InternForm
-          opened={opened}
-          open={open}
-          close={close}
-          getInternList={getInternList}
-          getId={id}
-          setId={setGetId}
-        >
-          +Add New
-        </InternForm>
+        <Link to={"add/new"}>
+          <Button>+Add New</Button>
+        </Link>
       </Group>
 
-      <ScrollArea
-        h={300}
-        mt="lg"
-        onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
-      >
+      <ScrollArea h={300} mt="lg">
         <Table stickyHeader withTableBorder withColumnBorders>
-          <Table.Thead
-            
-          >
+          <Table.Thead>
             <Table.Tr>
               <Table.Th>FirstName</Table.Th>
               <Table.Th>LastName</Table.Th>
