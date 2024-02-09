@@ -6,11 +6,12 @@ export default function confirmDelete({ open, closeDialog, deleteFunction }) {
     <Modal
       opened={open}
       onClose={closeDialog}
+      size="sm"
       title="Are you sure you want to Delete ?"
       centered
       radius="md"
     >
-      <Flex gap="md" justify="flex-end" align="center">
+      <Flex gap="sm" justify="flex-end" align="center">
         <Button onClick={closeDialog} color="gray">
           Cancel
         </Button>

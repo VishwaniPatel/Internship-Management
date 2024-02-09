@@ -80,7 +80,7 @@ export default function FormModal() {
   const items = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
-    { title: "Add Roadmap Details", href: "#" },
+    { title: `${btnText} Roadmap Details`, href: "#" },
   ].map((item, index) => (
     <Anchor href={item.href} key={index}>
       {item.title}

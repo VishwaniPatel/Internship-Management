@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export function DropdownMenu({ id }) {
   const [open, setOpen] = useState(false);
-  const [deleteData, setDeleteData] = useState("");
+  // const [deleteData, setDeleteData] = useState("");
 
   function handleDelete() {
     // Delete Record from List
