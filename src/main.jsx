@@ -12,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <MantineProvider
+        // Inclueded custom theme color
         theme={{
           primaryColor: "bright-blue",
           colors: {
