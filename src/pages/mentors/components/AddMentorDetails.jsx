@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { TextInput, Select, Button, Group, Flex, Grid } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import { useForm, yupResolver } from '@mantine/form';
 import { addMentor, getMentorById, updateMentor } from '../utility/services/mentors.service';
 import { useNavigate, useParams } from 'react-router-dom';
 import useDomain from '../hooks/useDomain';
+import { ValidationSchema } from '../utility/validations/Validation';
 const AddMentorDetails = () => {
   // get all domains
   const domains = useDomain();
@@ -20,9 +21,10 @@ const AddMentorDetails = () => {
       lastName: "",
       emailId: "",
       domain: "",
-      date: ""
     },
+    validate: yupResolver(ValidationSchema)
   });
+  const isFormValidate = form.isValid();
   /**
    * Add/update mentors details
    * @param {object} values - form values
@@ -89,6 +91,7 @@ const AddMentorDetails = () => {
             />
             {/* Dropdown menu to select domain */}
             <Select
+            withAsterisk
               label="Domain"
               placeholder="Select Domain"
               data={domains}
@@ -97,7 +100,7 @@ const AddMentorDetails = () => {
             />
             {/* Submit button to add/update details */}
             <Group justify="flex-end" mt="md">
-              <Button type="submit">{btnText}</Button>
+              <Button disabled={!isFormValidate} type="submit">{btnText}</Button>
             </Group>
           </form>
           {/* End: Form to enter mentor details */}

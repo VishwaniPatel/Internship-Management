@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Flex, Group, Text } from '@mantine/core';
+import { Button, Flex, Text } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import MentorList from './components/MentorList';
 const MentorDetails = () => {

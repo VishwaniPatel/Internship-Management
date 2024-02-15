@@ -31,6 +31,12 @@
       "subtopic": "Manually updating the DOM: changing text content and adding/removing classes and",
       "duration": "1hr 30m",
       "id": "6ce7"
+    },
+    {
+      "topic": "New Topic Edited",
+      "subtopic": "Description here",
+      "duration": "1hr",
+      "id": "c278"
     }
   ],
   "internshipBatch": [
@@ -102,12 +108,12 @@
       "domain": "Frontend"
     },
     {
-      "id": "581c",
-      "firstName": "",
-      "lastName": "",
-      "emailId": "",
-      "domain": "",
-      "date": ""
+      "firstName": "Nikunj",
+      "lastName": "Patel",
+      "emailId": "nikunjpatel@1rivet.com",
+      "domain": "Frontend",
+      "date": "",
+      "id": "b600"
     }
   ],
   "domain": [
