@@ -4,6 +4,8 @@
       "topic": "HTML Fundamentals",
       "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
       "duration": "15m",
+      "presenter": "Bhavik Gajdhar",
+      "status": "Not-Started",
       "id": "1"
     },
     {
@@ -29,12 +31,6 @@
       "subtopic": "Manually updating the DOM: changing text content and adding/removing classes and",
       "duration": "1hr 30m",
       "id": "6ce7"
-    },
-    {
-      "id": "3dc7",
-      "topic": "delete this",
-      "subtopic": "sdfghj",
-      "duration": "15m"
     }
   ],
   "internshipBatch": [
