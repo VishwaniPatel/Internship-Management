@@ -1,31 +1,17 @@
-import {
-  Box,
-  Breadcrumbs,
-  Button,
-  Group,
-  Menu,
-  Table,
-  UnstyledButton,
-  rem,
-} from "@mantine/core";
+import { Box, Breadcrumbs, Button, Group, Menu, Table } from "@mantine/core";
 import { useEffect, useState } from "react";
 import {
-  getByIdInternData, putInternData,
+  getByIdInternData,
+  putInternData,
 } from "../utility/service/intern.service";
-import {
-  IconDotsVertical,
-  IconPencil,
-  IconPlus,
-  IconTrash,
-} from "@tabler/icons-react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { IconPlus } from "@tabler/icons-react";
+import { Link, useParams } from "react-router-dom";
 import { getByIdInternBatchData } from "../../intern-batch/utility/service/intern-batch.service";
-
-
+import { DropdownMenu } from "./DropDownMenu";
 
 const InternList = () => {
   let { batchId } = useParams();
-  const navigate = useNavigate();
+
   const [internList, setInternList] = useState([]);
 
   const getInternList = () => {
@@ -33,40 +19,34 @@ const InternList = () => {
       setInternList(response.data);
     });
   };
- 
-  const items = [{ title: "Intern-Batch", href: "/intern-batch" },{ title: `${internList.batchname}`, href: "#" }].map(
-    (item, index) => (
-      <Link to={item.href} key={index}>
-        {item.title}
-      </Link>
-    )
-  );
+
+  const items = [
+    { title: "Intern-Batch", href: "/intern-batch" },
+    { title: `${internList.batchname}`, href: "#" },
+  ].map((item, index) => (
+    <Link to={item.href} key={index}>
+      {item.title}
+    </Link>
+  ));
 
   useEffect(() => {
     getInternList();
   }, []);
 
-  /** edit the intern data */
-  function handleEdit(id) {
-    navigate(`edit-intern/${id}`);
-  }
-
   /** Remove the intern data  */
   const removeItem = (id) => {
-    if (window.confirm("Sure you want to delete the item?")) {
-       const deleteId = internList.intern.filter((res)=> res.internId!==id)
-       const updateBatchDetails={
-        ...internList,
-        intern:deleteId
-       }
-       putInternData(batchId,updateBatchDetails).then((res) => {
-        if (res) {
-          getByIdInternData(batchId).then((response) => {
-            setInternList(response.data);
-          });
-        }
-      });
-    }
+    const deleteId = internList.intern.filter((res) => res.internId !== id);
+    const updateBatchDetails = {
+      ...internList,
+      intern: deleteId,
+    };
+    putInternData(batchId, updateBatchDetails).then((res) => {
+      if (res) {
+        getByIdInternData(batchId).then((response) => {
+          setInternList(response.data);
+        });
+      }
+    });
   };
 
   const rows =
@@ -86,33 +66,7 @@ const InternList = () => {
         <Table.Td>{row.domain}</Table.Td>
         <Table.Td align="center">
           <Menu shadow="md" position="bottom-end" width={200}>
-            <Menu.Target>
-              <UnstyledButton>
-                <IconDotsVertical
-                  style={{ width: rem(18), height: rem(18) }}
-                ></IconDotsVertical>
-              </UnstyledButton>
-            </Menu.Target>
-
-            <Menu.Dropdown>
-              <Menu.Item
-                onClick={() => handleEdit(row.internId)}
-                leftSection={
-                  <IconPencil style={{ width: rem(14), height: rem(14) }} />
-                }
-              >
-                Edit
-              </Menu.Item>
-              <Menu.Item
-                color="red"
-                leftSection={
-                  <IconTrash style={{ width: rem(14), height: rem(14) }} />
-                }
-                onClick={() => removeItem(row.internId)}
-              >
-                Delete
-              </Menu.Item>
-            </Menu.Dropdown>
+            <DropdownMenu removeItem={removeItem} id={row.internId} />
           </Menu>
         </Table.Td>
       </Table.Tr>
@@ -128,10 +82,10 @@ const InternList = () => {
         className="sub-header"
       >
         <Group justify="space-between">
-          <Breadcrumbs>
-            {items}
-          </Breadcrumbs>
-
+          <div>
+            <Breadcrumbs>{items}</Breadcrumbs>
+            <h4 className="content-title" style={{textAlign:'left'}}>Interns</h4>
+          </div>
           <Link to={"intern/add/new"}>
             <Button leftSection={<IconPlus size={14} />}>Add New Intern</Button>
           </Link>

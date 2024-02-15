@@ -1,6 +1,6 @@
 import { Menu, Table } from '@mantine/core';
 import { IconDotsVertical } from '@tabler/icons-react';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import MenuDropdown from './MenuDropdown';
 import useMentors from '../hooks/useMentors';
 

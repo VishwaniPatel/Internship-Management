@@ -61,8 +61,10 @@ export default function InternsBatchTable() {
         className="sub-header"
       >
         <Group justify="space-between">
-          <Breadcrumbs>{items}</Breadcrumbs>
-
+          <div>
+            <Breadcrumbs>{items}</Breadcrumbs>
+            <h4 className="content-title">Internship Batch</h4>
+          </div>
           <Link to={"/intern-batch/batch/add/new"}>
             <Button leftSection={<IconPlus size={14} />}>Add New Batch</Button>
           </Link>

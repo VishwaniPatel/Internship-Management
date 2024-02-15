@@ -8,6 +8,7 @@ import {
   Grid,
   Group,
   rem,
+  Box,
 } from "@mantine/core";
 import { useForm, yupResolver } from "@mantine/form";
 import {
@@ -119,7 +120,8 @@ const InternForm = () => {
             </h4>
           </div>
         </Flex>
-        <Grid className="form-wrapper" columns={24}>
+        <Box className="form-wrapper">
+        <Grid  w="100%" columns={24}>
           <Grid.Col style={{ height: "100%" }} span={12}>
             <form
               className="add-form"
@@ -191,6 +193,7 @@ const InternForm = () => {
             </form>
           </Grid.Col>
         </Grid>
+        </Box>
       </Flex>
     </>
   );

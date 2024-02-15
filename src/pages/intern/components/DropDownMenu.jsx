@@ -3,22 +3,17 @@ import { Menu, rem, UnstyledButton } from "@mantine/core";
 import { IconTrash, IconPencil, IconDotsVertical } from "@tabler/icons-react";
 import ConfirmDelete from "../../../shared/common-components/confirmDelete";
 import { useNavigate } from "react-router-dom";
-import { deleteInternsBatch } from "../utility/service/intern-batch.service";
 import { useState } from "react";
 
-export function DropdownMenu({ id, getInternBatchList }) {
+export function DropdownMenu({ id, removeItem }) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   /** delete function */
   function handleDelete(id) {
     if (id) {
-      deleteInternsBatch(id).then((res) => {
-        if (res) {
-          setOpen(false);
-          getInternBatchList();
-        }
-      });
+      setOpen(false);
+      removeItem(id);
     }
   }
 
@@ -29,7 +24,7 @@ export function DropdownMenu({ id, getInternBatchList }) {
 
   /** change the route for edit */
   function handleEdit(id) {
-    navigate(`edit-batch/${id}`);
+    navigate(`edit-intern/${id}`);
   }
 
   return (
@@ -56,7 +51,7 @@ export function DropdownMenu({ id, getInternBatchList }) {
           leftSection={
             <IconTrash style={{ width: rem(14), height: rem(14) }} />
           }
-          onClick={() => openPopup()}
+          onClick={openPopup}
         >
           Delete
         </Menu.Item>
