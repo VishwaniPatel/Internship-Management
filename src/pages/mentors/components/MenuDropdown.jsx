@@ -1,36 +1,30 @@
 import { Menu, Modal, Group, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
-import { useDisclosure } from "@mantine/hooks";
 import { IconTrash, IconEdit } from "@tabler/icons-react";
-function MenuDropdown(props) {
+import ConfirmDelete from "../../../shared/common-components/confirmDelete";
+import { useState } from "react";
+import { deleteMentorData } from "../utility/services/mentors.service";
+function MenuDropdown({id, onDelete}) {
   // for open/close modal forconfirm box to delete data
-  const [opened, { open, close }] = useDisclosure(false);
-  const id = props.data.id;
+  const [open, setOpen] = useState(false);
+
   /**
    * Receive id for deleting mentor details
    * @param {number} id - id of selected mentor
    */
-  const deleteMentor = (id) => {
-    props.onDataReceived(id);
-    close();
+  const deleteMentor = () => {
+    deleteMentorData(id).then((res)=>{
+      setOpen(false);
+      onDelete(id);
+    })
   };
+
+  // Opem Delete confirmtion box
+  function openPopup() {
+    setOpen(true);
+  }
   return (
     <>
-    {/* Start: Modal for confirm box */}
-      <Modal
-        opened={opened}
-        onClose={close}
-        title="Are Your Sure you want to delete?"
-        centered
-      >
-        <Group position="center">
-          <Button onClick={() => deleteMentor(id)}>Delete</Button>
-          <Button onClick={close} color="gray">
-            Cancel
-          </Button>
-        </Group>
-      </Modal>
-{/* End : Modal for confirm box */}
 {/* Start : Dropdown menu for Edit and Delete options */}
       <Menu.Dropdown>
         <Link to={"/edit-mentor/" + id}>
@@ -39,12 +33,13 @@ function MenuDropdown(props) {
 
         <Menu.Item
           icon={<IconTrash size={14} />}
-          onClick={open}
+          onClick={(e) => openPopup()}
         >
           Delete
         </Menu.Item>
       </Menu.Dropdown>
       {/* End : Dropdown menu for Edit and Delete options */}
+      <ConfirmDelete open={open} closeDialog={() => setOpen(false)} deleteFunction={deleteMentor}/>
     </>
   );
 }
