@@ -6,6 +6,7 @@ const emailRegex = /^[a-zA-Z0-9._-]*@[a-zA-Z0-9.-]*\.[a-zA-Z]{2,4}$/;
 export const ValidationSchema = Yup.object().shape({
   firstName: Yup.string().trim().required("FirstName is required").nullable(),
   lastName: Yup.string().trim().required("LastName is required"),
+  domain: Yup.string().trim().required("Domain is required"),
   email: Yup.string()
     .trim()
     .matches(emailRegex, "Email is not valid")
