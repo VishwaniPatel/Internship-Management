@@ -2,25 +2,21 @@ import { Menu, Table } from '@mantine/core';
 import { IconDotsVertical } from '@tabler/icons-react';
 import React, { useEffect, useState } from 'react'
 import MenuDropdown from './MenuDropdown';
-import { deleteMentorData } from '../utility/services/mentors.service';
 import useMentors from '../hooks/useMentors';
 
 const MentorList = () => {
 // get all mentor details
 const mentorData = useMentors();
 const [mentors, setMentors] = useState(mentorData)
+useEffect(()=>{
+  setMentors(mentorData)
+},[mentorData])
 
-/**
- * delete selected mentor data and filter mentor details
- * @param {number} id receives id of selected item
- */
-   const handleDataReceived = async (id) => {
-    await deleteMentorData(id);
-    // Update the mentorData state if necessary
-    setMentors((prevMentorData) =>
-      prevMentorData.filter((data) => data.id !== id)
-    );
-  };
+// filter deleted data
+   const handleDelete = (id) => (
+     setMentors(mentors.filter(data => data.id !== id) )
+   )
+  
   // Display mentor details in table
     const rows = mentors.map((data) => (
         <Table.Tr key={data.id}>
@@ -34,15 +30,13 @@ const [mentors, setMentors] = useState(mentorData)
             <IconDotsVertical />
           </Menu.Target>
           {/* Dropdown menu to edit/delete details */}
-          <MenuDropdown data={data} onDataReceived={handleDataReceived} />
+          <MenuDropdown id={data.id} onDelete={handleDelete}/>
           </Menu>
           </Table.Td>
 
         </Table.Tr>
       ));
-      useEffect(()=>{
-        setMentors(mentorData)
-      },[mentorData])
+  
     
       return (
         // Start: table for displaying mentor details
