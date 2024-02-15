@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 const data = [
   { link: "/", label: "Home", icon: IconHome2 },
-  { link: "/intern", label: "Intern", icon: IconReceipt2 },
+  { link: "/intern-batch", label: "Intern", icon: IconReceipt2 },
   { link: "/mentors", label: "Mentor", icon: IconFingerprint },
   { link: "/roadmap", label: "Roadmap", icon: IconTimeline },
 ];

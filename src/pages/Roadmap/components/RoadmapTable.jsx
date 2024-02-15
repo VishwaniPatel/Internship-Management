@@ -22,7 +22,6 @@ export function RoadMapTables() {
       <Table.Td>{tabData.duration}</Table.Td>
       <Table.Td style={{ textWrap: "nowrap" }}>{tabData.presenter}</Table.Td>
       <Table.Td>
-        {console.log(tabData.status)}
         <Badge
           variant={
             tabData.status === "Not-Started"

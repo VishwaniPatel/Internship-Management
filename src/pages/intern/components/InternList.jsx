@@ -1,95 +1,111 @@
-import {
-  Box,
-  Button,
-  Group,
-  Menu,
-  ScrollArea,
-  Table,
-  Text,
-  UnstyledButton,
-} from "@mantine/core";
+import { Box, Breadcrumbs, Button, Group, Menu, Table } from "@mantine/core";
 import { useEffect, useState } from "react";
 import {
-  deleteInternData,
-  getInternData,
+  getByIdInternData,
+  putInternData,
 } from "../utility/service/intern.service";
-import { IconDotsVertical } from "@tabler/icons-react";
-import { Link } from "react-router-dom";
+import { IconPlus } from "@tabler/icons-react";
+import { Link, useParams } from "react-router-dom";
+import { getByIdInternBatchData } from "../../intern-batch/utility/service/intern-batch.service";
+import { DropdownMenu } from "./DropDownMenu";
 
 const InternList = () => {
+  let { batchId } = useParams();
+
   const [internList, setInternList] = useState([]);
 
   const getInternList = () => {
-    getInternData().then((response) => {
+    getByIdInternBatchData(batchId).then((response) => {
       setInternList(response.data);
     });
   };
+
+  const items = [
+    { title: "Intern-Batch", href: "/intern-batch" },
+    { title: `${internList.batchname}`, href: "#" },
+  ].map((item, index) => (
+    <Link to={item.href} key={index}>
+      {item.title}
+    </Link>
+  ));
 
   useEffect(() => {
     getInternList();
   }, []);
 
-  
-/** Remove the intern data  */
+  /** Remove the intern data  */
   const removeItem = (id) => {
-    if (window.confirm("Sure you want to delete the item?")) {
-      deleteInternData(id);
-      getInternData().then((response) => {
-        setInternList(response.data);
-      });
-    }
+    const deleteId = internList.intern.filter((res) => res.internId !== id);
+    const updateBatchDetails = {
+      ...internList,
+      intern: deleteId,
+    };
+    putInternData(batchId, updateBatchDetails).then((res) => {
+      if (res) {
+        getByIdInternData(batchId).then((response) => {
+          setInternList(response.data);
+        });
+      }
+    });
   };
 
   const rows =
-    internList &&
-    internList.map((row) => (
+    internList.intern &&
+    internList.intern.map((row) => (
       <Table.Tr key={row.firstName}>
-        <Table.Td>{row.firstName}</Table.Td>
-        <Table.Td>{row.lastName}</Table.Td>
+        <Table.Td>
+          <Link
+            className="profile-link"
+            to={`/intern-batch/${batchId}/profile/${row.internId}`}
+          >
+            {row.firstName} {row.lastName}
+          </Link>
+        </Table.Td>
         <Table.Td>{row.email}</Table.Td>
         <Table.Td>{row.contact}</Table.Td>
         <Table.Td>{row.domain}</Table.Td>
         <Table.Td align="center">
-          <Menu>
-            <Menu.Target>
-              <UnstyledButton>
-                <IconDotsVertical></IconDotsVertical>
-              </UnstyledButton>
-            </Menu.Target>
-            <Menu.Dropdown>
-              <Link to={`/edit-intern/${row.id}`}><Menu.Item>Edit</Menu.Item></Link>
-              <Menu.Item onClick={() => removeItem(row.id)}>Delete</Menu.Item>
-            </Menu.Dropdown>
+          <Menu shadow="md" position="bottom-end" width={200}>
+            <DropdownMenu removeItem={removeItem} id={row.internId} />
           </Menu>
         </Table.Td>
       </Table.Tr>
     ));
 
   return (
-    <Box style={{ flexGrow: 1 }} p="lg">
-      <Group justify="space-between">
-        <Text>Internship Batch &gt; July-2023</Text>
-        <Link to={"add/new"}>
-          <Button>+Add New</Button>
-        </Link>
-      </Group>
-
-      <ScrollArea h={300} mt="lg">
-        <Table stickyHeader withTableBorder withColumnBorders>
-          <Table.Thead>
+    <div className="content-wrapper">
+      <Box
+        style={{ flexGrow: 1 }}
+        p="lg"
+        justify="space-between"
+        align="center"
+        className="sub-header"
+      >
+        <Group justify="space-between">
+          <div>
+            <Breadcrumbs>{items}</Breadcrumbs>
+            <h4 className="content-title" style={{textAlign:'left'}}>Interns</h4>
+          </div>
+          <Link to={"intern/add/new"}>
+            <Button leftSection={<IconPlus size={14} />}>Add New Intern</Button>
+          </Link>
+        </Group>
+      </Box>
+      <div className="table-container">
+        <Table highlightOnHover withTableBorder withColumnBorders mt="md">
+          <Table.Thead bg="#f1f3f5">
             <Table.Tr>
-              <Table.Th>FirstName</Table.Th>
-              <Table.Th>LastName</Table.Th>
-              <Table.Th>Email</Table.Th>
-              <Table.Th>Contact</Table.Th>
-              <Table.Th>Domain</Table.Th>
+              <Table.Th>FULL-NAME</Table.Th>
+              <Table.Th>EMAIL</Table.Th>
+              <Table.Th>CONTACT</Table.Th>
+              <Table.Th>DOMAIN</Table.Th>
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
         </Table>
-      </ScrollArea>
-    </Box>
+      </div>
+    </div>
   );
 };
 export default InternList;

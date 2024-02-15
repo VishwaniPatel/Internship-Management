@@ -87,6 +87,12 @@ body {
   text-transform: uppercase;
   text-decoration: none;
 }
+.profile-link {
+  color: rgb(0, 91, 169);
+  font-weight: 500;
+  text-transform: capitalize;
+  text-decoration: none;
+}
 .add-form {
   border-radius: 8px;
   box-shadow: none;

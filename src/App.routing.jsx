@@ -5,12 +5,17 @@ import InternList from "./pages/intern/components/InternList";
 import MentorDetails from "./pages/mentors/MentorDetails";
 import AddMentorDetails from "./pages/mentors/components/AddMentorDetails";
 import InternForm from "./pages/intern/components/InternForm";
+import BatchForm from "./pages/intern-batch/components/AddInternsBatchModal";
+import InternsBatchTable from "./pages/intern-batch/components/InternsBatchTable";
 export default function Routing() {
   return (
     <Routes>
-      <Route path="/intern" element={<InternList />} />
-      <Route path="/intern/add/new" element={<InternForm />}></Route>
-      <Route path="/edit-intern/:id" element={<InternForm />}></Route>
+      <Route path="/intern-batch" element={<InternsBatchTable/>} />
+      <Route path="/intern-batch/batch/add/new" element={<BatchForm/>} />
+      <Route path="/intern-batch/edit-batch/:batchId" element={<BatchForm/>} />
+      <Route path="/intern-batch/:batchId" element={<InternList />} />
+      <Route path="/intern-batch/:batchId/intern/add/new" element={<InternForm />}></Route>
+      <Route path="/intern-batch/:batchId/edit-intern/:id" element={<InternForm />}></Route>
       <Route path="/mentors" element={<MentorDetails />} />
       <Route path="/mentor/add/new" element={<AddMentorDetails />} />
       <Route path="/edit-mentor/:id" element={<AddMentorDetails />} />
