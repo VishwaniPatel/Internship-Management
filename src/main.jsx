@@ -7,6 +7,7 @@ import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 // import "@mantine/dates/styles.css";
 import { BrowserRouter } from "react-router-dom";
+import { variantColorResolver } from "./shared/common-components/StatusBadge.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               "#00488a",
             ],
           },
+          variantColorResolver,
         }}
       >
         <App />

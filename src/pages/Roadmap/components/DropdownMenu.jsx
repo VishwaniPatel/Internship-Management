@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ConfirmDelete from "./../../../shared/common-components/confirmDelete";
 import { useState } from "react";
 
-export function DropdownMenu({ id }) {
+export function DropdownMenu({ id, onDelete }) {
   const [open, setOpen] = useState(false);
   // const [deleteData, setDeleteData] = useState("");
 
@@ -13,6 +13,7 @@ export function DropdownMenu({ id }) {
     // Delete Record from List
     deleteRoadMap(id).then((res) => {
       setOpen(false);
+      onDelete(id);
     });
   }
 
