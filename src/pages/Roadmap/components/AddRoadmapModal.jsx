@@ -1,5 +1,4 @@
 import {
-  Modal,
   Button,
   TextInput,
   Textarea,
@@ -7,37 +6,53 @@ import {
   Flex,
   Select,
   rem,
+  em,
   Breadcrumbs,
   Anchor,
   Grid,
+  Box,
 } from "@mantine/core";
-import { IconPlus, IconChevronDown } from "@tabler/icons-react";
+import { IconChevronDown } from "@tabler/icons-react";
 import {
   addRoadMap,
   updateRoadmap,
   getRoadmapById,
 } from "../service/Roadmap.service";
-import { useForm } from "@mantine/form";
-import { useState, useEffect } from "react";
+import { isNotEmpty, useForm } from "@mantine/form";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
+import useMentors from "../../mentors/hooks/useMentors";
 
 export default function FormModal() {
   const navigate = useNavigate();
   const { id } = useParams();
-  let isId = true;
+  const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
+  const btnText = id ? "Update" : "Add";
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
+  // get all mentor details
+  const mentorData = useMentors();
+  const mentorDropdownData = [];
+
   // Form Values
   const form = useForm({
+    validateInputOnChange: true,
     initialValues: {
       topic: "",
       subtopic: "",
       duration: "",
+      presenter: "",
+      status: "Not-Started",
+    },
+    validate: {
+      // Empty strings are considered to be invalid
+      topic: isNotEmpty("Topic cannot be empty"),
+      subtopic: isNotEmpty("Subtopic cannot be empty"),
+      duration: isNotEmpty("Duration cannot be empty"),
     },
   });
-  if (id) {
-    isId = true;
-  } else {
-    isId = false;
-  }
+  const isFormValidate = form.isValid();
+
   // Form Submit button
   function handleFormSubmit(values) {
     if (id) {
@@ -60,7 +75,7 @@ export default function FormModal() {
           // Populate the form with fetched details
           form.setValues(roadmapDetails.data);
         } catch (error) {
-          console.error("Error fetching mentor details:", error);
+          console.error("Error fetching roadmap details:", error);
         }
       }
     };
@@ -72,7 +87,7 @@ export default function FormModal() {
   const items = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
-    { title: "Add Roadmap Details", href: "#" },
+    { title: `${btnText} Roadmap Details` },
   ].map((item, index) => (
     <Anchor href={item.href} key={index}>
       {item.title}
@@ -82,8 +97,10 @@ export default function FormModal() {
   function handleCancel() {
     navigate("/roadmap");
   }
-  let title = isId ? "Update Roadmap Detail" : "Add Roadmap Detail";
-  let btnText = isId ? "Update" : "Add";
+
+  mentorData.map((mentor) => {
+    mentorDropdownData.push(mentor.firstName + " " + mentor.lastName);
+  });
   return (
     <>
       <Flex direction="column" className="content-wrapper">
@@ -93,50 +110,88 @@ export default function FormModal() {
             <h4 className="content-title">{title}</h4>
           </div>
         </Flex>
-        <Grid className="form-wrapper" columns={24}>
-          <Grid.Col style={{ height: "100%" }} span={12}>
-            <form
-              className="add-form"
-              style={{ backgroundColor: "white" }}
-              onSubmit={form.onSubmit((values) => handleFormSubmit(values))}
-            >
-              <TextInput
-                withAsterisk
-                label="Topic"
-                placeholder="Enter Topic"
-                {...form.getInputProps("topic")}
-              />
-              <Textarea
-                mt="md"
-                label="SubTopic"
-                withAsterisk
-                placeholder="Enter Description about topic"
-                {...form.getInputProps("subtopic")}
-              />
+        <Box className="form-wrapper">
+          <Grid w="100%" columns={24}>
+            <Grid.Col style={{ height: "100%" }} span={isMobile ? "24" : "12"}>
+              <form
+                className="add-form"
+                style={{ backgroundColor: "white" }}
+                onSubmit={form.onSubmit((values) => handleFormSubmit(values))}
+              >
+                <TextInput
+                  withAsterisk
+                  label="Topic"
+                  placeholder="Enter Topic"
+                  {...form.getInputProps("topic")}
+                />
+                <Textarea
+                  mt="md"
+                  label="SubTopic"
+                  withAsterisk
+                  placeholder="Enter Description about topic"
+                  {...form.getInputProps("subtopic")}
+                />
 
-              <Select
-                mt="md"
-                label="Duration"
-                checkIconPosition="right"
-                placeholder="Select Duration"
-                data={["15m", "30m", "1hr", "1hr 30m"]}
-                rightSection={
-                  <IconChevronDown
-                    style={{ width: rem(16), height: rem(16) }}
-                  />
-                }
-                {...form.getInputProps("duration")}
-              />
+                <Select
+                  mt="md"
+                  label="Duration"
+                  checkIconPosition="right"
+                  placeholder="Select Duration"
+                  data={["15m", "30m", "1hr", "1hr 30m"]}
+                  rightSection={
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                    />
+                  }
+                  {...form.getInputProps("duration")}
+                />
+                <Select
+                  mt="md"
+                  label="Select Presenter"
+                  placeholder="Pick value"
+                  checkIconPosition="right"
+                  data={mentorDropdownData}
+                  maxDropdownHeight={200}
+                  rightSection={
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                    />
+                  }
+                  {...form.getInputProps("presenter")}
+                />
 
-              <Group justify="flex-end" mt="lg">
-                <Button variant="default" onClick={handleCancel} type="submit">
-                  Cancle
-                </Button>
-                <Button type="submit">{btnText}</Button>
-              </Group>
-            </form>
-          </Grid.Col>
-        </Grid>
+                <Select
+                  mt="md"
+                  label="Select Status"
+                  placeholder="Pick value"
+                  checkIconPosition="right"
+                  data={["Not-Started", "In Progress", "Completed"]}
+                  maxDropdownHeight={200}
+                  defaultValue="Not Started"
+                  rightSection={
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                    />
+                  }
+                  {...form.getInputProps("status")}
+                />
+
+                <Group justify="flex-end" mt="lg">
+                  <Button
+                    variant="default"
+                    onClick={handleCancel}
+                    type="submit"
+                  >
+                    Cancle
+                  </Button>
+                  <Button disabled={!isFormValidate} type="submit">
+                    {btnText}
+                  </Button>
+                </Group>
+              </form>
+            </Grid.Col>
+          </Grid>
+        </Box>
       </Flex>
     </>
   );

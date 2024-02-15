@@ -7,11 +7,13 @@ import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import { BrowserRouter } from "react-router-dom";
+import { variantColorResolver } from "./shared/common-components/StatusBadge.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <MantineProvider
+        // Inclueded custom theme color
         theme={{
           primaryColor: "bright-blue",
           colors: {
@@ -28,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               "#00488a",
             ],
           },
+          variantColorResolver,
         }}
       >
         <App />
