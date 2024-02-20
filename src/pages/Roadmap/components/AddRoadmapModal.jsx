@@ -23,6 +23,7 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
 import useMentors from "../../mentors/hooks/useMentors";
+import { Breadcrumb } from "../../../shared/common-components/Breadcrumb";
 
 export default function FormModal() {
   const navigate = useNavigate();
@@ -83,16 +84,12 @@ export default function FormModal() {
     fetchRoadmapDetails();
   }, [id]);
 
-  // Breadcrumbs Details
-  const items = [
+  // Breadcrumbs Data
+  const Breadcrumbitems = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
     { title: `${btnText} Roadmap Details` },
-  ].map((item, index) => (
-    <Anchor href={item.href} key={index}>
-      {item.title}
-    </Anchor>
-  ));
+  ];
 
   function handleCancel() {
     navigate("/roadmap");
@@ -106,7 +103,7 @@ export default function FormModal() {
       <Flex direction="column" className="content-wrapper">
         <Flex justify="space-between" align="center" className="sub-header">
           <div>
-            <Breadcrumbs>{items}</Breadcrumbs>
+            <Breadcrumb data={Breadcrumbitems} />
             <h4 className="content-title">{title}</h4>
           </div>
         </Flex>

@@ -1,23 +1,20 @@
 // import Tables from "./components/table";
 import { RoadMapTables } from "./components/RoadmapTable";
-import { Breadcrumbs, Anchor, Flex, Button } from "@mantine/core";
+import { Flex, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { IconPlus } from "@tabler/icons-react";
+import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 
-const items = [
+const Breadcrumbitems = [
   { title: "Internship", href: "#" },
   { title: "Roadmap", href: "#" },
-].map((item, index) => (
-  <Anchor href={item.href} key={index}>
-    {item.title}
-  </Anchor>
-));
+];
 function Roadmap() {
   return (
     <Flex direction="column" className="content-wrapper">
       <Flex justify="space-between" align="center" className="sub-header">
         <div>
-          <Breadcrumbs>{items}</Breadcrumbs>
+          <Breadcrumb data={Breadcrumbitems} />
           <h4 className="content-title">Roadmap</h4>
         </div>
         <Link to="add/new">
