@@ -7,8 +7,6 @@ import {
   Select,
   rem,
   em,
-  Breadcrumbs,
-  Anchor,
   Grid,
   Box,
 } from "@mantine/core";
@@ -22,8 +20,9 @@ import { isNotEmpty, useForm } from "@mantine/form";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
-import useMentors from "../../mentors/hooks/useMentors";
+// import useMentors from "../../mentors/hooks/useMentors";
 import { Breadcrumb } from "../../../shared/common-components/Breadcrumb";
+import useDomain from "../../mentors/hooks/useDomain";
 
 export default function FormModal() {
   const navigate = useNavigate();
@@ -31,25 +30,20 @@ export default function FormModal() {
   const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
   const btnText = id ? "Update" : "Add";
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
-  // get all mentor details
-  const mentorData = useMentors();
-  const mentorDropdownData = [];
+  // Get all Domain details
+  const domainData = useDomain();
 
   // Form Values
   const form = useForm({
     validateInputOnChange: true,
     initialValues: {
-      topic: "",
-      subtopic: "",
-      duration: "",
-      presenter: "",
-      status: "Not-Started",
+      name: "",
+      domain: "",
     },
     validate: {
       // Empty strings are considered to be invalid
-      topic: isNotEmpty("Topic cannot be empty"),
-      subtopic: isNotEmpty("Subtopic cannot be empty"),
-      duration: isNotEmpty("Duration cannot be empty"),
+      name: isNotEmpty("Name cannot be empty"),
+      domain: isNotEmpty("Subtopic cannot be empty"),
     },
   });
   const isFormValidate = form.isValid();
@@ -95,9 +89,6 @@ export default function FormModal() {
     navigate("/roadmap");
   }
 
-  mentorData.map((mentor) => {
-    mentorDropdownData.push(mentor.firstName + " " + mentor.lastName);
-  });
   return (
     <>
       <Flex direction="column" className="content-wrapper">
@@ -117,60 +108,24 @@ export default function FormModal() {
               >
                 <TextInput
                   withAsterisk
-                  label="Topic"
-                  placeholder="Enter Topic"
-                  {...form.getInputProps("topic")}
-                />
-                <Textarea
-                  mt="md"
-                  label="SubTopic"
-                  withAsterisk
-                  placeholder="Enter Description about topic"
-                  {...form.getInputProps("subtopic")}
+                  label="Name"
+                  placeholder="Enter Folder Name"
+                  {...form.getInputProps("name")}
                 />
 
                 <Select
                   mt="md"
-                  label="Duration"
+                  label="Select Domain"
+                  placeholder="Select Domain"
                   checkIconPosition="right"
-                  placeholder="Select Duration"
-                  data={["15m", "30m", "1hr", "1hr 30m"]}
-                  rightSection={
-                    <IconChevronDown
-                      style={{ width: rem(16), height: rem(16) }}
-                    />
-                  }
-                  {...form.getInputProps("duration")}
-                />
-                <Select
-                  mt="md"
-                  label="Select Presenter"
-                  placeholder="Pick value"
-                  checkIconPosition="right"
-                  data={mentorDropdownData}
+                  data={domainData}
                   maxDropdownHeight={200}
                   rightSection={
                     <IconChevronDown
                       style={{ width: rem(16), height: rem(16) }}
                     />
                   }
-                  {...form.getInputProps("presenter")}
-                />
-
-                <Select
-                  mt="md"
-                  label="Select Status"
-                  placeholder="Pick value"
-                  checkIconPosition="right"
-                  data={["Not-Started", "In Progress", "Completed"]}
-                  maxDropdownHeight={200}
-                  defaultValue="Not Started"
-                  rightSection={
-                    <IconChevronDown
-                      style={{ width: rem(16), height: rem(16) }}
-                    />
-                  }
-                  {...form.getInputProps("status")}
+                  {...form.getInputProps("domain")}
                 />
 
                 <Group justify="flex-end" mt="lg">

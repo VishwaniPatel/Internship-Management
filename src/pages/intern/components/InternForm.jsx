@@ -121,78 +121,78 @@ const InternForm = () => {
           </div>
         </Flex>
         <Box className="form-wrapper">
-        <Grid  w="100%" columns={24}>
-          <Grid.Col style={{ height: "100%" }} span={12}>
-            <form
-              className="add-form"
-              style={{ backgroundColor: "white" }}
-              onSubmit={form.onSubmit((values) => handleFormSubmit(values))}
-            >
-              <Flex gap={"lg"} mt={"lg"}>
-                <TextInput
-                  withAsterisk
-                  label="FirstName"
-                  placeholder="Enter firstName"
-                  {...form.getInputProps("firstName")}
-                />
-                <TextInput
-                  label="LastName"
-                  withAsterisk
-                  placeholder="Enter lastName"
-                  {...form.getInputProps("lastName")}
-                />
-              </Flex>
-              <Flex gap={"lg"} mt={"lg"}>
-                <TextInput
-                  withAsterisk
-                  label="Email"
-                  placeholder="Enter email"
-                  {...form.getInputProps("email")}
-                />
-                <TextInput
-                  label="Contact"
-                  withAsterisk
-                  placeholder="Enter contact"
-                  {...form.getInputProps("contact")}
-                />
-              </Flex>
-              <Select
-               withAsterisk
-                mt="md"
-                label="Domain"
-                checkIconPosition="right"
-                placeholder="Select Domain"
-                data={["React", "Angular", "Vue"]}
-                rightSection={
-                  <IconChevronDown
-                    style={{ width: rem(16), height: rem(16) }}
+          <Grid w="100%" columns={24}>
+            <Grid.Col style={{ height: "100%" }} span={12}>
+              <form
+                className="add-form"
+                style={{ backgroundColor: "white" }}
+                onSubmit={form.onSubmit((values) => handleFormSubmit(values))}
+              >
+                <Flex gap={"lg"} mt={"lg"}>
+                  <TextInput
+                    withAsterisk
+                    label="FirstName"
+                    placeholder="Enter firstName"
+                    {...form.getInputProps("firstName")}
                   />
-                }
-                {...form.getInputProps("domain")}
-              />
-              <Select
-                mt="md"
-                label="Mentor"
-                checkIconPosition="right"
-                placeholder="Select Mentor"
-                data={["Vishwani", "Vinay", "Bhavik"]}
-                rightSection={
-                  <IconChevronDown
-                    style={{ width: rem(16), height: rem(16) }}
+                  <TextInput
+                    label="LastName"
+                    withAsterisk
+                    placeholder="Enter lastName"
+                    {...form.getInputProps("lastName")}
                   />
-                }
-                {...form.getInputProps("mentor")}
-              />
+                </Flex>
+                <Flex gap={"lg"} mt={"lg"}>
+                  <TextInput
+                    withAsterisk
+                    label="Email"
+                    placeholder="Enter email"
+                    {...form.getInputProps("email")}
+                  />
+                  <TextInput
+                    label="Contact"
+                    withAsterisk
+                    placeholder="Enter contact"
+                    {...form.getInputProps("contact")}
+                  />
+                </Flex>
+                <Select
+                  withAsterisk
+                  mt="md"
+                  label="Domain"
+                  checkIconPosition="right"
+                  placeholder="Select Domain"
+                  data={["React", "Angular", "Vue"]}
+                  rightSection={
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                    />
+                  }
+                  {...form.getInputProps("domain")}
+                />
+                <Select
+                  mt="md"
+                  label="Mentor"
+                  checkIconPosition="right"
+                  placeholder="Select Mentor"
+                  data={["Vishwani", "Vinay", "Bhavik"]}
+                  rightSection={
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                    />
+                  }
+                  {...form.getInputProps("mentor")}
+                />
 
-              <Group justify="flex-end" mt="lg">
-                <Button variant="default" onClick={handleCancel}>
-                  Cancle
-                </Button>
-                <Button type="submit">{id ? "Update" : "Add"}</Button>
-              </Group>
-            </form>
-          </Grid.Col>
-        </Grid>
+                <Group justify="flex-end" mt="lg">
+                  <Button variant="default" onClick={handleCancel}>
+                    Cancle
+                  </Button>
+                  <Button type="submit">{id ? "Update" : "Add"}</Button>
+                </Group>
+              </form>
+            </Grid.Col>
+          </Grid>
         </Box>
       </Flex>
     </>

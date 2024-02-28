@@ -4,6 +4,7 @@ import { Flex, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { IconPlus } from "@tabler/icons-react";
 import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
+import RoadmapDetailsTable from "./Roadmap-Details/components/RoadmapDetailsTable";
 
 const Breadcrumbitems = [
   { title: "Internship", href: "#" },

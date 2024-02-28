@@ -1,7 +1,18 @@
-import { Badge, Table } from "@mantine/core";
+import {
+  Grid,
+  Card,
+  Group,
+  Table,
+  Text,
+  Box,
+  Flex,
+  Stack,
+} from "@mantine/core";
 import { useEffect, useState } from "react";
 import { getRoadMapData } from "../service/Roadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
+import { Link } from "react-router-dom";
+import { IconFolderCode } from "@tabler/icons-react";
 
 export function RoadMapTables() {
   const [records, setRecords] = useState([]);
@@ -16,52 +27,28 @@ export function RoadMapTables() {
   };
 
   const rows = records.map((tabData) => (
-    <Table.Tr key={tabData.topic}>
-      <Table.Td>{tabData.topic}</Table.Td>
-      <Table.Td>{tabData.subtopic}</Table.Td>
-      <Table.Td>{tabData.duration}</Table.Td>
-      <Table.Td style={{ textWrap: "nowrap" }}>{tabData.presenter}</Table.Td>
-      <Table.Td>
-        <Badge
-          variant={
-            tabData.status === "Not-Started"
-              ? "notStarted"
-              : tabData.status === "Completed"
-              ? "completed"
-              : "inProgress"
-          }
-          radius="sm"
-        >
-          {tabData.status}
-        </Badge>
-      </Table.Td>
-      <Table.Td>
-        <DropdownMenu id={tabData.id} onDelete={handleDeleteRecord} />
-      </Table.Td>
-    </Table.Tr>
-  ));
-  return (
-    <div className="table-container">
-      <Table
-        stickyHeader
-        stickyHeaderOffset={-16}
-        highlightOnHover
-        withTableBorder
-        withColumnBorders
-        mt="md"
+    <Grid.Col span={3} key={tabData.id}>
+      <Card
+        className="roadmap-folder"
+        shadow="sm"
+        padding="md"
+        radius="md"
+        withBorder
       >
-        <Table.Thead bg="#f1f3f5">
-          <Table.Tr>
-            <Table.Th>TOPIC</Table.Th>
-            <Table.Th>SUB-TOPIC</Table.Th>
-            <Table.Th>DURATION</Table.Th>
-            <Table.Th>PRESENTER</Table.Th>
-            <Table.Th>STATUS</Table.Th>
-            <Table.Th></Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
-    </div>
-  );
+        <Flex align="center">
+          <Box className="folder-icon">
+            <IconFolderCode color="#00488A"></IconFolderCode>
+          </Box>
+          <Stack w="100%" gap="xs" ml="md">
+            <Link to={"/roadmap-details/" + tabData.id} className="text-link">
+              {tabData.name}
+            </Link>
+            <Text className="roadmap-domain"> {tabData.domain}</Text>
+          </Stack>
+          <DropdownMenu id={tabData.id} onDelete={handleDeleteRecord} />
+        </Flex>
+      </Card>
+    </Grid.Col>
+  ));
+  return <Grid p="lg">{rows}</Grid>;
 }
