@@ -1,17 +1,8 @@
-import { Box, Breadcrumbs, Button, Group, Table } from "@mantine/core";
+import { Table } from "@mantine/core";
 import { DropdownMenu } from "./DropdownMenu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { IconPlus } from "@tabler/icons-react";
 import { getInternsBatchData } from "../utility/service/intern-batch.service";
-
-const items = [{ title: "Intern-Batch", href: "/intern-batch" }].map(
-  (item, index) => (
-    <Link to={item.href} key={index}>
-      {item.title}
-    </Link>
-  )
-);
 
 export default function InternsBatchTable() {
   const [records, setRecords] = useState([]);
@@ -57,23 +48,6 @@ export default function InternsBatchTable() {
   ));
   return (
     <div className="content-wrapper">
-      <Box
-        style={{ flexGrow: 1 }}
-        p="lg"
-        justify="space-between"
-        align="center"
-        className="sub-header"
-      >
-        <Group justify="space-between">
-          <div>
-            <Breadcrumbs>{items}</Breadcrumbs>
-            <h4 className="content-title">Internship Batch</h4>
-          </div>
-          <Link to={"/intern-batch/batch/add/new"}>
-            <Button leftSection={<IconPlus size={14} />}>Add New Batch</Button>
-          </Link>
-        </Group>
-      </Box>
       <div className="table-container">
         <Table highlightOnHover withTableBorder withColumnBorders mt="md">
           <Table.Thead bg="#f1f3f5">
