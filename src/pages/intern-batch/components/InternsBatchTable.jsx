@@ -35,7 +35,11 @@ export default function InternsBatchTable() {
   const rows = records.map((tabData) => (
     <Table.Tr key={tabData.id}>
       <Table.Td>
-        <Link className="batch-link" to={`/intern-batch/${tabData.id}`}>
+        <Link
+          style={{ textTransform: "uppercase" }}
+          className="text-link"
+          to={`/intern-batch/${tabData.id}`}
+        >
           {tabData.batchname}
         </Link>
       </Table.Td>

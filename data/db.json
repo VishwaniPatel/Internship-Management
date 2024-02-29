@@ -41,6 +41,134 @@
       "id": "6ce7"
     }
   ],
+  "newRoadmap": [
+    {
+      "id": "1",
+      "domain": "Frontend",
+      "name": "Beginner HTML"
+    },
+    {
+      "id": "2",
+      "domain": "Frontend",
+      "name": "Advanced HTML"
+    },
+    {
+      "id": "3",
+      "domain": "Frontend",
+      "name": "Beginner HTML"
+    },
+    {
+      "id": "4",
+      "domain": "Frontend",
+      "name": "Advanced HTML"
+    },
+    {
+      "id": "e2b5",
+      "name": "Demo",
+      "domain": "Backend"
+    }
+  ],
+  "roadmapDetails": [
+    {
+      "roadmapId": 1,
+      "topic": "HTML Fundamentals",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "15m",
+      "presenter": "Bhavik Gajdhar",
+      "status": "Not-Started",
+      "id": "1"
+    },
+    {
+      "roadmapId": 1,
+      "topic": "Text Elements",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "1hr",
+      "presenter": "Vinay Chudasama",
+      "status": "In Progress",
+      "id": "2"
+    },
+    {
+      "roadmapId": 2,
+      "topic": "Text Elements",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "1hr",
+      "presenter": "Vinay Chudasama",
+      "status": "In Progress",
+      "id": "3"
+    },
+    {
+      "roadmapId": 2,
+      "topic": "Text Elements",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "1hr",
+      "presenter": "Vinay Chudasama",
+      "status": "In Progress",
+      "id": "4"
+    },
+    {
+      "roadmapId": 2,
+      "topic": "Text Elements",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "1hr",
+      "presenter": "Vinay Chudasama",
+      "status": "In Progress",
+      "id": "5"
+    },
+    {
+      "roadmapId": 3,
+      "topic": "Text Elements",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "1hr",
+      "presenter": "Vinay Chudasama",
+      "status": "In Progress",
+      "id": "6"
+    },
+    {
+      "roadmapId": 4,
+      "topic": "Text Elements",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "1hr",
+      "presenter": "Vinay Chudasama",
+      "status": "In Progress",
+      "id": "7"
+    },
+    {
+      "id": "d13e",
+      "roadmapId": "e2b5",
+      "topic": "Demo 3",
+      "subtopic": "demo subb",
+      "duration": "30m",
+      "presenter": "Vinay Chudasama",
+      "status": "Not-Started"
+    },
+    {
+      "id": "266a",
+      "roadmapId": "1",
+      "topic": "Image Element",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv",
+      "duration": "30m",
+      "presenter": "Bhavik Gajdhar",
+      "status": "Not-Started"
+    },
+    {
+      "roadmapId": "fc4d",
+      "topic": "Demo topic new",
+      "subtopic": "Lorem impum ascdkov",
+      "duration": "1hr",
+      "presenter": "Bhavik Gajdhar",
+      "status": "Not-Started",
+      "id": "d4cc"
+    },
+    {
+      "id": "e70b",
+      "roadmapId": "c2d6",
+      "topic": "new topic",
+      "subtopic": "dsvfdv",
+      "duration": "15m",
+      "presenter": "Vishwani Patel",
+      "status": "Not-Started"
+    }
+  ],
   "internshipBatch": [
     {
       "batchname": "Jan-2025",
@@ -66,7 +194,7 @@
           "internId": 0.16901317988444564
         }
       ],
-      "id": 1
+      "id": "1"
     },
     {
       "batchname": "march-2024",
@@ -101,7 +229,7 @@
           "internId": 0.10097915114139422
         }
       ],
-      "id": 2
+      "id": "2"
     },
     {
       "batchname": "April-2024",
@@ -118,7 +246,7 @@
           "internId": 0.10554491453781467
         }
       ],
-      "id": 3
+      "id": "3"
     }
   ],
   "mentors": [

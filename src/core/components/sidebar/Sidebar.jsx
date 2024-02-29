@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Group, Image, Divider } from "@mantine/core";
 import {
   IconHome2,
-  IconFingerprint,
+  IconUserStar,
   IconTimeline,
-  IconReceipt2,
+  IconUsers,
   IconLogout,
+  IconSitemap,
   IconMenu2,
 } from "@tabler/icons-react";
 import Logo from "./../../../../src/assets/download.png";
@@ -14,9 +15,10 @@ import { Link } from "react-router-dom";
 
 const data = [
   { link: "/", label: "Home", icon: IconHome2 },
-  { link: "/intern-batch", label: "Intern", icon: IconReceipt2 },
-  { link: "/mentors", label: "Mentor", icon: IconFingerprint },
-  { link: "/roadmap", label: "Roadmap", icon: IconTimeline },
+  { link: "/intern-batch", label: "Intern", icon: IconUsers },
+  { link: "/mentors", label: "Mentor", icon: IconUserStar },
+  { link: "/roadmap", label: "Roadmap", icon: IconSitemap },
+  { link: "/", label: "Training-Tracker", icon: IconTimeline },
 ];
 
 export default function Sidebar() {

@@ -50,13 +50,13 @@ function Header() {
           withinPortal
         >
           <Menu.Target>
-            <UnstyledButton>
+            <UnstyledButton className="user-profile-btn">
               <Group gap={7}>
                 <Avatar
                   src={user.picture}
                   alt={user.nickname}
                   radius="sm"
-                  size={40}
+                  size={34}
                 />
               </Group>
             </UnstyledButton>
