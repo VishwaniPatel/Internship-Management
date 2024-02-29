@@ -6,8 +6,9 @@ import {
 } from "../utility/service/intern.service";
 import { IconPlus } from "@tabler/icons-react";
 import { Link, useParams } from "react-router-dom";
-import { getByIdInternBatchData } from "../../intern-batch/utility/service/intern-batch.service";
+// import { getByIdInternBatchData } from "../../intern-batch/utility/service/intern-batch.service";
 import { DropdownMenu } from "./DropDownMenu";
+import { getByIdInternBatchData } from "../../Intern-batch/utility/service/intern-batch.service";
 
 const InternList = () => {
   let { batchId } = useParams();
@@ -84,7 +85,9 @@ const InternList = () => {
         <Group justify="space-between">
           <div>
             <Breadcrumbs>{items}</Breadcrumbs>
-            <h4 className="content-title" style={{textAlign:'left'}}>Interns</h4>
+            <h4 className="content-title" style={{ textAlign: "left" }}>
+              Interns
+            </h4>
           </div>
           <Link to={"intern/add/new"}>
             <Button leftSection={<IconPlus size={14} />}>Add New Intern</Button>

@@ -2,7 +2,7 @@ import { Flex, Button } from "@mantine/core";
 import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { IconPlus } from "@tabler/icons-react";
-import InternsBatchTable from "./components/InternsBatchTable";
+import { InternsBatchTable } from "./components/InternsBatchTable";
 
 const items = [
   { title: "Internship", href: "#" },

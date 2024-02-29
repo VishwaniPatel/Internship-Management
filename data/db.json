@@ -249,6 +249,17 @@
       "id": "3"
     }
   ],
+  "batchRoadmap": [
+    {
+      "batchId": "1",
+      "topic": "HTML Fundamentals",
+      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
+      "duration": "15m",
+      "presenter": "Bhavik Gajdhar",
+      "status": "Not-Started",
+      "id": "1"
+    }
+  ],
   "mentors": [
     {
       "id": "1",

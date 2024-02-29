@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getInternsBatchData } from "../utility/service/intern-batch.service";
 
-export default function InternsBatchTable() {
+export function InternsBatchTable() {
   const [records, setRecords] = useState([]);
 
   const getInternBatchList = () => {
@@ -29,7 +29,7 @@ export default function InternsBatchTable() {
         <Link
           style={{ textTransform: "uppercase" }}
           className="text-link"
-          to={`/intern-batch/${tabData.id}`}
+          to={`/intern-batch/details/${tabData.id}`}
         >
           {tabData.batchname}
         </Link>
