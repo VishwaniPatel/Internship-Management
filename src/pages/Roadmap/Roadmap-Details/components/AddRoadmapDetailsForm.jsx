@@ -99,6 +99,7 @@ export default function AddRoadmapDetailsForm() {
   const Breadcrumbitems = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
+    { title: "Roadmap Details", href: "/roadmap" },
     { title: `${btnText} Roadmap Details` },
   ];
 

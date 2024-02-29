@@ -19,9 +19,7 @@ function Roadmap() {
           <h4 className="content-title">Roadmap</h4>
         </div>
         <Link to="add/new">
-          <Button leftSection={<IconPlus size={14} />}>
-            Add Roadmap Details
-          </Button>
+          <Button leftSection={<IconPlus size={14} />}>Add New Folder</Button>
         </Link>
       </Flex>
       <RoadMapTables />

@@ -82,7 +82,7 @@ export default function FormModal() {
   const Breadcrumbitems = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
-    { title: `${btnText} Roadmap Details` },
+    { title: `${btnText} Roadmap` },
   ];
 
   function handleCancel() {

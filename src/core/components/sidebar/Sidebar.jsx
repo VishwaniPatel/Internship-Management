@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Group, Image, Divider } from "@mantine/core";
 import {
   IconHome2,
-  IconFingerprint,
+  IconUserStar,
   IconTimeline,
-  IconReceipt2,
+  IconUsers,
   IconLogout,
   IconMenu2,
 } from "@tabler/icons-react";
@@ -14,8 +14,8 @@ import { Link } from "react-router-dom";
 
 const data = [
   { link: "/", label: "Home", icon: IconHome2 },
-  { link: "/intern-batch", label: "Intern", icon: IconReceipt2 },
-  { link: "/mentors", label: "Mentor", icon: IconFingerprint },
+  { link: "/intern-batch", label: "Intern", icon: IconUsers },
+  { link: "/mentors", label: "Mentor", icon: IconUserStar },
   { link: "/roadmap", label: "Roadmap", icon: IconTimeline },
 ];
 
