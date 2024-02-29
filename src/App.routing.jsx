@@ -11,6 +11,7 @@ import AddRoadmapDetailsForm from "./pages/Roadmap/Roadmap-Details/components/Ad
 import { RoadMapTables } from "./pages/Roadmap/components/RoadmapTable";
 import RoadmapDetails from "./pages/Roadmap/Roadmap-Details/components/RoadmapDetailsTable";
 import { useAuth0 } from "@auth0/auth0-react";
+import TrainingTracker from "./pages/Training-Tracker/tracker";
 export default function Routing() {
   const { isAuthenticated } = useAuth0();
 
@@ -39,6 +40,7 @@ export default function Routing() {
             element={<RoadmapDetails />}
           />
           <Route path="/mentors" element={<MentorDetails />} />
+          <Route path="/tracker" element={<TrainingTracker />} />
           <Route path="/mentor/add/new" element={<AddMentorDetails />} />
           <Route path="/edit-mentor/:id" element={<AddMentorDetails />} />
           <Route path="/roadmap" element={<Roadmap />}></Route>

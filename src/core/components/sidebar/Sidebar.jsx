@@ -18,7 +18,7 @@ const data = [
   { link: "/intern-batch", label: "Intern", icon: IconUsers },
   { link: "/mentors", label: "Mentor", icon: IconUserStar },
   { link: "/roadmap", label: "Roadmap", icon: IconSitemap },
-  { link: "/", label: "Training-Tracker", icon: IconTimeline },
+  { link: "/tracker", label: "Training-Tracker", icon: IconTimeline },
 ];
 
 export default function Sidebar() {
