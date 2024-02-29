@@ -1,4 +1,4 @@
-import { Badge, Table, Flex, Button } from "@mantine/core";
+import { Badge, Table, Flex, Button, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { getRoadmapById } from "../../service/Roadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
@@ -31,7 +31,7 @@ function RoadmapDetailsTable() {
       <Table.Td>{tabData.topic}</Table.Td>
       <Table.Td>{tabData.subtopic}</Table.Td>
       <Table.Td>{tabData.duration}</Table.Td>
-      <Table.Td style={{ textWrap: "nowrap" }}>{tabData.presenter}</Table.Td>
+      {/* <Table.Td style={{ textWrap: "nowrap" }}>{tabData.presenter}</Table.Td>
       <Table.Td>
         <Badge
           variant={
@@ -45,7 +45,7 @@ function RoadmapDetailsTable() {
         >
           {tabData.status}
         </Badge>
-      </Table.Td>
+      </Table.Td> */}
       <Table.Td>
         <DropdownMenu id={tabData.id} onDelete={handleDeleteRecord} />
       </Table.Td>
@@ -79,15 +79,17 @@ function RoadmapDetailsTable() {
               <Table.Th>TOPIC</Table.Th>
               <Table.Th>SUB-TOPIC</Table.Th>
               <Table.Th>DURATION</Table.Th>
-              <Table.Th>PRESENTER</Table.Th>
-              <Table.Th>STATUS</Table.Th>
+              {/* <Table.Th>PRESENTER</Table.Th>
+              <Table.Th>STATUS</Table.Th> */}
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
             {records.length == 0 ? (
               <Table.Tr>
-                <Table.Td>No Records Found</Table.Td>
+                <Table.Td colSpan="4">
+                  <Text ta="center"> No Records Found</Text>
+                </Table.Td>
               </Table.Tr>
             ) : (
               <>{rows}</>

@@ -66,11 +66,6 @@
       "id": "e2b5",
       "name": "Demo",
       "domain": "Backend"
-    },
-    {
-      "id": "d673",
-      "name": "New Folder",
-      "domain": "Backend"
     }
   ],
   "roadmapDetails": [
@@ -172,15 +167,6 @@
       "duration": "15m",
       "presenter": "Vishwani Patel",
       "status": "Not-Started"
-    },
-    {
-      "id": "1c76",
-      "roadmapId": "d673",
-      "topic": "New Topic for Backend",
-      "subtopic": "Description here",
-      "duration": "15m",
-      "presenter": "Ravi Sing",
-      "status": "Not-Started"
     }
   ],
   "internshipBatch": [
@@ -208,7 +194,7 @@
           "internId": 0.16901317988444564
         }
       ],
-      "id": 1
+      "id": "1"
     },
     {
       "batchname": "march-2024",
@@ -243,7 +229,7 @@
           "internId": 0.10097915114139422
         }
       ],
-      "id": 2
+      "id": "2"
     },
     {
       "batchname": "April-2024",
@@ -260,7 +246,7 @@
           "internId": 0.10554491453781467
         }
       ],
-      "id": 3
+      "id": "3"
     }
   ],
   "mentors": [

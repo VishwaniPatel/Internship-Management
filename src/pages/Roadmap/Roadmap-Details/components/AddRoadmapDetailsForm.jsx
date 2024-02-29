@@ -154,7 +154,7 @@ export default function AddRoadmapDetailsForm() {
                   }
                   {...form.getInputProps("duration")}
                 />
-                <Select
+                {/* <Select
                   mt="md"
                   label="Select Presenter"
                   placeholder="Pick value"
@@ -183,7 +183,7 @@ export default function AddRoadmapDetailsForm() {
                     />
                   }
                   {...form.getInputProps("status")}
-                />
+                /> */}
 
                 <Group justify="flex-end" mt="lg">
                   <Button

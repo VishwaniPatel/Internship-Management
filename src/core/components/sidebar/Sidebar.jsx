@@ -6,6 +6,7 @@ import {
   IconTimeline,
   IconUsers,
   IconLogout,
+  IconSitemap,
   IconMenu2,
 } from "@tabler/icons-react";
 import Logo from "./../../../../src/assets/download.png";
@@ -16,11 +17,12 @@ const data = [
   { link: "/", label: "Home", icon: IconHome2 },
   { link: "/intern-batch", label: "Intern", icon: IconUsers },
   { link: "/mentors", label: "Mentor", icon: IconUserStar },
-  { link: "/roadmap", label: "Roadmap", icon: IconTimeline },
+  { link: "/roadmap", label: "Roadmap", icon: IconSitemap },
+  { link: "/", label: "Training-Tracker", icon: IconTimeline },
 ];
 
 export default function Sidebar() {
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState("Home");
 
   const links = data.map((item, index) => (
     // For navigation routes added link
