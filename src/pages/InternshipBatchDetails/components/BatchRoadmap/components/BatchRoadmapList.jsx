@@ -6,26 +6,29 @@ import { getBatchRoadMap } from "../services/BatchRoadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
 import { useDisclosure } from "@mantine/hooks";
 import AddBatchRoadmapForm from "./AddBatchRoadmapForm";
+import useBatchRoadmap from "../../../../../shared/hooks/useBatchRoadmap";
 
 export function BatchRoadmapList() {
   const { batchId, id } = useParams();
+  const batchRoadmapData = useBatchRoadmap();
   const [records, setRecords] = useState([]);
   const [opened, { open, close }] = useDisclosure(false);
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const toggleDrawer = () => {
     setDrawerOpen((prevState) => !prevState);
   };
 
   const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
 
+  // Filter Records based on roadmapId.
   useEffect(() => {
-    getBatchRoadMap().then((res) => {
-      // Filter Records based on roadmapId.
-      setRecords(res.data.filter((record) => record.batchId == batchId));
-    });
-  }, []);
+    const filteredRecords = batchId
+      ? batchRoadmapData.filter((record) => record.batchId === batchId)
+      : batchRoadmapData;
+    setRecords(filteredRecords);
+    console.log(records);
+  }, [id, batchId, batchRoadmapData]);
 
   const handleDeleteRecord = (batchId) => {
     setRecords(records.filter((record) => record.id !== batchId));

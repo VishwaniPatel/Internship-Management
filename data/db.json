@@ -58,9 +58,9 @@
       "name": "Beginner CSS"
     },
     {
-      "id": "4",
-      "domain": "Frontend",
-      "name": "Advanced JS"
+      "name": "Advanced JS",
+      "domain": "QA",
+      "id": "4"
     },
     {
       "id": "e2b5",
@@ -280,7 +280,7 @@
     },
     {
       "batchId": "1",
-      "topic": "Demo",
+      "topic": "To Check",
       "domain": "Data",
       "duration": "1hr",
       "mentor": "Jinal Tandel",
@@ -315,9 +315,9 @@
       "batchId": "1",
       "topic": "Demo",
       "domain": "Backend",
-      "duration": "30m",
-      "mentor": "Bhavik Gajdhar",
-      "id": "0448"
+      "duration": "15m",
+      "mentor": "Nikunj Patel",
+      "id": "e72d"
     }
   ],
   "mentors": [
@@ -350,11 +350,11 @@
       "domain": "Frontend"
     },
     {
-      "id": "9002",
       "firstName": "Ravi",
       "lastName": "Sing",
       "emailId": "ravising@1rivet.com",
-      "domain": "Frontend"
+      "domain": "Data",
+      "id": "9002"
     },
     {
       "firstName": "Nikunj",
@@ -363,6 +363,13 @@
       "domain": "Backend",
       "date": "",
       "id": "b600"
+    },
+    {
+      "id": "c468",
+      "firstName": "raj",
+      "lastName": "patel",
+      "emailId": "user2@mailinator.com",
+      "domain": "QA"
     }
   ],
   "domain": [

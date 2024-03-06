@@ -11,12 +11,14 @@ import {
   updateBatchRoadmap,
 } from "../services/BatchRoadmap.service";
 import { getRoadMapData } from "../../../../Roadmap/service/Roadmap.service";
+import useRoadmap from "../../../../../shared/hooks/useRoadmap";
 
 export default function AddBatchRoadmapForm({ closeDrawer }) {
   const navigate = useNavigate();
   const { batchId, id } = useParams();
   const btnText = id ? "Update" : "Add";
-  const [roadmapData, setRoadmapData] = useState([]);
+  // Get all Roadmap topics for topic dropdown
+  const roadmapData = useRoadmap();
   const roadmapDropdownData = [];
   // Get all Mentor details for mentor dropdown
   const mentorData = useMentors();
@@ -34,15 +36,23 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
       duration: "",
       mentor: "",
     },
-    validate: {
-      // Empty strings are considered to be invalid
-      topic: isNotEmpty("Topic cannot be empty"),
-      domain: isNotEmpty("Subtopic cannot be empty"),
-      mentor: isNotEmpty("Duration cannot be empty"),
-    },
+    transformValues: (values) => ({
+      batchId: batchId,
+      topic: `${values.topic}`,
+      domain: `${values.domain}`,
+      duration: `${values.duration}`,
+      mentor: `${values.mentor}`,
+    }),
+    // validate: {
+    //   // Empty strings are considered to be invalid
+    //   topic: isNotEmpty("Topic cannot be empty"),
+    //   domain: isNotEmpty("Subtopic cannot be empty"),
+    //   mentor: isNotEmpty("Duration cannot be empty"),
+    // },
   });
   const isFormValidate = form.isValid();
-
+  //   To Get All selected Values
+  const selectedValues = form.getTransformedValues();
   // Form Submit button
   function handleFormSubmit(values) {
     if (id) {
@@ -50,6 +60,7 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
       updateBatchRoadmap(id, values);
     } else {
       // If no ID is present, add a new roadmap
+      console.log("to add", values);
       addBatchRoadMap(values);
     }
     closeDrawer();
@@ -69,31 +80,27 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
         }
       }
     };
-    // To get Roadmap Data for Title dropdown
     fetchRoadmapDetails();
-    getRoadMapData().then((res) => {
-      setRoadmapData(res.data);
-    });
   }, [id]);
 
   function handleCancel() {
     closeDrawer();
   }
+
   // Add Data for Mentor Dropddown
-  mentorData.map((mentor) => {
-    mentorDropdownData.push(mentor.firstName + " " + mentor.lastName);
-  });
+  mentorData
+    .filter((record) => record.domain == selectedValues.domain)
+    .map((mentor) => {
+      mentorDropdownData.push(mentor.firstName + " " + mentor.lastName);
+    });
+
   // Add Data for Topic Dropddown
-  roadmapData.map((data) => {
-    roadmapDropdownData.push(data.name);
-  });
+  roadmapData
+    .filter((record) => record.domain == selectedValues.domain)
+    .map((data) => {
+      roadmapDropdownData.push(data.name);
+    });
 
-  // Handle change in domain dropdown
-  const [selectedDomain, setSelectedDomain] = useState(null);
-
-  const handleSelectChange = (value) => {
-    setSelectedDomain(value);
-  };
   return (
     <>
       <Box>
@@ -108,8 +115,6 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
             placeholder="Select Domain"
             checkIconPosition="right"
             data={domainData}
-            value={selectedDomain}
-            onChange={handleSelectChange}
             rightSection={
               <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
             }
@@ -155,11 +160,11 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
           />
 
           <Group justify="flex-end" mt="lg">
-            <Button variant="default" onClick={handleCancel} type="cancle">
+            <Button variant="default" onClick={handleCancel} type="submit">
               Cancle
             </Button>
-            <Button disabled={!isFormValidate} type="submit">
-              {btnText}{" "}
+            <Button disabled={!isFormValidate} type="cancle">
+              {btnText}
             </Button>
           </Group>
         </form>
