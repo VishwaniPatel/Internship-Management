@@ -4,14 +4,7 @@ import { useEffect, useState } from 'react'
 import MenuDropdown from './MenuDropdown';
 import useMentors from '../hooks/useMentors';
 
-const MentorList = () => {
-// get all mentor details
-const mentorData = useMentors();
-const [mentors, setMentors] = useState(mentorData)
-useEffect(()=>{
-  setMentors(mentorData)
-},[mentorData])
-
+const MentorList = ({mentors}) => {
 // filter deleted data
    const handleDelete = (id) => (
      setMentors(mentors.filter(data => data.id !== id) )
