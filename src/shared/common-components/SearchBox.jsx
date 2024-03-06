@@ -11,7 +11,6 @@ const SearchBox = () => {
    * @param {string} value - Search term value
    */
   const handleInputChange = (event) => {
-    console.log(event.target.value);
     setSearchTerm(event.target.value);
   };
   /**
