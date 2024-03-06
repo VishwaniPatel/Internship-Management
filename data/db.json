@@ -55,17 +55,28 @@
     {
       "id": "3",
       "domain": "Frontend",
-      "name": "Beginner HTML"
+      "name": "Beginner CSS"
     },
     {
       "id": "4",
       "domain": "Frontend",
-      "name": "Advanced HTML"
+      "name": "Advanced JS"
     },
     {
       "id": "e2b5",
       "name": "Demo",
       "domain": "Backend"
+    },
+    {
+      "id": "ec11",
+      "name": "To Check",
+      "domain": "Data"
+    },
+    {
+      "id": "0965",
+      "name": "check total",
+      "domain": "Frontend",
+      "totalDuration": 0
     }
   ],
   "roadmapDetails": [
@@ -167,6 +178,15 @@
       "duration": "15m",
       "presenter": "Vishwani Patel",
       "status": "Not-Started"
+    },
+    {
+      "id": "865b",
+      "roadmapId": "0965",
+      "topic": "rtrtr",
+      "subtopic": "fdhg",
+      "duration": "15m",
+      "presenter": "",
+      "status": "Not-Started"
     }
   ],
   "internshipBatch": [
@@ -252,12 +272,52 @@
   "batchRoadmap": [
     {
       "batchId": "1",
-      "topic": "HTML Fundamentals",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "15m",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started",
+      "topic": "Beginner HTML",
+      "domain": "Data",
+      "duration": "30m",
+      "mentor": "Ravi Sing",
       "id": "1"
+    },
+    {
+      "batchId": "1",
+      "topic": "Demo",
+      "domain": "Data",
+      "duration": "1hr",
+      "mentor": "Jinal Tandel",
+      "id": "5f0c",
+      "subtopic": ""
+    },
+    {
+      "batchId": "1",
+      "topic": "Beginner HTML",
+      "domain": "Data",
+      "duration": "15m",
+      "mentor": "Bhavik Gajdhar",
+      "id": "b486"
+    },
+    {
+      "batchId": "1",
+      "topic": "Advanced HTML",
+      "domain": "Frontend",
+      "duration": "15m",
+      "mentor": "Bhavik Gajdhar",
+      "id": "11d1"
+    },
+    {
+      "batchId": "1",
+      "topic": "To Check",
+      "domain": "Frontend",
+      "duration": "15m",
+      "mentor": "Ravi Sing",
+      "id": "5b94"
+    },
+    {
+      "batchId": "1",
+      "topic": "Demo",
+      "domain": "Backend",
+      "duration": "30m",
+      "mentor": "Bhavik Gajdhar",
+      "id": "0448"
     }
   ],
   "mentors": [

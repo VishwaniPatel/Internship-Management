@@ -20,7 +20,7 @@ import { isNotEmpty, useForm } from "@mantine/form";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
-import useMentors from "../../../mentors/hooks/useMentors";
+import useMentors from "../../../Mentors/hooks/useMentors";
 import { Breadcrumb } from "../../../../shared/common-components/Breadcrumb";
 import {
   addRoadMapDetails,

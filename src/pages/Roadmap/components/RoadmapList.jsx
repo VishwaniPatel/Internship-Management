@@ -14,7 +14,7 @@ import { DropdownMenu } from "./DropdownMenu";
 import { Link } from "react-router-dom";
 import { IconFolderCode } from "@tabler/icons-react";
 
-export function RoadMapTables() {
+export function RoadMapList() {
   const [records, setRecords] = useState([]);
 
   useEffect(() => {

@@ -2,6 +2,7 @@ import { Flex, Box } from "@mantine/core";
 import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 import { Tabs, rem } from "@mantine/core";
 import { useState } from "react";
+import { BatchRoadmapList } from "./components/BatchRoadmap/components/BatchRoadmapList";
 
 const items = [
   { title: "Internship", href: "#" },
@@ -19,8 +20,10 @@ export function InternshipBatchDetails() {
         </div>
       </Flex>
       {/* Tab Container */}
-      <Box className="tab-container" m="md">
+
+      <Box className="tab-container">
         <Tabs
+          m="md"
           className="tab-list-wrapper"
           value={activeTab}
           onChange={setActiveTab}
@@ -44,7 +47,7 @@ export function InternshipBatchDetails() {
             Mentor panel
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="roadmaps">
-            Roadmap panel
+            <BatchRoadmapList />
           </Tabs.Panel>
         </Tabs>
       </Box>

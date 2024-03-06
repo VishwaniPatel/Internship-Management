@@ -1,5 +1,5 @@
 // import Tables from "./components/table";
-import { RoadMapTables } from "./components/RoadmapTable";
+import { RoadMapList } from "./components/RoadmapList";
 import { Flex, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { IconPlus } from "@tabler/icons-react";
@@ -22,7 +22,7 @@ function Roadmap() {
           <Button leftSection={<IconPlus size={14} />}>Add New Folder</Button>
         </Link>
       </Flex>
-      <RoadMapTables />
+      <RoadMapList />
     </Flex>
   );
 }

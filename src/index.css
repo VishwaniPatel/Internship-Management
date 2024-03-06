@@ -136,19 +136,11 @@ a {
   height: 34px;
 }
 .tab-container {
-  box-sizing: border-box;
-  border-radius: 8px;
-  box-shadow: none;
-  border: 1px solid rgb(222, 226, 230);
-  overflow: visible;
-  transition: transform 200ms ease-in-out 0s;
-  display: flex;
-  flex-flow: column wrap;
-  height: 100%;
-  background-color: rgb(255, 255, 255);
   /* padding: 16px; */
+  overflow-y: scroll;
+  height: 100%;
 }
-.tab-container .tab-btn {
+.tab-container .tab-list-wrapper .tab-btn {
   padding: 0.8rem 2rem;
   height: 50px;
 }
@@ -158,12 +150,32 @@ a {
 .m-539e827b[data-active] {
   font-weight: 600;
 }
-.tab-list-wrapper {
+.tab-container .tab-list-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  max-height: auto;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid rgb(222, 226, 230);
+  overflow: visible;
+  transition: transform 200ms ease-in-out 0s;
+  background-color: rgb(255, 255, 255);
 }
 .tab-panel {
   height: 100%;
   padding: 16px;
+}
+.tab-container .btn-sm {
+  padding: 0 8px;
+  height: 26px;
+  color: rgb(0, 91, 169);
+}
+.mantine-Drawer-header .mantine-Drawer-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.form-drawer .mantine-Drawer-content {
+  border-radius: 8px 0 0 8px;
 }
