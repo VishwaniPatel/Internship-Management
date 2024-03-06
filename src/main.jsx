@@ -9,7 +9,7 @@ import "@mantine/dates/styles.css";
 import { BrowserRouter } from "react-router-dom";
 import { variantColorResolver } from "./shared/common-components/StatusBadge.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
-
+import ContextProvider from "./shared/store/ContextProvider.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Auth0Provider
@@ -42,7 +42,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             variantColorResolver,
           }}
         >
+          <ContextProvider>
           <App />
+          </ContextProvider>
         </MantineProvider>
       </BrowserRouter>
     </Auth0Provider>
