@@ -6,14 +6,24 @@ import SearchBox from '../../shared/common-components/SearchBox';
 import useMentors from './hooks/useMentors';
 import InternshipContext from '../../shared/store/Context';
 import useSearch from '../../shared/hooks/useSearch';
+import FilterPopover from '../../shared/common-components/FilterPopover';
+import useFilterData from '../../shared/hooks/useFilterData';
 const MentorDetails = () => {
     const mentorData = useMentors();
     const [mentors, setMentors] = useState(mentorData);
     const { searchTerm } = useContext(InternshipContext);
+    const [selectedDomains, setSelectedDomains] = useState([]);
+
     useEffect(() => {
         const filteredMentors = useSearch(mentorData, searchTerm, "firstName");
         setMentors(filteredMentors);
     }, [mentorData, searchTerm]);
+
+    const handleDomainChange = (selected) => {
+        setSelectedDomains(selected);
+    };
+    // Apply filtering based on selected domains
+    const filteredMentors = useFilterData(mentors, selectedDomains);
     return (
         <Flex p="lg" direction='column'>
             <Flex justify="space-between">
@@ -21,6 +31,8 @@ const MentorDetails = () => {
                 <Text>Mentor's Detail</Text>
                 <Flex>
                 <SearchBox/>
+                <FilterPopover selectedDomains={selectedDomains}
+                        onDomainChange={handleDomainChange}/>
                 {/* Button for adding mentor details */}
                 <Link to="/mentor/add/new">
                     <Button>Add Mentor</Button>
@@ -28,7 +40,7 @@ const MentorDetails = () => {
                 </Flex>
             </Flex>
             {/* Component to display mentor details */}
-            <MentorList mentors={mentors} />
+            <MentorList mentors={filteredMentors} />
         </Flex>
     )
 }
