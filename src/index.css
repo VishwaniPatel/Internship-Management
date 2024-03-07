@@ -67,6 +67,10 @@ body {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
 }
+.table-container th,
+.table-container th span {
+  font-size: 12px;
+}
 .content-title {
   font-weight: 700;
   font-size: 18px;
@@ -166,4 +170,63 @@ a {
 .tab-panel {
   height: 100%;
   padding: 16px;
+}
+.sub-header .filter-box {
+  font-size: 16px;
+  height: 34px;
+  min-height: 34px;
+  width: 34px;
+  min-width: 34px;
+  padding: 0px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(33, 37, 41);
+  border-radius: 8px;
+  border: 1px solid rgb(206, 212, 218);
+  background-color: rgb(255, 255, 255);
+}
+.sub-header .filter-box:hover {
+  background-color: rgb(248, 249, 250);
+  color: rgb(0, 91, 169);
+}
+.mantine-Popover-dropdown.popover-dropdown {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(233, 236, 239);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px,
+    rgba(0, 0, 0, 0.05) 0px 10px 15px -5px, rgba(0, 0, 0, 0.04) 0px 7px 7px -5px;
+  border-radius: 4px;
+  padding: 0px;
+}
+.popover-header {
+  padding: 16px;
+}
+.popover-header .popover-title {
+  margin: 0;
+  font-size: 16px;
+}
+.popover-dropdown .filter-checkbox {
+  padding: 16px;
+  margin-bottom: 0 !important;
+  border-top: 1px solid rgb(241, 243, 245);
+  border-right-color: rgb(241, 243, 245);
+  border-bottom-color: rgb(241, 243, 245);
+  border-left-color: rgb(241, 243, 245);
+  display: flex;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  cursor: pointer;
+  padding: 16px;
+  font-weight: 500;
+}
+.popover-dropdown .checkbox-stack {
+  gap: 0;
+  overflow-y: scroll;
+}
+.popover-footer {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

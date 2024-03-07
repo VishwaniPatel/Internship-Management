@@ -321,6 +321,18 @@
     {
       "id": "4",
       "name": "QA"
+    },
+    {
+      "id": "5",
+      "name": "Mobile"
+    },
+    {
+      "id": "6",
+      "name": "Human Resources"
+    },
+    {
+      "id": "7",
+      "name": "Bussiness Analyst"
     }
   ]
 }

@@ -1,8 +1,15 @@
 // FilterPopover.jsx
-import React, { useState } from 'react';
-import { Button, Checkbox, Popover, PopoverTarget } from '@mantine/core';
-import { IconFilter } from '@tabler/icons-react';
-import useDomain from '../../pages/mentors/hooks/useDomain';
+import React, { useState } from "react";
+import {
+  Button,
+  Checkbox,
+  Divider,
+  Popover,
+  PopoverTarget,
+  Stack,
+} from "@mantine/core";
+import { IconFilter } from "@tabler/icons-react";
+import useDomain from "../../pages/mentors/hooks/useDomain";
 
 const FilterPopover = ({ selectedDomains, onDomainChange }) => {
   const domains = useDomain();
@@ -22,32 +29,39 @@ const FilterPopover = ({ selectedDomains, onDomainChange }) => {
   };
 
   return (
-    <Popover position="bottom" withArrow>
+    <Popover position="bottom-end">
       <PopoverTarget>
-        <Button variant="outline" mr={12}>
-          <IconFilter />
+        <Button className="filter-box" variant="outline" mr={12}>
+          <IconFilter size={20} />
         </Button>
       </PopoverTarget>
-      <Popover.Dropdown>
+      <Popover.Dropdown w={300} className="popover-dropdown">
+        <div className="popover-header">
+          <h5 className="popover-title">Domains</h5>
+        </div>
+        <Divider />
         {/* Content of the popover */}
+
         <Checkbox.Group value={tempValue} onChange={handleCheckboxChange}>
-          {domains &&
-            domains.map((domain) => (
-              <Checkbox
-                key={domain.id}
-                label={domain.value}
-                mb={8}
-                value={domain.value}
-              />
-            ))}
+          <Stack className="checkbox-stack" h={260} mb="0">
+            {domains &&
+              domains.map((domain) => (
+                <Checkbox
+                  className="filter-checkbox"
+                  key={domain.id}
+                  label={domain.value}
+                  mb={8}
+                  value={domain.value}
+                />
+              ))}
+          </Stack>
         </Checkbox.Group>
-        <div style={{ marginTop: '16px' }}>
-          <Button onClick={handleApply} mr={8}>
-            Apply
-          </Button>
-          <Button onClick={handleCancel} variant="light">
+        <Divider />
+        <div className="popover-footer">
+          <Button onClick={handleCancel} mr={8} color="gray" variant="outline">
             Cancel
           </Button>
+          <Button onClick={handleApply}>Apply</Button>
         </div>
       </Popover.Dropdown>
     </Popover>
