@@ -160,10 +160,10 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
           />
 
           <Group justify="flex-end" mt="lg">
-            <Button variant="default" onClick={handleCancel} type="submit">
+            <Button variant="default" onClick={handleCancel}>
               Cancle
             </Button>
-            <Button disabled={!isFormValidate} type="cancle">
+            <Button disabled={!isFormValidate} type="submit">
               {btnText}
             </Button>
           </Group>
