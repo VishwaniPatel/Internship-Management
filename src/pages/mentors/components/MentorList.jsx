@@ -1,20 +1,30 @@
 import { Menu, Table } from '@mantine/core';
-import { IconDotsVertical } from '@tabler/icons-react';
+import { IconChevronDown, IconChevronUp, IconDotsVertical, IconSelector } from '@tabler/icons-react';
 import { useEffect, useState } from 'react'
 import MenuDropdown from './MenuDropdown';
-import useMentors from '../hooks/useMentors';
+import useSort from '../../../shared/hooks/useSort';
 
 const MentorList = ({mentors}) => {
+  const { sortedData, sortColumn, sortDirection, handleSortColumn } = useSort(mentors, 'firstName', 'asc');
 // filter deleted data
    const handleDelete = (id) => (
      setMentors(mentors.filter(data => data.id !== id) )
    )
   
+   const sortIconFirstName = sortColumn === 'firstName' ? 
+   (sortDirection === 'asc' ? <IconChevronUp size={14}/> : <IconChevronDown size={14}/>) : 
+   <IconSelector size={14}/>;
+
+const sortIconDomain = sortColumn === 'domain' ? 
+   (sortDirection === 'asc' ? <IconChevronUp size={14}/> : <IconChevronDown size={14} />) : 
+   <IconSelector size={14}/>;
+
   // Display mentor details in table
-    const rows = mentors.map((data) => (
+    const rows = sortedData.map((data) => (
         <Table.Tr key={data.id}>
-          <Table.Td>{data.firstName}</Table.Td>
-          <Table.Td>{data.lastName}</Table.Td>
+           <Table.Td >
+        {data.firstName} {data.lastName}
+      </Table.Td>
           <Table.Td>{data.emailId}</Table.Td>
           <Table.Td>{data.domain}</Table.Td>
           <Table.Td>
@@ -36,10 +46,9 @@ const MentorList = ({mentors}) => {
         <Table >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>First Name</Table.Th>
-              <Table.Th>Last Name</Table.Th>
+              <Table.Th onClick={() => handleSortColumn('firstName')}>Name {sortIconFirstName}</Table.Th>
               <Table.Th>Email Id</Table.Th>
-              <Table.Th>Domain</Table.Th>
+              <Table.Th onClick={() => handleSortColumn('domain')}>Domain {sortIconDomain}</Table.Th>
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
