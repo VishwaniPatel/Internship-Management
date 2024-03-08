@@ -179,3 +179,8 @@ a {
 .form-drawer .mantine-Drawer-content {
   border-radius: 8px 0 0 8px;
 }
+.drawer-form-footer {
+  padding: 24px;
+
+  border-top: 1px solid rgb(222, 226, 230);
+}

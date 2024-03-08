@@ -24,15 +24,17 @@ import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumb } from "../../../shared/common-components/Breadcrumb";
 import useDomain from "../../Mentors/hooks/useDomain";
 import { getRoadMapDetails } from "../Roadmap-Details/service/RoadmapDetails.service";
+import { useTotalDuration } from "../../../shared/totalDurationContext";
 
 export default function FormModal() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
+  const title = id ? "Update Folder" : "Add Folder";
   const btnText = id ? "Update" : "Add";
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   // Get all Domain details
   const domainData = useDomain();
+  const { duration } = useTotalDuration();
 
   // Form Values
   const form = useForm({
@@ -40,6 +42,7 @@ export default function FormModal() {
     initialValues: {
       name: "",
       domain: "",
+      totalDuration: 0,
     },
     validate: {
       // Empty strings are considered to be invalid
@@ -51,11 +54,15 @@ export default function FormModal() {
 
   // Form Submit button
   function handleFormSubmit(values) {
+    const updatedData = { ...values, totalDuration: duration };
+    console.log(updatedData);
+
     if (id) {
       // If ID is present, update the existing roadmap
-      updateRoadmap(id, values);
+      updateRoadmap(id, updatedData);
     } else {
       // If no ID is present, add a new roadmap
+      console.log("Add", values);
       addRoadMap(values);
     }
     navigate("/roadmap");
@@ -83,7 +90,7 @@ export default function FormModal() {
   const Breadcrumbitems = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
-    { title: `${btnText} Roadmap` },
+    { title: `${btnText} Folder` },
   ];
 
   function handleCancel() {

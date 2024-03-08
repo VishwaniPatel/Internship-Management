@@ -36,8 +36,8 @@ export function BatchRoadmapList() {
 
   const rows = records.map((tabData) => (
     <Table.Tr key={tabData.id}>
-      <Table.Td>{tabData.domain}</Table.Td>
       <Table.Td>{tabData.topic}</Table.Td>
+      <Table.Td>{tabData.domain}</Table.Td>
       <Table.Td>{tabData.mentor}</Table.Td>
       <Table.Td>{tabData.duration}</Table.Td>
       <Table.Td>
@@ -77,8 +77,8 @@ export function BatchRoadmapList() {
         >
           <Table.Thead bg="#f1f3f5">
             <Table.Tr>
-              <Table.Th>DOMAIN</Table.Th>
               <Table.Th>TOPIC</Table.Th>
+              <Table.Th>DOMAIN</Table.Th>
               <Table.Th>MENTOR</Table.Th>
               <Table.Th>DURATION</Table.Th>
               <Table.Th></Table.Th>

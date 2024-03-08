@@ -4,14 +4,13 @@ import { isNotEmpty, useForm } from "@mantine/form";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useMentors from "../../../../Mentors/hooks/useMentors";
-import useDomain from "../../../../Mentors/hooks/useDomain";
 import {
   addBatchRoadMap,
   getBatchRoadmapById,
   updateBatchRoadmap,
 } from "../services/BatchRoadmap.service";
-import { getRoadMapData } from "../../../../Roadmap/service/Roadmap.service";
 import useRoadmap from "../../../../../shared/hooks/useRoadmap";
+import useDomain from "../../../../mentors/hooks/useDomain";
 
 export default function AddBatchRoadmapForm({ closeDrawer }) {
   const navigate = useNavigate();
@@ -85,6 +84,7 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
 
   function handleCancel() {
     closeDrawer();
+    navigate("/intern-batch/details/" + batchId);
   }
 
   // Add Data for Mentor Dropddown
@@ -159,7 +159,7 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
             {...form.getInputProps("duration")}
           />
 
-          <Group justify="flex-end" mt="lg">
+          <Group className="drawer-form-footer" justify="flex-end" mt="xl">
             <Button variant="default" onClick={handleCancel}>
               Cancle
             </Button>
