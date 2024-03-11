@@ -68,32 +68,42 @@
     {
       "name": "demo",
       "domain": "Backend",
-      "totalDuration": null,
+      "totalDuration": "0hr 45m",
       "id": "e2b5"
     },
     {
-      "id": "c75a",
       "name": "Test Total",
-      "domain": "Frontend",
-      "totalDuration": "3hr 0m"
+      "domain": "Data",
+      "totalDuration": "0hr 45m",
+      "id": "c75a"
     },
     {
-      "id": "adfb",
-      "name": "new test",
-      "domain": "Backend",
-      "totalDuration": 0
-    },
-    {
-      "name": "ded",
-      "domain": "Backend",
-      "totalDuration": "1hr 15m",
-      "id": "74a4"
-    },
-    {
-      "id": "1917",
       "name": "check",
+      "domain": "Data",
+      "totalDuration": "0hr 15m",
+      "id": "1917"
+    },
+    {
+      "name": "df",
+      "domain": "Backend",
+      "totalDuration": "0hr 15m",
+      "id": "c5f9"
+    },
+    {
+      "name": "sfdg",
+      "domain": "Data",
+      "totalDuration": "5hr 15m",
+      "id": "c362"
+    },
+    {
+      "id": "e005",
+      "name": "New Test",
       "domain": "Frontend",
-      "totalDuration": 0
+      "totalDuration": "4hr 15m"
+    },
+    {
+      "totalDuration": "0hr 0m",
+      "id": "35ea"
     }
   ],
   "roadmapDetails": [
@@ -267,6 +277,174 @@
       "duration": "15m",
       "presenter": "",
       "status": "Not-Started"
+    },
+    {
+      "id": "df35",
+      "roadmapId": "1917",
+      "topic": "sdfgh",
+      "subtopic": "sdfg",
+      "duration": "15m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "roadmapId": "e005",
+      "topic": "df",
+      "subtopic": "dfhtg",
+      "duration": "30m",
+      "id": "9f58"
+    },
+    {
+      "id": "dab2",
+      "roadmapId": "e005",
+      "topic": "df",
+      "subtopic": "dfhtg",
+      "duration": "15m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "d86c",
+      "roadmapId": "e005",
+      "topic": "df",
+      "subtopic": "dfhtg",
+      "duration": "15m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "roadmapId": "e005",
+      "topic": "df",
+      "subtopic": "dfhtg",
+      "duration": "30m",
+      "presenter": "",
+      "status": "Not-Started",
+      "id": "254a"
+    },
+    {
+      "roadmapId": "c362",
+      "topic": "sfdgxfhcj",
+      "subtopic": "vdfgb",
+      "duration": "30m",
+      "id": "9813"
+    },
+    {
+      "id": "9c13",
+      "roadmapId": "c362",
+      "topic": "adsfghm",
+      "subtopic": "fdghmj",
+      "duration": "1hr 30m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "d5bd",
+      "roadmapId": "e005",
+      "topic": "dede",
+      "subtopic": "grgt",
+      "duration": "1hr",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "32af",
+      "roadmapId": "e005",
+      "topic": "defd",
+      "subtopic": "zcdfb",
+      "duration": "15m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "84a7",
+      "roadmapId": "283b",
+      "topic": "frt",
+      "subtopic": "ert",
+      "duration": "1hr 30m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "e7ce",
+      "roadmapId": "283b",
+      "topic": "ere",
+      "subtopic": "dfd",
+      "duration": "15m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "f061",
+      "roadmapId": "93b4",
+      "topic": "fgf",
+      "subtopic": "dgg",
+      "duration": "30m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "0ca4",
+      "roadmapId": "898f",
+      "topic": "dfd",
+      "subtopic": "sdgf",
+      "duration": "30m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "63e1",
+      "roadmapId": "898f",
+      "topic": "dgf",
+      "subtopic": "dfgg",
+      "duration": "1hr 30m",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "id": "a6b9",
+      "roadmapId": "898f",
+      "topic": "werdtf",
+      "subtopic": "dfgch",
+      "duration": "1hr",
+      "presenter": "",
+      "status": "Not-Started"
+    },
+    {
+      "roadmapId": "898f",
+      "topic": "rtgfhj",
+      "subtopic": "fgh",
+      "duration": "1hr",
+      "presenter": "",
+      "status": "Not-Started",
+      "id": "29aa"
+    },
+    {
+      "id": "b4a5",
+      "roadmapId": "e005",
+      "topic": "sdfg",
+      "subtopic": "asdfg",
+      "duration": "15m"
+    },
+    {
+      "roadmapId": "c362",
+      "topic": "sdfg",
+      "subtopic": "dfgh",
+      "duration": "1hr",
+      "id": "05f3"
+    },
+    {
+      "id": "ecbc",
+      "roadmapId": "c362",
+      "topic": "sadfgh",
+      "subtopic": "dfgh",
+      "duration": "1hr"
+    },
+    {
+      "id": "8bf2",
+      "roadmapId": "c362",
+      "topic": "cddfg",
+      "subtopic": "csdfg",
+      "duration": "15m"
     }
   ],
   "internshipBatch": [
@@ -370,7 +548,7 @@
       "batchId": "1",
       "topic": "Beginner HTML",
       "domain": "Data",
-      "duration": "15m",
+      "duration": "30m",
       "mentor": "Bhavik Gajdhar",
       "id": "b486"
     },
@@ -383,12 +561,36 @@
       "id": "11d1"
     },
     {
+      "id": "6730",
       "batchId": "1",
-      "topic": "To Check",
+      "topic": "Beginner HTML",
       "domain": "Frontend",
       "duration": "15m",
-      "mentor": "Ravi Sing",
-      "id": "5b94"
+      "mentor": "Vinay Chudasama"
+    },
+    {
+      "id": "07c7",
+      "batchId": "1",
+      "topic": "demo",
+      "domain": "Backend",
+      "duration": "15m",
+      "mentor": "Nikunj Patel"
+    },
+    {
+      "id": "44ab",
+      "batchId": "2",
+      "topic": "demo",
+      "domain": "Backend",
+      "duration": "30m",
+      "mentor": "Nikunj Patel"
+    },
+    {
+      "id": "4a51",
+      "batchId": "1",
+      "topic": "Beginner CSS",
+      "domain": "Data",
+      "duration": "1hr",
+      "mentor": "Ravi Sing"
     }
   ],
   "mentors": [

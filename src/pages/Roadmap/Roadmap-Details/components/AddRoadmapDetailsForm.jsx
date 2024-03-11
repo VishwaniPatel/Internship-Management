@@ -11,7 +11,7 @@ import {
   Box,
 } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
-import { getRoadmapById } from "../../service/Roadmap.service";
+import { getRoadmapById, updateRoadmap } from "../../service/Roadmap.service";
 import { isNotEmpty, useForm } from "@mantine/form";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -43,9 +43,13 @@ export default function AddRoadmapDetailsForm() {
       topic: "",
       subtopic: "",
       duration: "",
-      presenter: "",
-      status: "Not-Started",
     },
+    transformValues: (values) => ({
+      roadmapId: roadmapId,
+      topic: `${values.topic}`,
+      subtopic: `${values.subtopic}`,
+      duration: `${values.duration}`,
+    }),
     validate: {
       // Empty strings are considered to be invalid
       topic: isNotEmpty("Topic cannot be empty"),
@@ -53,23 +57,88 @@ export default function AddRoadmapDetailsForm() {
       duration: isNotEmpty("Duration cannot be empty"),
     },
   });
+  const selectedValues = form.getTransformedValues();
   const isFormValidate = form.isValid();
 
   useEffect(() => {
-    getRoadmapById(id).then((res) => {
+    getRoadmapById(roadmapId).then((res) => {
+      console.log(res.data);
       setRoadmapDetails(res.data);
     });
   }, []);
 
+  // For updating total duration
+  useEffect(() => {
+    // const trydata = roadmapDetails;
+    // console.log("Try", trydata.totalDuration);
+  }, [roadmapDetails]);
+
+  // Parse hours and minutes
+  const parseTime = (timeString) => {
+    let hours = 0;
+    let minutes = 0;
+
+    const hourIndex = timeString.indexOf("hr");
+    const minuteIndex = timeString.indexOf("m");
+
+    if (hourIndex !== -1) {
+      hours = parseInt(timeString.slice(0, hourIndex));
+    }
+    if (minuteIndex !== -1) {
+      if (hourIndex !== -1) {
+        minutes = parseInt(timeString.slice(hourIndex + 2, minuteIndex));
+      } else {
+        minutes = parseInt(timeString.slice(0, minuteIndex));
+      }
+    }
+    return { hours, minutes };
+  };
+
+  // Add two time strings
+  const addDuration = (time1, time2) => {
+    const { hours: hours1, minutes: minutes1 } = parseTime(time1);
+    const { hours: hours2, minutes: minutes2 } = parseTime(time2);
+
+    let totalHours = hours1 + hours2;
+    let totalMinutes = minutes1 + minutes2;
+
+    if (totalMinutes >= 60) {
+      totalHours += Math.floor(totalMinutes / 60);
+      totalMinutes %= 60;
+    }
+
+    console.log("Hours:", totalHours + "  " + "Min:", totalMinutes);
+    return totalHours + "hr " + totalMinutes + "m";
+  };
   // Form Submit button
   function handleFormSubmit(values) {
+    let trydata = roadmapDetails.totalDuration;
+    console.log("Old dur:", trydata);
+    console.log("New timeto add:", values.duration);
+
     if (id) {
       // If ID is present, update the existing roadmap
       updateRoadmapDetails(id, values);
+      const upDatedDuration = addDuration(trydata, values.duration);
+      console.log("Checking here update:", upDatedDuration, values);
+      console.log(selectedValues.duration);
+      updateRoadmap(roadmapId, {
+        ...roadmapDetails,
+        totalDuration: upDatedDuration,
+      });
     } else {
       // If no ID is present, add a new roadmap
       addRoadMapDetails(values);
+      const data = getRoadmapById(roadmapId).then;
+
+      const upDatedDuration = addDuration(trydata, values.duration);
+      console.log("Checking here add:", upDatedDuration);
+      updateRoadmap(roadmapId, {
+        ...roadmapDetails,
+        totalDuration: upDatedDuration,
+      });
     }
+
     navigate("/roadmap-details/" + roadmapId);
   }
 

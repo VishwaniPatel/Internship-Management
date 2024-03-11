@@ -1,6 +1,6 @@
 import { Badge, Table, Flex, Button, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { getRoadmapById } from "../../service/Roadmap.service";
+import { getRoadmapById, updateRoadmap } from "../../service/Roadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
 import { useParams } from "react-router-dom";
 import { Breadcrumb } from "../../../../shared/common-components/Breadcrumb";
@@ -14,6 +14,7 @@ function RoadmapDetailsTable() {
   const [records, setRecords] = useState([]);
   const roadmapDuration = [];
   const { setDuration } = useTotalDuration();
+  const [roadmapDetails, setRoadmapDetails] = useState(null);
 
   useEffect(() => {
     getRoadMapDetails().then((res) => {
@@ -21,41 +22,6 @@ function RoadmapDetailsTable() {
       setRecords(res.data.filter((record) => record.roadmapId == roadmapId));
     });
   }, []);
-
-  // Getting Duration and adding to array
-  records.map((record) => {
-    roadmapDuration.push(record.duration);
-  });
-
-  // Function to convert time strings to minutes
-  const timeStringToMinutes = (timeString) => {
-    if (timeString.includes("hr")) {
-      return parseInt(timeString) * 60; // Convert hours to minutes
-    } else if (timeString.includes("m")) {
-      return parseInt(timeString); // Already in minutes
-    } else {
-      return 0; // Default to 0 if not recognized
-    }
-  };
-
-  // Calculate total duration in minutes
-  const totalMinutes = roadmapDuration.reduce(
-    (accumulator, currentTime) =>
-      accumulator + timeStringToMinutes(currentTime),
-    0
-  );
-
-  // Convert total minutes to desired format
-  const hours = Math.floor(totalMinutes / 60);
-  const minutes = totalMinutes % 60;
-
-  // Render total duration
-  const totalTimeString = `${hours}hr ${minutes}m`;
-
-  console.log("TOTAL TIME", totalTimeString);
-  useEffect(() => {
-    setDuration(totalTimeString);
-  }, [totalTimeString]);
 
   const handleDeleteRecord = (roadmapId) => {
     setRecords(records.filter((record) => record.id !== roadmapId));

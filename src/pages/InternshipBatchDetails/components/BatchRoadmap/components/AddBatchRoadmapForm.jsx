@@ -10,7 +10,7 @@ import {
   updateBatchRoadmap,
 } from "../services/BatchRoadmap.service";
 import useRoadmap from "../../../../../shared/hooks/useRoadmap";
-import useDomain from "../../../../mentors/hooks/useDomain";
+import useDomain from "../../../../Mentors/hooks/useDomain";
 
 export default function AddBatchRoadmapForm({ closeDrawer }) {
   const navigate = useNavigate();

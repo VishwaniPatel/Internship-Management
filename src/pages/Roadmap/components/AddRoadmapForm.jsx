@@ -42,7 +42,7 @@ export default function FormModal() {
     initialValues: {
       name: "",
       domain: "",
-      totalDuration: 0,
+      totalDuration: "0hr 0m",
     },
     validate: {
       // Empty strings are considered to be invalid
@@ -54,12 +54,11 @@ export default function FormModal() {
 
   // Form Submit button
   function handleFormSubmit(values) {
-    const updatedData = { ...values, totalDuration: duration };
-    console.log(updatedData);
-
+    // const updatedData = { ...values, totalDuration: duration };
+    // console.log(updatedData);
     if (id) {
       // If ID is present, update the existing roadmap
-      updateRoadmap(id, updatedData);
+      updateRoadmap(id, values);
     } else {
       // If no ID is present, add a new roadmap
       console.log("Add", values);

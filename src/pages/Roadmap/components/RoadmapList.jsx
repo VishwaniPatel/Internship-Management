@@ -9,12 +9,13 @@ import {
   Stack,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { getRoadMapData } from "../service/Roadmap.service";
+import { getRoadMapData, updateRoadmap } from "../service/Roadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IconFolderCode } from "@tabler/icons-react";
 
 export function RoadMapList() {
+  const { roadmapId } = useParams();
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
