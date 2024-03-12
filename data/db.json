@@ -58,7 +58,7 @@
       "id": "da7d",
       "name": "Advanced CSS",
       "domain": "Data",
-      "totalDuration": "1hr 0m"
+      "totalDuration": "0hr 30m"
     }
   ],
   "roadmapDetails": [
@@ -91,11 +91,11 @@
       "duration": "1hr 30m"
     },
     {
-      "id": "9ced",
       "roadmapId": "da7d",
       "topic": "Importing CSS style",
       "subtopic": "3 types of exporting styles- Inline, External, Internal",
-      "duration": "1hr"
+      "duration": "30m",
+      "id": "9ced"
     }
   ],
   "internshipBatch": [
@@ -282,6 +282,14 @@
       "domain": "Backend",
       "duration": "2hr 30m",
       "mentor": "Nikunj Patel"
+    },
+    {
+      "id": "fd76",
+      "batchId": "3",
+      "topic": "Advanced CSS",
+      "domain": "Data",
+      "duration": "0hr 30m",
+      "mentor": "Ravi Sing"
     }
   ],
   "mentors": [

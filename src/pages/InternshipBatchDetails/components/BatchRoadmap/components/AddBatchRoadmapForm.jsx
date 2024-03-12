@@ -119,6 +119,7 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
             placeholder="Select Domain"
             checkIconPosition="right"
             data={domainData}
+            maxDropdownHeight={180}
             rightSection={
               <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
             }
@@ -160,17 +161,17 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
                 }
                 {...form.getInputProps("mentor")}
               />
+              {/* Drawer footer with action Buttons */}
+              <Group className="drawer-form-footer" justify="flex-end" mt="xl">
+                <Button variant="default" onClick={handleCancel}>
+                  Cancle
+                </Button>
+                <Button disabled={!isFormValidate} type="submit">
+                  {btnText}
+                </Button>
+              </Group>
             </>
           )}
-
-          <Group className="drawer-form-footer" justify="flex-end" mt="xl">
-            <Button variant="default" onClick={handleCancel}>
-              Cancle
-            </Button>
-            <Button disabled={!isFormValidate} type="submit">
-              {btnText}
-            </Button>
-          </Group>
         </form>
       </Box>
     </>
