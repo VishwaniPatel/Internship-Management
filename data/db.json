@@ -45,65 +45,14 @@
     {
       "name": "Beginner HTML",
       "domain": "Frontend",
-      "totalDuration": null,
+      "totalDuration": "0hr 45m",
       "id": "1"
     },
     {
-      "name": "Advanced HTML",
-      "domain": "Frontend",
-      "totalDuration": "2hr 0m",
-      "id": "2"
-    },
-    {
-      "name": "Beginner CSS",
-      "domain": "Data",
-      "totalDuration": "1hr 15m",
-      "id": "3"
-    },
-    {
-      "name": "Advanced JS",
-      "domain": "QA",
-      "id": "4"
-    },
-    {
-      "name": "demo",
+      "id": "5c39",
+      "name": "Advance Javascript",
       "domain": "Backend",
-      "totalDuration": "0hr 45m",
-      "id": "e2b5"
-    },
-    {
-      "name": "Test Total",
-      "domain": "Data",
-      "totalDuration": "0hr 45m",
-      "id": "c75a"
-    },
-    {
-      "name": "check",
-      "domain": "Data",
-      "totalDuration": "0hr 15m",
-      "id": "1917"
-    },
-    {
-      "name": "df",
-      "domain": "Backend",
-      "totalDuration": "0hr 15m",
-      "id": "c5f9"
-    },
-    {
-      "name": "sfdg",
-      "domain": "Data",
-      "totalDuration": "5hr 15m",
-      "id": "c362"
-    },
-    {
-      "id": "e005",
-      "name": "New Test",
-      "domain": "Frontend",
-      "totalDuration": "4hr 15m"
-    },
-    {
-      "totalDuration": "0hr 0m",
-      "id": "35ea"
+      "totalDuration": "2hr 30m"
     }
   ],
   "roadmapDetails": [
@@ -112,339 +61,28 @@
       "topic": "HTML Fundamentals",
       "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
       "duration": "15m",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started",
       "id": "1"
     },
     {
-      "roadmapId": 1,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "2"
-    },
-    {
-      "roadmapId": 2,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "3"
-    },
-    {
-      "roadmapId": 2,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "4"
-    },
-    {
-      "roadmapId": 2,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "5"
-    },
-    {
-      "roadmapId": 3,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "6"
-    },
-    {
-      "roadmapId": 4,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "7"
-    },
-    {
-      "roadmapId": "e2b5",
-      "topic": "Demo 3",
-      "subtopic": "demo subb",
-      "duration": "15m",
-      "presenter": "Vinay Chudasama",
-      "status": "Not-Started",
-      "id": "d13e"
-    },
-    {
-      "id": "266a",
+      "id": "596b",
       "roadmapId": "1",
-      "topic": "Image Element",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv",
-      "duration": "30m",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started"
-    },
-    {
-      "roadmapId": "fc4d",
-      "topic": "Demo topic new",
-      "subtopic": "Lorem impum ascdkov",
-      "duration": "1hr",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started",
-      "id": "d4cc"
-    },
-    {
-      "id": "e70b",
-      "roadmapId": "c2d6",
       "topic": "new topic",
-      "subtopic": "dsvfdv",
-      "duration": "15m",
-      "presenter": "Vishwani Patel",
-      "status": "Not-Started"
+      "subtopic": "new description lorem ipsum",
+      "duration": "30m"
     },
     {
-      "id": "865b",
-      "roadmapId": "0965",
-      "topic": "rtrtr",
-      "subtopic": "fdhg",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "a419",
-      "roadmapId": "86c0",
-      "topic": "de",
-      "subtopic": "der",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "935b",
-      "roadmapId": "86c0",
-      "topic": "dede",
-      "subtopic": "dfd",
-      "duration": "1hr",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "dfc0",
-      "roadmapId": "29b7",
-      "topic": "dede",
-      "subtopic": "sefs",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "8300",
-      "roadmapId": "29b7",
-      "topic": "dfdf",
-      "subtopic": "dg",
-      "duration": "1hr",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "9050",
-      "roadmapId": "e2b5",
-      "topic": "sdf",
-      "subtopic": "sdfdgh",
-      "duration": "30m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "c9e0",
-      "roadmapId": "1",
-      "topic": "def",
-      "subtopic": "fght",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "30be",
-      "roadmapId": "3",
-      "topic": "dede",
-      "subtopic": "fergrt",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "df35",
-      "roadmapId": "1917",
-      "topic": "sdfgh",
-      "subtopic": "sdfg",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "roadmapId": "e005",
-      "topic": "df",
-      "subtopic": "dfhtg",
-      "duration": "30m",
-      "id": "9f58"
-    },
-    {
-      "id": "dab2",
-      "roadmapId": "e005",
-      "topic": "df",
-      "subtopic": "dfhtg",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "d86c",
-      "roadmapId": "e005",
-      "topic": "df",
-      "subtopic": "dfhtg",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "roadmapId": "e005",
-      "topic": "df",
-      "subtopic": "dfhtg",
-      "duration": "30m",
-      "presenter": "",
-      "status": "Not-Started",
-      "id": "254a"
-    },
-    {
-      "roadmapId": "c362",
-      "topic": "sfdgxfhcj",
-      "subtopic": "vdfgb",
-      "duration": "30m",
-      "id": "9813"
-    },
-    {
-      "id": "9c13",
-      "roadmapId": "c362",
-      "topic": "adsfghm",
-      "subtopic": "fdghmj",
-      "duration": "1hr 30m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "d5bd",
-      "roadmapId": "e005",
-      "topic": "dede",
-      "subtopic": "grgt",
-      "duration": "1hr",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "32af",
-      "roadmapId": "e005",
-      "topic": "defd",
-      "subtopic": "zcdfb",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "84a7",
-      "roadmapId": "283b",
-      "topic": "frt",
-      "subtopic": "ert",
-      "duration": "1hr 30m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "e7ce",
-      "roadmapId": "283b",
-      "topic": "ere",
-      "subtopic": "dfd",
-      "duration": "15m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "f061",
-      "roadmapId": "93b4",
-      "topic": "fgf",
-      "subtopic": "dgg",
-      "duration": "30m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "0ca4",
-      "roadmapId": "898f",
-      "topic": "dfd",
-      "subtopic": "sdgf",
-      "duration": "30m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "63e1",
-      "roadmapId": "898f",
-      "topic": "dgf",
-      "subtopic": "dfgg",
-      "duration": "1hr 30m",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "id": "a6b9",
-      "roadmapId": "898f",
-      "topic": "werdtf",
-      "subtopic": "dfgch",
-      "duration": "1hr",
-      "presenter": "",
-      "status": "Not-Started"
-    },
-    {
-      "roadmapId": "898f",
-      "topic": "rtgfhj",
-      "subtopic": "fgh",
-      "duration": "1hr",
-      "presenter": "",
-      "status": "Not-Started",
-      "id": "29aa"
-    },
-    {
-      "id": "b4a5",
-      "roadmapId": "e005",
-      "topic": "sdfg",
-      "subtopic": "asdfg",
-      "duration": "15m"
-    },
-    {
-      "roadmapId": "c362",
-      "topic": "sdfg",
-      "subtopic": "dfgh",
-      "duration": "1hr",
-      "id": "05f3"
-    },
-    {
-      "id": "ecbc",
-      "roadmapId": "c362",
-      "topic": "sadfgh",
-      "subtopic": "dfgh",
+      "id": "1d00",
+      "roadmapId": "5c39",
+      "topic": "Arrow Function",
+      "subtopic": "Lorem Ipsum dummy text goes here",
       "duration": "1hr"
     },
     {
-      "id": "8bf2",
-      "roadmapId": "c362",
-      "topic": "cddfg",
-      "subtopic": "csdfg",
-      "duration": "15m"
+      "id": "3fe6",
+      "roadmapId": "5c39",
+      "topic": "demo2",
+      "subtopic": "demo description",
+      "duration": "1hr 30m"
     }
   ],
   "internshipBatch": [
@@ -577,12 +215,12 @@
       "mentor": "Nikunj Patel"
     },
     {
-      "id": "44ab",
       "batchId": "2",
-      "topic": "demo",
-      "domain": "Backend",
-      "duration": "30m",
-      "mentor": "Nikunj Patel"
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Vinay Chudasama",
+      "id": "44ab"
     },
     {
       "id": "4a51",
@@ -591,6 +229,46 @@
       "domain": "Data",
       "duration": "1hr",
       "mentor": "Ravi Sing"
+    },
+    {
+      "batchId": "2",
+      "topic": "Advance Javascript",
+      "domain": "Backend",
+      "duration": "2hr 30m",
+      "mentor": "Nikunj Patel",
+      "id": "50f3"
+    },
+    {
+      "batchId": "2",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Vinay Chudasama",
+      "id": "a287"
+    },
+    {
+      "batchId": "2",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Nikunj Patel",
+      "id": "01d8"
+    },
+    {
+      "batchId": "2",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Nikunj Patel",
+      "id": "5457"
+    },
+    {
+      "id": "043a",
+      "batchId": "2",
+      "topic": "Advance Javascript",
+      "domain": "Backend",
+      "duration": "2hr 30m",
+      "mentor": "Nikunj Patel"
     }
   ],
   "mentors": [

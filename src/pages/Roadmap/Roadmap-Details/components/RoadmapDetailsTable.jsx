@@ -6,15 +6,12 @@ import { useParams } from "react-router-dom";
 import { Breadcrumb } from "../../../../shared/common-components/Breadcrumb";
 import { IconPlus } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
-import { getRoadMapDetails } from "../service/RoadmapDetails.service";
+import { getRoadMapDetails } from "../utility/service/RoadmapDetails.service";
 import { useTotalDuration } from "../../../../shared/totalDurationContext";
 
 function RoadmapDetailsTable() {
   const { roadmapId } = useParams();
   const [records, setRecords] = useState([]);
-  const roadmapDuration = [];
-  const { setDuration } = useTotalDuration();
-  const [roadmapDetails, setRoadmapDetails] = useState(null);
 
   useEffect(() => {
     getRoadMapDetails().then((res) => {
@@ -52,7 +49,11 @@ function RoadmapDetailsTable() {
         </Badge>
       </Table.Td> */}
       <Table.Td>
-        <DropdownMenu id={tabData.id} onDelete={handleDeleteRecord} />
+        <DropdownMenu
+          id={tabData.id}
+          onDelete={handleDeleteRecord}
+          duration={tabData.duration}
+        />
       </Table.Td>
     </Table.Tr>
   ));

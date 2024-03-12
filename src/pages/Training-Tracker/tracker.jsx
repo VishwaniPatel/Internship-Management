@@ -1,63 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import { Select } from "@mantine/core";
+import { useForm } from "@mantine/form";
 
-class TableStructure extends React.Component {
-  render() {
-    // Sample domain array
-    const domainArray = [
-      "Domain 1",
-      "Domain 2",
-      "Domain 3",
-      "Domain 4",
-      "Domain 5",
-    ];
+const MyComponent = () => {
+  const [selectedOptionId, setSelectedOptionId] = useState("");
+  const form = useForm();
 
-    // Sample start and end dates
-    const startDate = new Date("2024-01-01");
-    const endDate = new Date("2024-01-10");
+  // Sample JSON roadmap
+  const roadmap = [
+    { id: 1, topic: "Topic 1", domain: "Domain 1", totalDuration: "1h 30m" },
+    { id: 2, topic: "Topic 2", domain: "Domain 2", totalDuration: "2h" },
+    { id: 3, topic: "Topic 3", domain: "Domain 3", totalDuration: "45m" },
+  ];
 
-    // Function to generate an array of dates between start and end dates
-    const generateDateRange = (start, end) => {
-      const dates = [];
-      for (
-        let date = new Date(start);
-        date <= end;
-        date.setDate(date.getDate() + 1)
-      ) {
-        dates.push(new Date(date));
-      }
-      return dates;
-    };
+  // Event handler for form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-    // Array of dates between start and end dates
-    const dateRange = generateDateRange(startDate, endDate);
-
-    return (
-      <div>
-        <table border="1">
-          <thead>
-            <tr>
-              <th></th>
-              {dateRange.map((date, index) => (
-                <th key={index}>{date.toLocaleDateString()}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {domainArray.map((domain, index) => (
-              <tr key={index}>
-                <td>{domain}</td>
-                {dateRange.map((date, index) => (
-                  <td key={index}>
-                    Data for {domain} on {date.toLocaleDateString()}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    // Find the selected option in the roadmap array
+    const selectedOption = roadmap.find(
+      (option) => option.id === selectedOptionId
     );
-  }
-}
+    if (selectedOption) {
+      // If the option is found, access its ID
+      console.log("Selected option ID:", selectedOptionId);
+    } else {
+      // Handle error if option is not found
+      console.error("Selected option not found!");
+    }
+  };
 
-export default TableStructure;
+  // Event handler for select change
+  const handleSelectChange = (value) => {
+    setSelectedOptionId(value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <Select
+        id="select-roadmap"
+        label="Select Topic"
+        placeholder="Select Topic"
+        value={selectedOptionId}
+        onChange={(value) => handleSelectChange(value)}
+        data={roadmap.map((entry) => ({ value: entry.id, label: entry.topic }))}
+        {...form.getSelectProps("topic")}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default MyComponent;

@@ -54,13 +54,18 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
   const selectedValues = form.getTransformedValues();
   // Form Submit button
   function handleFormSubmit(values) {
+    //  Find the duration based on selected value
+    const selectedOption = roadmapData.find(
+      (option) => option.name === selectedValues.topic
+    );
+    // Set duration field
+    const newValues = { ...values, duration: selectedOption.totalDuration };
     if (id) {
       // If ID is present, update the existing roadmap
-      updateBatchRoadmap(id, values);
+      updateBatchRoadmap(id, newValues);
     } else {
       // If no ID is present, add a new roadmap
-      console.log("to add", values);
-      addBatchRoadMap(values);
+      addBatchRoadMap(newValues);
     }
     closeDrawer();
     navigate("/intern-batch/details/" + batchId);
@@ -100,7 +105,6 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
     .map((data) => {
       roadmapDropdownData.push(data.name);
     });
-
   return (
     <>
       <Box>
@@ -120,44 +124,44 @@ export default function AddBatchRoadmapForm({ closeDrawer }) {
             }
             {...form.getInputProps("domain")}
           />
-          {/* Topic Dropdown */}
-          <Select
-            mt="md"
-            label="Select Topic"
-            placeholder="Select Topic"
-            checkIconPosition="right"
-            data={roadmapDropdownData}
-            maxDropdownHeight={200}
-            rightSection={
-              <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
-            }
-            {...form.getInputProps("topic")}
-          />
-          {/* Mentor Dropdown */}
-          <Select
-            mt="md"
-            label="Select Mentor"
-            placeholder="Select Mentor"
-            checkIconPosition="right"
-            data={mentorDropdownData}
-            maxDropdownHeight={200}
-            rightSection={
-              <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
-            }
-            {...form.getInputProps("mentor")}
-          />
-
-          <Select
-            mt="md"
-            label="Duration"
-            checkIconPosition="right"
-            placeholder="Select Duration"
-            data={["15m", "30m", "1hr", "1hr 30m"]}
-            rightSection={
-              <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
-            }
-            {...form.getInputProps("duration")}
-          />
+          {/* Conditionnal based rendering, If we select Domain then only other dropdowns are visible */}
+          {selectedValues.domain && (
+            <>
+              {/* Topic Dropdown */}
+              <Select
+                mt="md"
+                disabled={!selectedValues.domain}
+                label="Select Topic"
+                placeholder="Select Topic"
+                checkIconPosition="right"
+                data={roadmapDropdownData}
+                // data={roadmapDropdownData.map((entry) => entry.name)}
+                maxDropdownHeight={200}
+                rightSection={
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                  />
+                }
+                {...form.getInputProps("topic")}
+              />
+              {/* Mentor Dropdown */}
+              <Select
+                mt="md"
+                disabled={!selectedValues.domain}
+                label="Select Mentor"
+                placeholder="Select Mentor"
+                checkIconPosition="right"
+                data={mentorDropdownData}
+                maxDropdownHeight={200}
+                rightSection={
+                  <IconChevronDown
+                    style={{ width: rem(16), height: rem(16) }}
+                  />
+                }
+                {...form.getInputProps("mentor")}
+              />
+            </>
+          )}
 
           <Group className="drawer-form-footer" justify="flex-end" mt="xl">
             <Button variant="default" onClick={handleCancel}>
