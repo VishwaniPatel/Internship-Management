@@ -3,7 +3,6 @@ import Roadmap from "./pages/Roadmap/Roadmap";
 import FormModal from "./pages/Roadmap/components/AddRoadmapForm";
 import MentorDetails from "./pages/Mentors/MentorDetails";
 import AddMentorDetails from "./pages/Mentors/components/AddMentorDetails";
-// import InternForm from "./pages/InternshipBatchDetails/BatchInterns/components/InternForm";
 import BatchForm from "./pages/Intern-batch/components/AddInternsBatchModal";
 import AddRoadmapDetailsForm from "./pages/Roadmap/Roadmap-Details/components/AddRoadmapDetailsForm";
 import RoadmapDetails from "./pages/Roadmap/Roadmap-Details/components/RoadmapDetailsTable";
@@ -29,14 +28,6 @@ export default function Routing() {
             path="/intern-batch/details/:batchId"
             element={<InternshipBatchDetails />}
           />
-          {/* <Route
-            path="/intern-batch/details/:batchId/intern/add/new"
-            element={<InternForm />}
-          ></Route> */}
-          {/* <Route
-            path="/intern-batch/details/:batchId/edit-intern/:id"
-            element={<InternForm />}
-          ></Route> */}
           <Route
             path="/roadmap-details/:roadmapId"
             element={<RoadmapDetails />}

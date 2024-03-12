@@ -73,7 +73,7 @@
       "roadmapId": 1,
       "topic": "HTML Fundamentals",
       "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "15m",
+      "duration": "30m",
       "presenter": "Bhavik Gajdhar",
       "status": "Not-Started",
       "id": "1"
@@ -194,7 +194,7 @@
       "batchId": "2",
       "firstName": "bhavik",
       "lastName": "gajdhar",
-      "email": "g@gmail.com",
+      "email": "b@gmail.com",
       "contact": "1236547890",
       "mentor": "Bhavik Gajdhar",
       "domain": "Frontend",
@@ -206,8 +206,8 @@
       "lastName": "patel",
       "email": "r@gmail.com",
       "contact": "1236547890",
-      "mentor": "Vinay Chudasama",
-      "domain": "Frontend",
+      "mentor": "Nikunj Patel",
+      "domain": "Backend",
       "id": "5"
     },
     {
@@ -383,6 +383,18 @@
     {
       "id": "4",
       "name": "QA"
+    },
+    {
+      "id": "5",
+      "name": "Mobile"
+    },
+    {
+      "id": "6",
+      "name": "Human Resources"
+    },
+    {
+      "id": "7",
+      "name": "Bussiness Analyst"
     }
   ]
 }

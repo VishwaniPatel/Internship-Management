@@ -17,7 +17,7 @@ import useMentors from "../../../mentors/hooks/useMentors";
 const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
   let { batchId } = useParams();
 
-  //** Get Domain Data for doamin Dropdown */
+  //** Get Domain Data for domain Dropdown */
   const domainData = useDomain();
   const mentorDropdownData = [];
 
