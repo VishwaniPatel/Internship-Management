@@ -12,6 +12,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import TrainingTracker from "./pages/Training-Tracker/tracker";
 import { InternsBatch } from "./pages/Intern-batch/InternsBatch";
 import { InternshipBatchDetails } from "./pages/InternshipBatchDetails/InternshipBatchDetails";
+import AddBatchRoadmapForm from "./pages/InternshipBatchDetails/components/BatchRoadmap/components/AddBatchRoadmapForm";
 export default function Routing() {
   const { isAuthenticated } = useAuth0();
 
@@ -29,6 +30,10 @@ export default function Routing() {
           <Route path="/intern-batch/:batchId" element={<InternList />} />
           <Route
             path="/intern-batch/details/:batchId"
+            element={<InternshipBatchDetails />}
+          />
+          <Route
+            path="/intern-batch/details/:batchId/edit/:id"
             element={<InternshipBatchDetails />}
           />
           <Route

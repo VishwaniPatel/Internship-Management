@@ -43,29 +43,22 @@
   ],
   "newRoadmap": [
     {
-      "id": "1",
+      "name": "Beginner HTML",
       "domain": "Frontend",
-      "name": "Beginner HTML"
+      "totalDuration": "0hr 45m",
+      "id": "1"
     },
     {
-      "id": "2",
-      "domain": "Frontend",
-      "name": "Advanced HTML"
+      "id": "5c39",
+      "name": "Advance Javascript",
+      "domain": "Backend",
+      "totalDuration": "2hr 30m"
     },
     {
-      "id": "3",
-      "domain": "Frontend",
-      "name": "Beginner HTML"
-    },
-    {
-      "id": "4",
-      "domain": "Frontend",
-      "name": "Advanced HTML"
-    },
-    {
-      "id": "e2b5",
-      "name": "Demo",
-      "domain": "Backend"
+      "id": "da7d",
+      "name": "Advanced CSS",
+      "domain": "Data",
+      "totalDuration": "0hr 30m"
     }
   ],
   "roadmapDetails": [
@@ -74,99 +67,35 @@
       "topic": "HTML Fundamentals",
       "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
       "duration": "15m",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started",
       "id": "1"
     },
     {
-      "roadmapId": 1,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "2"
-    },
-    {
-      "roadmapId": 2,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "3"
-    },
-    {
-      "roadmapId": 2,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "4"
-    },
-    {
-      "roadmapId": 2,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "5"
-    },
-    {
-      "roadmapId": 3,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "6"
-    },
-    {
-      "roadmapId": 4,
-      "topic": "Text Elements",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "1hr",
-      "presenter": "Vinay Chudasama",
-      "status": "In Progress",
-      "id": "7"
-    },
-    {
-      "id": "d13e",
-      "roadmapId": "e2b5",
-      "topic": "Demo 3",
-      "subtopic": "demo subb",
-      "duration": "30m",
-      "presenter": "Vinay Chudasama",
-      "status": "Not-Started"
-    },
-    {
-      "id": "266a",
+      "id": "596b",
       "roadmapId": "1",
-      "topic": "Image Element",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv",
-      "duration": "30m",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started"
-    },
-    {
-      "roadmapId": "fc4d",
-      "topic": "Demo topic new",
-      "subtopic": "Lorem impum ascdkov",
-      "duration": "1hr",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started",
-      "id": "d4cc"
-    },
-    {
-      "id": "e70b",
-      "roadmapId": "c2d6",
       "topic": "new topic",
-      "subtopic": "dsvfdv",
-      "duration": "15m",
-      "presenter": "Vishwani Patel",
-      "status": "Not-Started"
+      "subtopic": "new description lorem ipsum",
+      "duration": "30m"
+    },
+    {
+      "id": "1d00",
+      "roadmapId": "5c39",
+      "topic": "Arrow Function",
+      "subtopic": "Lorem Ipsum dummy text goes here",
+      "duration": "1hr"
+    },
+    {
+      "id": "3fe6",
+      "roadmapId": "5c39",
+      "topic": "demo2",
+      "subtopic": "demo description",
+      "duration": "1hr 30m"
+    },
+    {
+      "roadmapId": "da7d",
+      "topic": "Importing CSS style",
+      "subtopic": "3 types of exporting styles- Inline, External, Internal",
+      "duration": "30m",
+      "id": "9ced"
     }
   ],
   "internshipBatch": [
@@ -252,12 +181,115 @@
   "batchRoadmap": [
     {
       "batchId": "1",
-      "topic": "HTML Fundamentals",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "15m",
-      "presenter": "Bhavik Gajdhar",
-      "status": "Not-Started",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "30m",
+      "mentor": "Ravi Sing",
       "id": "1"
+    },
+    {
+      "batchId": "1",
+      "topic": "Demo",
+      "domain": "Backend",
+      "duration": "1hr",
+      "mentor": "Nikunj Patel",
+      "id": "5f0c"
+    },
+    {
+      "batchId": "1",
+      "topic": "Beginner HTML",
+      "domain": "Data",
+      "duration": "30m",
+      "mentor": "Bhavik Gajdhar",
+      "id": "b486"
+    },
+    {
+      "batchId": "1",
+      "topic": "Advanced HTML",
+      "domain": "Frontend",
+      "duration": "15m",
+      "mentor": "Bhavik Gajdhar",
+      "id": "11d1"
+    },
+    {
+      "id": "6730",
+      "batchId": "1",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "15m",
+      "mentor": "Vinay Chudasama"
+    },
+    {
+      "id": "07c7",
+      "batchId": "1",
+      "topic": "demo",
+      "domain": "Backend",
+      "duration": "15m",
+      "mentor": "Nikunj Patel"
+    },
+    {
+      "batchId": "2",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Vinay Chudasama",
+      "id": "44ab"
+    },
+    {
+      "id": "4a51",
+      "batchId": "1",
+      "topic": "Beginner CSS",
+      "domain": "Data",
+      "duration": "1hr",
+      "mentor": "Ravi Sing"
+    },
+    {
+      "batchId": "2",
+      "topic": "Advance Javascript",
+      "domain": "Backend",
+      "duration": "2hr 30m",
+      "mentor": "Nikunj Patel",
+      "id": "50f3"
+    },
+    {
+      "batchId": "2",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Vinay Chudasama",
+      "id": "a287"
+    },
+    {
+      "batchId": "2",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Nikunj Patel",
+      "id": "01d8"
+    },
+    {
+      "batchId": "2",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "0hr 45m",
+      "mentor": "Nikunj Patel",
+      "id": "5457"
+    },
+    {
+      "id": "043a",
+      "batchId": "2",
+      "topic": "Advance Javascript",
+      "domain": "Backend",
+      "duration": "2hr 30m",
+      "mentor": "Nikunj Patel"
+    },
+    {
+      "id": "fd76",
+      "batchId": "3",
+      "topic": "Advanced CSS",
+      "domain": "Data",
+      "duration": "0hr 30m",
+      "mentor": "Ravi Sing"
     }
   ],
   "mentors": [
@@ -290,11 +322,11 @@
       "domain": "Frontend"
     },
     {
-      "id": "9002",
       "firstName": "Ravi",
       "lastName": "Sing",
       "emailId": "ravising@1rivet.com",
-      "domain": "Frontend"
+      "domain": "Data",
+      "id": "9002"
     },
     {
       "firstName": "Nikunj",
@@ -303,6 +335,13 @@
       "domain": "Backend",
       "date": "",
       "id": "b600"
+    },
+    {
+      "id": "c468",
+      "firstName": "raj",
+      "lastName": "patel",
+      "emailId": "user2@mailinator.com",
+      "domain": "QA"
     }
   ],
   "domain": [

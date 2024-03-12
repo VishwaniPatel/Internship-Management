@@ -1,12 +1,12 @@
 import { Badge, Table, Flex, Button, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { getRoadmapById } from "../../service/Roadmap.service";
+import { getRoadmapById, updateRoadmap } from "../../service/Roadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
 import { useParams } from "react-router-dom";
 import { Breadcrumb } from "../../../../shared/common-components/Breadcrumb";
 import { IconPlus } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
-import { getRoadMapDetails } from "../service/RoadmapDetails.service";
+import { getRoadMapDetails } from "../utility/service/RoadmapDetails.service";
 
 function RoadmapDetailsTable() {
   const { roadmapId } = useParams();
@@ -18,6 +18,7 @@ function RoadmapDetailsTable() {
       setRecords(res.data.filter((record) => record.roadmapId == roadmapId));
     });
   }, []);
+
   const handleDeleteRecord = (roadmapId) => {
     setRecords(records.filter((record) => record.id !== roadmapId));
   };
@@ -47,7 +48,11 @@ function RoadmapDetailsTable() {
         </Badge>
       </Table.Td> */}
       <Table.Td>
-        <DropdownMenu id={tabData.id} onDelete={handleDeleteRecord} />
+        <DropdownMenu
+          id={tabData.id}
+          onDelete={handleDeleteRecord}
+          duration={tabData.duration}
+        />
       </Table.Td>
     </Table.Tr>
   ));
