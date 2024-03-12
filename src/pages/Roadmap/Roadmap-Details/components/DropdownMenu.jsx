@@ -15,7 +15,6 @@ export function DropdownMenu({ id, onDelete, duration }) {
 
   useEffect(() => {
     getRoadmapById(roadmapId).then((res) => {
-      console.log(res.data);
       setRoadmapData(res.data);
     });
   }, []);

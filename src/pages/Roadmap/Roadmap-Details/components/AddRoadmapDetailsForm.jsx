@@ -62,7 +62,6 @@ export default function AddRoadmapDetailsForm() {
 
   useEffect(() => {
     getRoadmapById(roadmapId).then((res) => {
-      console.log(res.data);
       setRoadmapDetails(res.data);
     });
   }, []);

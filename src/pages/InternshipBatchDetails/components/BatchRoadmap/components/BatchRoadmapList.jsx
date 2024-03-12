@@ -27,7 +27,6 @@ export function BatchRoadmapList() {
       ? batchRoadmapData.filter((record) => record.batchId === batchId)
       : batchRoadmapData;
     setRecords(filteredRecords);
-    console.log(filteredRecords);
   }, [id, batchId, batchRoadmapData]);
 
   const handleDeleteRecord = (batchId) => {

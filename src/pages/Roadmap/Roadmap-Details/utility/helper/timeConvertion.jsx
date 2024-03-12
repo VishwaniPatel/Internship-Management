@@ -24,7 +24,6 @@ function timeStringToMinutes(timeString) {
 function minutesToHoursAndMinutes(totalMinutes) {
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
-  console.log(`${hours}hr ${minutes}m`);
   return `${hours}hr ${minutes}m`;
 }
 // Add two time strings

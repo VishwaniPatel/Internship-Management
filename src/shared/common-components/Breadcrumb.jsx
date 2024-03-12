@@ -1,4 +1,4 @@
-import { Breadcrumbs, Anchor } from "@mantine/core";
+import { Breadcrumbs } from "@mantine/core";
 import { Link } from "react-router-dom";
 export function Breadcrumb({ data }) {
   const rows = data.map((item, index) => (
