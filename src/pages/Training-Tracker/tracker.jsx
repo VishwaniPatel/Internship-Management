@@ -62,7 +62,7 @@ export default function TrainingTracker() {
         </div>
       </Flex>
       <Box className="timeline-wrapper">
-        <Table stickyHeader stickyHeaderOffset={6}>
+        <Table className="data-table" stickyHeader stickyHeaderOffset={6}>
           <Table.Thead>
             <Table.Tr>
               <Table.Th></Table.Th>

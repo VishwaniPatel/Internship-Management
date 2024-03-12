@@ -11,22 +11,22 @@ import {
   Box,
 } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
-import {
-  addRoadMap,
-  updateRoadmap,
-  getRoadmapById,
-} from "../../service/Roadmap.service";
+import { getRoadmapById, updateRoadmap } from "../../service/Roadmap.service";
 import { isNotEmpty, useForm } from "@mantine/form";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
-import useMentors from "../../../mentors/hooks/useMentors";
+import useMentors from "../../../Mentors/hooks/useMentors";
 import { Breadcrumb } from "../../../../shared/common-components/Breadcrumb";
 import {
   addRoadMapDetails,
   getRoadmapDetailsById,
   updateRoadmapDetails,
-} from "../service/RoadmapDetails.service";
+} from "../utility/service/RoadmapDetails.service";
+import {
+  addDuration,
+  subtractDurations,
+} from "../utility/helper/timeConvertion";
 
 export default function AddRoadmapDetailsForm() {
   const navigate = useNavigate();
@@ -38,6 +38,8 @@ export default function AddRoadmapDetailsForm() {
   const mentorData = useMentors();
   const mentorDropdownData = [];
   const [roadmapDetails, setRoadmapDetails] = useState(null);
+  const [selectedValue, setSelectedValue] = useState("");
+  const [perviousDuratation, setPerviousDuratation] = useState("");
 
   // Form Values
   const form = useForm({
@@ -47,8 +49,6 @@ export default function AddRoadmapDetailsForm() {
       topic: "",
       subtopic: "",
       duration: "",
-      presenter: "",
-      status: "Not-Started",
     },
     validate: {
       // Empty strings are considered to be invalid
@@ -57,23 +57,49 @@ export default function AddRoadmapDetailsForm() {
       duration: isNotEmpty("Duration cannot be empty"),
     },
   });
+
   const isFormValidate = form.isValid();
 
   useEffect(() => {
-    getRoadmapById(id).then((res) => {
+    getRoadmapById(roadmapId).then((res) => {
+      console.log(res.data);
       setRoadmapDetails(res.data);
     });
   }, []);
 
   // Form Submit button
   function handleFormSubmit(values) {
+    let totalDur = roadmapDetails.totalDuration;
+
     if (id) {
       // If ID is present, update the existing roadmap
       updateRoadmapDetails(id, values);
+
+      // Remove the old duration from total duaration
+      const tempData = subtractDurations(totalDur, perviousDuratation);
+
+      // Add new duration to total duration
+      const upDatedDuration = addDuration(tempData, values.duration);
+
+      // Update totalDuration in roadmap
+      updateRoadmap(roadmapId, {
+        ...roadmapDetails,
+        totalDuration: upDatedDuration,
+      });
     } else {
       // If no ID is present, add a new roadmap
       addRoadMapDetails(values);
+
+      // Add new duration to total duration
+      const upDatedDuration = addDuration(totalDur, values.duration);
+
+      // Update totalDuration in roadmap
+      updateRoadmap(roadmapId, {
+        ...roadmapDetails,
+        totalDuration: upDatedDuration,
+      });
     }
+
     navigate("/roadmap-details/" + roadmapId);
   }
 
@@ -86,6 +112,7 @@ export default function AddRoadmapDetailsForm() {
 
           // Populate the form with fetched details
           form.setValues(roadmapDetails.data);
+          setPerviousDuratation(roadmapDetails.data.duration);
         } catch (error) {
           console.error("Error fetching roadmap details:", error);
         }
@@ -146,6 +173,7 @@ export default function AddRoadmapDetailsForm() {
                   label="Duration"
                   checkIconPosition="right"
                   placeholder="Select Duration"
+                  value={selectedValue}
                   data={["15m", "30m", "1hr", "1hr 30m"]}
                   rightSection={
                     <IconChevronDown
@@ -154,36 +182,6 @@ export default function AddRoadmapDetailsForm() {
                   }
                   {...form.getInputProps("duration")}
                 />
-                {/* <Select
-                  mt="md"
-                  label="Select Presenter"
-                  placeholder="Pick value"
-                  checkIconPosition="right"
-                  data={mentorDropdownData}
-                  maxDropdownHeight={200}
-                  rightSection={
-                    <IconChevronDown
-                      style={{ width: rem(16), height: rem(16) }}
-                    />
-                  }
-                  {...form.getInputProps("presenter")}
-                />
-
-                <Select
-                  mt="md"
-                  label="Select Status"
-                  placeholder="Pick value"
-                  checkIconPosition="right"
-                  data={["Not-Started", "In Progress", "Completed"]}
-                  maxDropdownHeight={200}
-                  defaultValue="Not Started"
-                  rightSection={
-                    <IconChevronDown
-                      style={{ width: rem(16), height: rem(16) }}
-                    />
-                  }
-                  {...form.getInputProps("status")}
-                /> */}
 
                 <Group justify="flex-end" mt="lg">
                   <Button

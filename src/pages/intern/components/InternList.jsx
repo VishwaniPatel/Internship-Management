@@ -1,4 +1,4 @@
-import { Box, Breadcrumbs, Button, Group, Menu, Table } from "@mantine/core";
+import { Box, Breadcrumbs, Button, Flex, Group, Menu, Table } from "@mantine/core";
 import { useEffect, useState } from "react";
 import {
   getByIdInternData,
@@ -6,8 +6,10 @@ import {
 } from "../utility/service/intern.service";
 import { IconPlus } from "@tabler/icons-react";
 import { Link, useParams } from "react-router-dom";
-import { getByIdInternBatchData } from "../../intern-batch/utility/service/intern-batch.service";
+// import { getByIdInternBatchData } from "../../intern-batch/utility/service/intern-batch.service";
 import { DropdownMenu } from "./DropDownMenu";
+import { getByIdInternBatchData } from "../../Intern-batch/utility/service/intern-batch.service";
+import SearchBox from "../../../shared/common-components/SearchBox";
 
 const InternList = () => {
   let { batchId } = useParams();
@@ -84,11 +86,16 @@ const InternList = () => {
         <Group justify="space-between">
           <div>
             <Breadcrumbs>{items}</Breadcrumbs>
-            <h4 className="content-title" style={{textAlign:'left'}}>Interns</h4>
+            <h4 className="content-title" style={{ textAlign: "left" }}>
+              Interns
+            </h4>
           </div>
+          <Flex>
+    <SearchBox/>
           <Link to={"intern/add/new"}>
             <Button leftSection={<IconPlus size={14} />}>Add New Intern</Button>
           </Link>
+          </Flex>
         </Group>
       </Box>
       <div className="table-container">
