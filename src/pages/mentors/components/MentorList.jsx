@@ -1,59 +1,110 @@
-import { Menu, Table } from '@mantine/core';
-import { IconDotsVertical } from '@tabler/icons-react';
-import { useEffect, useState } from 'react'
-import MenuDropdown from './MenuDropdown';
-import useMentors from '../hooks/useMentors';
+import { Flex, Menu, Table, UnstyledButton, rem } from "@mantine/core";
+import {
+  IconChevronDown,
+  IconChevronUp,
+  IconDotsVertical,
+  IconSelector,
+} from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+import MenuDropdown from "./MenuDropdown";
+import useSort from "../../../shared/hooks/useSort";
 
-const MentorList = () => {
-// get all mentor details
-const mentorData = useMentors();
-const [mentors, setMentors] = useState(mentorData)
-useEffect(()=>{
-  setMentors(mentorData)
-},[mentorData])
+const MentorList = ({ mentors }) => {
+  const { sortedData, sortColumn, sortDirection, handleSortColumn } = useSort(
+    mentors,
+    "firstName",
+    "asc"
+  );
+  // filter deleted data
+  const handleDelete = (id) =>
+    setMentors(mentors.filter((data) => data.id !== id));
 
-// filter deleted data
-   const handleDelete = (id) => (
-     setMentors(mentors.filter(data => data.id !== id) )
-   )
-  
+  const sortIconFirstName =
+    sortColumn === "firstName" ? (
+      sortDirection === "asc" ? (
+        <IconChevronUp size={14} />
+      ) : (
+        <IconChevronDown size={14} />
+      )
+    ) : (
+      <IconSelector size={14} />
+    );
+
+  const sortIconDomain =
+    sortColumn === "domain" ? (
+      sortDirection === "asc" ? (
+        <IconChevronUp size={14} />
+      ) : (
+        <IconChevronDown size={14} />
+      )
+    ) : (
+      <IconSelector size={14} />
+    );
+
   // Display mentor details in table
-    const rows = mentors.map((data) => (
-        <Table.Tr key={data.id}>
-          <Table.Td>{data.firstName}</Table.Td>
-          <Table.Td>{data.lastName}</Table.Td>
-          <Table.Td>{data.emailId}</Table.Td>
-          <Table.Td>{data.domain}</Table.Td>
-          <Table.Td>
-          <Menu shadow="md" width={120} position="bottom-end">
+  const rows = sortedData.map((data) => (
+    <Table.Tr key={data.id}>
+      <Table.Td>
+        {data.firstName} {data.lastName}
+      </Table.Td>
+      <Table.Td>{data.emailId}</Table.Td>
+      <Table.Td>{data.domain}</Table.Td>
+      <Table.Td>
+        <Menu shadow="md" width={120} position="bottom-end">
           <Menu.Target>
-            <IconDotsVertical />
+            <IconDotsVertical style={{ width: rem(18), height: rem(18) }} />
           </Menu.Target>
           {/* Dropdown menu to edit/delete details */}
-          <MenuDropdown id={data.id} onDelete={handleDelete}/>
-          </Menu>
-          </Table.Td>
+          <MenuDropdown id={data.id} onDelete={handleDelete} />
+        </Menu>
+      </Table.Td>
+    </Table.Tr>
+  ));
 
-        </Table.Tr>
-      ));
-  
-    
-      return (
-        // Start: table for displaying mentor details
-        <Table >
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>First Name</Table.Th>
-              <Table.Th>Last Name</Table.Th>
-              <Table.Th>Email Id</Table.Th>
-              <Table.Th>Domain</Table.Th>
-              <Table.Th></Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>{rows}</Table.Tbody>
-        </Table>
-         // End: table for displaying mentor details
-        )
-}
+  return (
+    // Start: table for displaying mentor details
+    <div className="table-container">
+      <Table
+        stickyHeader
+        stickyHeaderOffset={-16}
+        highlightOnHover
+        withTableBorder
+        withColumnBorders
+        mt="md"
+      >
+        <Table.Thead bg="#f1f3f5">
+          <Table.Tr>
+            <Table.Th>
+              <UnstyledButton
+                w="100%"
+                onClick={() => handleSortColumn("firstName")}
+              >
+                <Flex align="center" justify="space-between">
+                  <span>NAME</span>
+                  {sortIconFirstName}
+                </Flex>
+              </UnstyledButton>
+            </Table.Th>
+            <Table.Th>EMAIL ID</Table.Th>
+            <Table.Th>
+              <UnstyledButton
+                w="100%"
+                onClick={() => handleSortColumn("domain")}
+              >
+                <Flex align="center" justify="space-between">
+                  <span>DOMAIN</span>
+                  {sortIconDomain}
+                </Flex>
+              </UnstyledButton>
+            </Table.Th>
+            <Table.Th></Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>{rows}</Table.Tbody>
+      </Table>
+    </div>
+    // End: table for displaying mentor details
+  );
+};
 
-export default MentorList
+export default MentorList;

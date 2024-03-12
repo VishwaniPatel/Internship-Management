@@ -1,4 +1,4 @@
-import { Box, Breadcrumbs, Button, Group, Menu, Table } from "@mantine/core";
+import { Box, Breadcrumbs, Button, Flex, Group, Menu, Table } from "@mantine/core";
 import { useEffect, useState } from "react";
 import {
   getByIdInternData,
@@ -9,6 +9,7 @@ import { Link, useParams } from "react-router-dom";
 // import { getByIdInternBatchData } from "../../intern-batch/utility/service/intern-batch.service";
 import { DropdownMenu } from "./DropDownMenu";
 import { getByIdInternBatchData } from "../../Intern-batch/utility/service/intern-batch.service";
+import SearchBox from "../../../shared/common-components/SearchBox";
 
 const InternList = () => {
   let { batchId } = useParams();
@@ -89,9 +90,12 @@ const InternList = () => {
               Interns
             </h4>
           </div>
+          <Flex>
+    <SearchBox/>
           <Link to={"intern/add/new"}>
             <Button leftSection={<IconPlus size={14} />}>Add New Intern</Button>
           </Link>
+          </Flex>
         </Group>
       </Box>
       <div className="table-container">
