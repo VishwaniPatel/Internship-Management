@@ -98,83 +98,145 @@
       "id": "9ced"
     }
   ],
+  "newIntern": [
+    {
+      "firstName": "vinay",
+      "lastName": "patel",
+      "email": "v@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Vinay",
+      "domain": "React",
+      "batchId": "1",
+      "id": "1"
+    },
+    {
+      "firstName": "Bhavik",
+      "lastName": "Gajdhar",
+      "email": "b@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Vinay",
+      "domain": "React",
+      "batchId": "1",
+      "id": "2"
+    },
+    {
+      "batchId": "2",
+      "firstName": "bhavik",
+      "lastName": "gajdhar",
+      "email": "b@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Bhavik Gajdhar",
+      "domain": "Frontend",
+      "id": "4"
+    },
+    {
+      "batchId": "2",
+      "firstName": "revant",
+      "lastName": "patel",
+      "email": "r@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Nikunj Patel",
+      "domain": "Backend",
+      "id": "5"
+    },
+    {
+      "batchId": "3",
+      "firstName": "nehal",
+      "lastName": "patel",
+      "email": "n@gmail.com",
+      "contact": "7894561230",
+      "mentor": "Vishwani",
+      "domain": "React",
+      "id": "6"
+    },
+    {
+      "batchId": "2",
+      "firstName": "vinay",
+      "lastName": "patel",
+      "email": "v@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Vinay",
+      "domain": "Angular",
+      "id": "OrssiWU"
+    },
+    {
+      "batchId": "3",
+      "firstName": "Kevang",
+      "lastName": "Patel",
+      "email": "k@gmail.com",
+      "contact": "4563210789",
+      "mentor": "Bhavik",
+      "domain": "Vue",
+      "id": "iFnhwTx"
+    },
+    {
+      "batchId": "2",
+      "firstName": "vishwani",
+      "lastName": "patel",
+      "email": "v@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Bhavik",
+      "domain": "React",
+      "id": "IU_ewuw"
+    },
+    {
+      "batchId": "2",
+      "firstName": "Yogesh",
+      "lastName": "patel",
+      "email": "y@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Vinay",
+      "domain": "React",
+      "id": "eCw-CIb"
+    },
+    {
+      "batchId": "3",
+      "firstName": "Rohan",
+      "lastName": "patel",
+      "email": "r@gmail.com",
+      "contact": "4563210789",
+      "mentor": "Bhavik",
+      "domain": "Angular",
+      "id": "o1uueeS"
+    },
+    {
+      "batchId": "2",
+      "firstName": "Herry",
+      "lastName": "Patel",
+      "email": "h@gmail.com",
+      "contact": "3214569870",
+      "mentor": "Nikunj Patel",
+      "domain": "Backend",
+      "id": "tMRI6u6"
+    },
+    {
+      "batchId": "1",
+      "firstName": "Herry",
+      "lastName": "Patel",
+      "email": "h@gmail.com",
+      "contact": "1236547890",
+      "mentor": "Bhavik Gajdhar",
+      "domain": "Frontend",
+      "id": "9ZPG-ju"
+    }
+  ],
   "internshipBatch": [
     {
       "batchname": "Jan-2025",
       "startdate": "2024-01-31T18:30:00.000Z",
       "enddate": "2024-02-28T18:30:00.000Z",
-      "intern": [
-        {
-          "firstName": "vinay",
-          "lastName": "patel",
-          "email": "v@gmail.com",
-          "contact": "1236547890",
-          "mentor": "Vinay",
-          "domain": "React",
-          "internId": 1
-        },
-        {
-          "firstName": "Bhavik",
-          "lastName": "Gajdhar",
-          "email": "b@gmail.com",
-          "contact": "1236547890",
-          "mentor": "Vinay",
-          "domain": "React",
-          "internId": 0.16901317988444564
-        }
-      ],
       "id": "1"
     },
     {
-      "batchname": "march-2024",
+      "batchname": "March-2024",
       "startdate": "2024-02-29T18:30:00.000Z",
       "enddate": "2024-03-28T18:30:00.000Z",
-      "intern": [
-        {
-          "firstName": "vinay",
-          "lastName": "patel",
-          "email": "v@gmail.com",
-          "contact": "1236547890",
-          "mentor": "Vinay",
-          "domain": "Vue",
-          "internId": 1
-        },
-        {
-          "firstName": "bhavik",
-          "lastName": "gajdhar",
-          "email": "g@gmail.com",
-          "contact": "1236547890",
-          "mentor": "Vishwani",
-          "domain": "React",
-          "internId": 2
-        },
-        {
-          "firstName": "revant",
-          "lastName": "patel",
-          "email": "r@gmail.com",
-          "contact": "1236547890",
-          "mentor": "Bhavik",
-          "domain": "Vue",
-          "internId": 0.10097915114139422
-        }
-      ],
       "id": "2"
     },
     {
       "batchname": "April-2024",
       "startdate": "2024-03-31T18:30:00.000Z",
       "enddate": "2024-04-29T18:30:00.000Z",
-      "intern": [
-        {
-          "firstName": "nehal",
-          "lastName": "patel",
-          "email": "n@gmail.com",
-          "contact": "7894561230",
-          "mentor": "Vishwani",
-          "domain": "Angular",
-          "internId": 0.10554491453781467
-        }
-      ],
       "id": "3"
     }
   ],

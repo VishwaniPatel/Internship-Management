@@ -11,7 +11,7 @@ import { IconCalendar } from "@tabler/icons-react";
 import { useForm, yupResolver } from "@mantine/form";
 import { DateInput } from "@mantine/dates";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   addInternsBatch,
   getByIdInternBatchData,
@@ -22,7 +22,6 @@ import { ValidationSchema } from "../utility/constants/constant";
 export default function BatchForm() {
   let { batchId } = useParams();
   const navigate = useNavigate();
-  const [batchDetails, setBatchDetails] = useState(null);
 
   const icon = (
     <IconCalendar style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
@@ -38,6 +37,7 @@ export default function BatchForm() {
 
   /** Breadcrumbs Details */
   const items = [
+    { title: "Internship", href: "#" },
     { title: "InternBatch", href: "/intern-batch" },
     {
       title: batchId ? "Update Intern-Batch Detail" : "Add Intern-Batch Detail",
@@ -53,7 +53,6 @@ export default function BatchForm() {
     if (batchId) {
       getByIdInternBatchData(batchId).then((response) => {
         if (response) {
-          setBatchDetails(response.data);
           form.setValues({
             batchname: response.data.batchname,
             startdate: new Date(response.data.startdate),
@@ -71,22 +70,14 @@ export default function BatchForm() {
 
   const handleFormSubmit = (values) => {
     if (batchId) {
-      const batchDetailObj = {
-        ...values,
-        intern: [...batchDetails.intern],
-      };
-      updateInternsBatch(batchId, batchDetailObj).then((response) => {
+      updateInternsBatch(batchId, values).then((response) => {
         if (response) {
           form.reset();
           navigate(`/intern-batch`);
         }
       });
     } else {
-      const internBatchObj = {
-        ...values,
-        intern: [],
-      };
-      addInternsBatch(internBatchObj).then((response) => {
+      addInternsBatch(values).then((response) => {
         if (response) {
           form.reset();
           navigate(`/intern-batch`);

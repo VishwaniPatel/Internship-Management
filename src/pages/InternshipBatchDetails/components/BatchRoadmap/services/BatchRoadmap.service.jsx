@@ -19,7 +19,6 @@ export const deleteBatchRoadMap = async (id) => {
 // Get Data by Id
 export const getBatchRoadmapById = async (id) => {
   const url = URL + id;
-  console.log("URL is:", url);
   return await axios.get(url);
 };
 // Update the Data

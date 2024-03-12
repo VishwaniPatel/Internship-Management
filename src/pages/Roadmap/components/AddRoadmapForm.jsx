@@ -54,13 +54,11 @@ export default function FormModal() {
   // Form Submit button
   function handleFormSubmit(values) {
     // const updatedData = { ...values, totalDuration: duration };
-    // console.log(updatedData);
     if (id) {
       // If ID is present, update the existing roadmap
       updateRoadmap(id, values);
     } else {
       // If no ID is present, add a new roadmap
-      console.log("Add", values);
       addRoadMap(values);
     }
     navigate("/roadmap");
