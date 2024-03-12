@@ -93,7 +93,7 @@ const InternList = ({ openDrawer, closeDrawer }) => {
 
   return (
     <>
-      <div className="table-container">
+      <div >
         <Table
           stickyHeader
           stickyHeaderOffset={-16}

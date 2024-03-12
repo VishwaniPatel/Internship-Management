@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BatchInterns } from "./BatchInterns/BatchInterns";
 import { getByIdInternBatchData } from "../intern-batch/utility/service/intern-batch.service";
+import { BatchRoadmapList } from "./components/BatchRoadmap/components/BatchRoadmapList";
 
 export function InternshipBatchDetails() {
   let { batchId } = useParams();
@@ -34,8 +35,10 @@ export function InternshipBatchDetails() {
         </div>
       </Flex>
       {/* Tab Container */}
-      <Box className="tab-container" m="md">
+
+      <Box className="tab-container">
         <Tabs
+          m="md"
           className="tab-list-wrapper"
           value={activeTab}
           onChange={setActiveTab}
@@ -59,7 +62,7 @@ export function InternshipBatchDetails() {
             Mentor panel
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="roadmaps">
-            Roadmap panel
+            <BatchRoadmapList />
           </Tabs.Panel>
         </Tabs>
       </Box>

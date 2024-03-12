@@ -1,20 +1,38 @@
 import { Menu, Button, rem, UnstyledButton } from "@mantine/core";
 import { IconTrash, IconPencil, IconDotsVertical } from "@tabler/icons-react";
-import { deleteRoadMapDetails } from "../service/RoadmapDetails.service";
+import { deleteRoadMapDetails } from "../utility/service/RoadmapDetails.service";
 import { Link, useParams } from "react-router-dom";
 import ConfirmDelete from "./../../../../shared/common-components/confirmDelete";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getRoadmapById, updateRoadmap } from "../../service/Roadmap.service";
+import { subtractDurations } from "../utility/helper/timeConvertion";
 
-export function DropdownMenu({ id, onDelete }) {
+export function DropdownMenu({ id, onDelete, duration }) {
   const { roadmapId } = useParams();
   const [open, setOpen] = useState(false);
   // const [deleteData, setDeleteData] = useState("");
+  const [roadmapData, setRoadmapData] = useState(null);
+
+  useEffect(() => {
+    getRoadmapById(roadmapId).then((res) => {
+      setRoadmapData(res.data);
+    });
+  }, []);
 
   function handleDelete() {
+    // Get Total Duration
+    let totalDur = roadmapData.totalDuration;
+    // Subtract total duration and particular detail duration
+    const updatedDuration = subtractDurations(totalDur, duration);
     // Delete Record from List
     deleteRoadMapDetails(id).then((res) => {
       setOpen(false);
       onDelete(id);
+    });
+    // Update total duration in roadmap
+    updateRoadmap(roadmapId, {
+      ...roadmapData,
+      totalDuration: updatedDuration,
     });
   }
 
