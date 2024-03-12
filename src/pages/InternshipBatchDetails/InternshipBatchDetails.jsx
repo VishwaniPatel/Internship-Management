@@ -21,6 +21,7 @@ export function InternshipBatchDetails() {
     getByIdInternBatchData(batchId).then((response) => {
       if (response) {
         setBatchName(response.data.batchname);
+        localStorage.setItem("batch_name",`${batchName}`);
       }
     });
   });
