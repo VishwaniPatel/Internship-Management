@@ -24,7 +24,6 @@ import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumb } from "../../../shared/common-components/Breadcrumb";
 import useDomain from "../../Mentors/hooks/useDomain";
 // import { getRoadMapDetails } from "../Roadmap-Details/service/RoadmapDetails.service";
-import { useTotalDuration } from "../../../shared/totalDurationContext";
 
 export default function FormModal() {
   const navigate = useNavigate();
@@ -34,7 +33,6 @@ export default function FormModal() {
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   // Get all Domain details
   const domainData = useDomain();
-  const { duration } = useTotalDuration();
 
   // Form Values
   const form = useForm({

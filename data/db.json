@@ -53,6 +53,12 @@
       "name": "Advance Javascript",
       "domain": "Backend",
       "totalDuration": "2hr 30m"
+    },
+    {
+      "id": "da7d",
+      "name": "Advanced CSS",
+      "domain": "Data",
+      "totalDuration": "1hr 0m"
     }
   ],
   "roadmapDetails": [
@@ -83,6 +89,13 @@
       "topic": "demo2",
       "subtopic": "demo description",
       "duration": "1hr 30m"
+    },
+    {
+      "id": "9ced",
+      "roadmapId": "da7d",
+      "topic": "Importing CSS style",
+      "subtopic": "3 types of exporting styles- Inline, External, Internal",
+      "duration": "1hr"
     }
   ],
   "internshipBatch": [

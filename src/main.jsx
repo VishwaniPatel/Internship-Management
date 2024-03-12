@@ -9,7 +9,6 @@ import "@mantine/dates/styles.css";
 import { BrowserRouter } from "react-router-dom";
 import { variantColorResolver } from "./shared/common-components/StatusBadge.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { TotalDurationProvider } from "./shared/totalDurationContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -43,9 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             variantColorResolver,
           }}
         >
-          <TotalDurationProvider>
-            <App />
-          </TotalDurationProvider>
+          <App />
         </MantineProvider>
       </BrowserRouter>
     </Auth0Provider>

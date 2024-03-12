@@ -7,7 +7,6 @@ import { Breadcrumb } from "../../../../shared/common-components/Breadcrumb";
 import { IconPlus } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { getRoadMapDetails } from "../utility/service/RoadmapDetails.service";
-import { useTotalDuration } from "../../../../shared/totalDurationContext";
 
 function RoadmapDetailsTable() {
   const { roadmapId } = useParams();
