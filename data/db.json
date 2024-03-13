@@ -240,6 +240,72 @@
       "id": "3"
     }
   ],
+  "batchMentor": [
+    {
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Vinay Chudasama",
+      "domainOwner": "true",
+      "email": "vinaychudasama@1rivet.com",
+      "id": "4d66"
+    },
+    {
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Vishwani Patel",
+      "domainOwner": false,
+      "email": "vishwani@1rivet.com",
+      "id": "4077"
+    },
+    {
+      "id": "d279",
+      "batchId": "1",
+      "domain": "Backend",
+      "mentor": "Nikunj Patel",
+      "domainOwner": false,
+      "email": "nikunjpatel@1rivet.com"
+    },
+    {
+      "id": "3edb",
+      "batchId": "1",
+      "domain": "Backend",
+      "mentor": "Amresh Prasad",
+      "domainOwner": false,
+      "email": "amresh@1rivet.com"
+    },
+    {
+      "id": "500f",
+      "batchId": "1",
+      "domain": "Backend",
+      "mentor": "Nidhi Shah",
+      "domainOwner": "true",
+      "email": "nidhi@1rivet.com"
+    },
+    {
+      "id": "8cfd",
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Jinal Tandel",
+      "domainOwner": false,
+      "email": "jinaltandel@1rivet.com"
+    },
+    {
+      "id": "0ece",
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Ravi Sing",
+      "domainOwner": false,
+      "email": "ravising@1rivet.com"
+    },
+    {
+      "id": "a44f",
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Bhavik Gajdhar",
+      "domainOwner": false,
+      "email": "bhavikgajdhar@1rivet.com"
+    }
+  ],
   "batchRoadmap": [
     {
       "batchId": "1",
@@ -399,11 +465,18 @@
       "id": "b600"
     },
     {
-      "id": "c468",
-      "firstName": "raj",
-      "lastName": "patel",
-      "emailId": "user2@mailinator.com",
-      "domain": "QA"
+      "id": "ad0f",
+      "firstName": "Amresh",
+      "lastName": "Prasad",
+      "emailId": "amresh@1rivet.com",
+      "domain": "Backend"
+    },
+    {
+      "id": "d25f",
+      "firstName": "Nidhi",
+      "lastName": "Shah",
+      "emailId": "nidhi@1rivet.com",
+      "domain": "Backend"
     }
   ],
   "domain": [

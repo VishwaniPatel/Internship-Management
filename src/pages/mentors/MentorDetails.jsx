@@ -31,6 +31,10 @@ const MentorDetails = () => {
   };
   // Apply filtering based on selected domains
   const filteredMentors = useFilterData(mentors, selectedDomains);
+  
+ // filter deleted data
+ const handleDelete = (id) =>
+ setMentors(mentors.filter((data) => data.id !== id)); 
   return (
     <Flex direction="column" className="content-wrapper">
       <Flex justify="space-between" align="center" className="sub-header">
@@ -50,7 +54,7 @@ const MentorDetails = () => {
         </Flex>
       </Flex>
       {/* Component to display mentor details */}
-      <MentorList mentors={filteredMentors} />
+      <MentorList mentors={filteredMentors} handleDelete={handleDelete}/>
     </Flex>
 
     // <Flex p="lg" direction="column">
