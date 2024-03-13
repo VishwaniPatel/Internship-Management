@@ -15,10 +15,12 @@ export const BatchInterns = () => {
       <Flex justify="end" align="center" >
         <Button
           variant="light"
+          ml="auto"
+          className="btn-sm"
           onClick={() => setDrawerOpen(true)}
           leftSection={<IconPlus size={14} />}
         >
-          Add New Intern
+          Add 
         </Button>
       </Flex>
       <InternsList openDrawer={drawerOpen} closeDrawer={closeDrawer} />

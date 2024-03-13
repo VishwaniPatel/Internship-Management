@@ -19,7 +19,7 @@ const InternList = ({ openDrawer, closeDrawer }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [editFormId, setEditFormId] = useState();
 
-  let title = editFormId ? "Update Intern" : "Add Intern";
+  let title = editFormId ? "Update Intern Details" : "Add Intern Details";
   const toggleDrawer = () => {
     setDrawerOpen((prevState) => !prevState);
   };

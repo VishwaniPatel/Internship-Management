@@ -1,7 +1,7 @@
 import { Menu, rem, UnstyledButton } from "@mantine/core";
 import { IconTrash, IconPencil, IconDotsVertical } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
-import ConfirmDelete from "./../../../../shared/common-components/confirmDelete";
+import ConfirmDelete from "./../../../../../shared/common-components/confirmDelete";
 import { useState } from "react";
 import { deleteBatchMentor } from "../utility/services/BatchMentor.service";
 
