@@ -29,6 +29,10 @@ export default function Routing() {
             path="/intern-batch/details/:batchId"
             element={<InternshipBatchDetails />}
           />
+           <Route
+            path="/intern-batch/details/:batchId/edit/:id"
+            element={<InternshipBatchDetails />}
+          />
           <Route
             path="/intern-batch/details/:batchId/profile/:id"
             element={<InternProfile/>}

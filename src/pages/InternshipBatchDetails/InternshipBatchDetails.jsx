@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { BatchInterns } from "./components/BatchInterns/BatchInterns";
 import { getByIdInternBatchData } from "../intern-batch/utility/service/intern-batch.service";
 import { BatchRoadmapList } from "./components/BatchRoadmap/components/BatchRoadmapList";
-
+import BatchMentor from "./BatchMentor/BatchMentor";
 export function InternshipBatchDetails() {
   let { batchId } = useParams();
 
@@ -59,7 +59,7 @@ export function InternshipBatchDetails() {
             <BatchInterns/>
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="mentors">
-            Mentor panel
+            <BatchMentor/>
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="roadmaps">
             <BatchRoadmapList />

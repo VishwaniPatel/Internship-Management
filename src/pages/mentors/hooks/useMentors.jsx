@@ -16,4 +16,4 @@ const useMentors = () => {
   return mentors;
 }
 
-export default useMentors
+export default useMentors;
