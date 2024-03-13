@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Menu, rem, UnstyledButton } from "@mantine/core";
 import { IconTrash, IconPencil, IconDotsVertical } from "@tabler/icons-react";
-import ConfirmDelete from "../../../shared/common-components/confirmDelete";
-import { useNavigate } from "react-router-dom";
+import ConfirmDelete from "../../../../shared/common-components/confirmDelete";
 import { useState } from "react";
 
-export function DropdownMenu({ id, removeItem }) {
-  const navigate = useNavigate();
+export function DropdownMenu({ id, removeItem, openDrawer,editId }) {
   const [open, setOpen] = useState(false);
 
   /** delete function */
@@ -24,7 +22,8 @@ export function DropdownMenu({ id, removeItem }) {
 
   /** change the route for edit */
   function handleEdit(id) {
-    navigate(`edit-intern/${id}`);
+    openDrawer();
+    editId(id);
   }
 
   return (

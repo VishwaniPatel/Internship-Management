@@ -17,17 +17,18 @@ import {
   getRoadmapById,
 } from "../service/Roadmap.service";
 import { isNotEmpty, useForm } from "@mantine/form";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
 // import useMentors from "../../mentors/hooks/useMentors";
 import { Breadcrumb } from "../../../shared/common-components/Breadcrumb";
-import useDomain from "../../mentors/hooks/useDomain";
+import useDomain from "../../Mentors/hooks/useDomain";
+// import { getRoadMapDetails } from "../Roadmap-Details/service/RoadmapDetails.service";
 
 export default function FormModal() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
+  const title = id ? "Update Folder" : "Add Folder";
   const btnText = id ? "Update" : "Add";
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   // Get all Domain details
@@ -39,6 +40,7 @@ export default function FormModal() {
     initialValues: {
       name: "",
       domain: "",
+      totalDuration: "0hr 0m",
     },
     validate: {
       // Empty strings are considered to be invalid
@@ -50,6 +52,7 @@ export default function FormModal() {
 
   // Form Submit button
   function handleFormSubmit(values) {
+    // const updatedData = { ...values, totalDuration: duration };
     if (id) {
       // If ID is present, update the existing roadmap
       updateRoadmap(id, values);
@@ -82,7 +85,7 @@ export default function FormModal() {
   const Breadcrumbitems = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
-    { title: `${btnText} Roadmap` },
+    { title: `${btnText} Folder` },
   ];
 
   function handleCancel() {
