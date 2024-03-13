@@ -152,17 +152,19 @@ const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
             }
             {...form.getInputProps("domain")}
           />
-          <Select
-            mt="md"
-            label="Mentor"
-            checkIconPosition="right"
-            placeholder="Select Mentor"
-            data={mentorDropdownData}
-            rightSection={
-              <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
-            }
-            {...form.getInputProps("mentor")}
-          />
+          {selectedValues.domain && (
+            <Select
+              mt="md"
+              label="Mentor"
+              checkIconPosition="right"
+              placeholder="Select Mentor"
+              data={mentorDropdownData}
+              rightSection={
+                <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
+              }
+              {...form.getInputProps("mentor")}
+            />
+          )}
 
           <Group justify="flex-end" mt="lg">
             <Button variant="default" onClick={handleCancel}>

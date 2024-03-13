@@ -6,8 +6,9 @@ import {
   rem,
   Breadcrumbs,
   Grid,
+  Select,
 } from "@mantine/core";
-import { IconCalendar } from "@tabler/icons-react";
+import { IconCalendar, IconChevronDown } from "@tabler/icons-react";
 import { useForm, yupResolver } from "@mantine/form";
 import { DateInput } from "@mantine/dates";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -31,6 +32,7 @@ export default function BatchForm() {
       batchname: "",
       startdate: "",
       enddate: "",
+      status: "Not-Started",
     },
     validate: yupResolver(ValidationSchema),
   });
@@ -57,6 +59,7 @@ export default function BatchForm() {
             batchname: response.data.batchname,
             startdate: new Date(response.data.startdate),
             enddate: new Date(response.data.enddate),
+            status :response.data.status
           });
         }
       });
@@ -130,6 +133,21 @@ export default function BatchForm() {
                 placeholder="Select End Date"
                 {...form.getInputProps("enddate")}
               />
+               <Select
+                  mt="md"
+                  label="Select Status"
+                  placeholder="Pick value"
+                  checkIconPosition="right"
+                  data={["Not-Started", "In Progress", "Completed"]}
+                  maxDropdownHeight={200}
+                  defaultValue="Not Started"
+                  rightSection={
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                    />
+                  }
+                  {...form.getInputProps("status")}
+                />
 
               <Group justify="flex-end" mt="lg">
                 <Button variant="default" onClick={handleCancel}>

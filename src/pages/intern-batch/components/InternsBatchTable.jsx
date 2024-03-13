@@ -36,6 +36,7 @@ export function InternsBatchTable() {
       </Table.Td>
       <Table.Td>{formatDateString(tabData.startdate)}</Table.Td>
       <Table.Td>{formatDateString(tabData.enddate)}</Table.Td>
+      <Table.Td>{tabData.status}</Table.Td>
       <Table.Td>
         {
           <DropdownMenu
@@ -55,6 +56,7 @@ export function InternsBatchTable() {
               <Table.Th>BATCH-NAME</Table.Th>
               <Table.Th>START-DATE</Table.Th>
               <Table.Th>END-DATE</Table.Th>
+              <Table.Th>STATUS</Table.Th>
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>

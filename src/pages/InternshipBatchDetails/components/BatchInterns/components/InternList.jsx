@@ -1,4 +1,4 @@
-import { Drawer, Menu, Table } from "@mantine/core";
+import { Drawer, Menu, Table, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import {
   deleteInternDetails,
@@ -93,7 +93,7 @@ const InternList = ({ openDrawer, closeDrawer }) => {
 
   return (
     <>
-      <div >
+      <div>
         <Table
           stickyHeader
           stickyHeaderOffset={-16}
@@ -111,7 +111,17 @@ const InternList = ({ openDrawer, closeDrawer }) => {
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
-          <Table.Tbody>{rows}</Table.Tbody>
+          <Table.Tbody>
+            {internList.length == 0 ? (
+              <Table.Tr>
+                <Table.Td colSpan="4">
+                  <Text ta="center"> No Records Found</Text>
+                </Table.Td>
+              </Table.Tr>
+            ) : (
+              <>{rows}</>
+            )}
+          </Table.Tbody>
         </Table>
       </div>
       <Drawer
