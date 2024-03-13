@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Menu, rem, UnstyledButton } from "@mantine/core";
 import { IconTrash, IconPencil, IconDotsVertical } from "@tabler/icons-react";
-import ConfirmDelete from "../../../../shared/common-components/confirmDelete";
+import ConfirmDelete from "../../../../../shared/common-components/confirmDelete";
 import { useState } from "react";
 
 export function DropdownMenu({ id, removeItem, openDrawer,editId }) {

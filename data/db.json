@@ -100,23 +100,23 @@
   ],
   "newIntern": [
     {
+      "batchId": "1",
       "firstName": "vinay",
       "lastName": "patel",
       "email": "v@gmail.com",
       "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "React",
-      "batchId": "1",
+      "mentor": "Nikunj Patel",
+      "domain": "Backend",
       "id": "1"
     },
     {
+      "batchId": "1",
       "firstName": "Bhavik",
       "lastName": "Gajdhar",
       "email": "b@gmail.com",
       "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "React",
-      "batchId": "1",
+      "mentor": "Ravi Sing",
+      "domain": "Data",
       "id": "2"
     },
     {
@@ -135,8 +135,8 @@
       "lastName": "patel",
       "email": "r@gmail.com",
       "contact": "1236547890",
-      "mentor": "Nikunj Patel",
-      "domain": "Backend",
+      "mentor": "Bhavik Gajdhar",
+      "domain": "Frontend",
       "id": "5"
     },
     {
@@ -145,8 +145,8 @@
       "lastName": "patel",
       "email": "n@gmail.com",
       "contact": "7894561230",
-      "mentor": "Vishwani",
-      "domain": "React",
+      "mentor": "Jinal Tandel",
+      "domain": "Frontend",
       "id": "6"
     },
     {
@@ -155,8 +155,8 @@
       "lastName": "patel",
       "email": "v@gmail.com",
       "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "Angular",
+      "mentor": "Nikunj Patel",
+      "domain": "Backend",
       "id": "OrssiWU"
     },
     {
@@ -165,8 +165,8 @@
       "lastName": "Patel",
       "email": "k@gmail.com",
       "contact": "4563210789",
-      "mentor": "Bhavik",
-      "domain": "Vue",
+      "mentor": "Bhavik Gajdhar",
+      "domain": "Frontend",
       "id": "iFnhwTx"
     },
     {
@@ -175,19 +175,9 @@
       "lastName": "patel",
       "email": "v@gmail.com",
       "contact": "1236547890",
-      "mentor": "Bhavik",
-      "domain": "React",
+      "mentor": "raj patel",
+      "domain": "QA",
       "id": "IU_ewuw"
-    },
-    {
-      "batchId": "2",
-      "firstName": "Yogesh",
-      "lastName": "patel",
-      "email": "y@gmail.com",
-      "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "React",
-      "id": "eCw-CIb"
     },
     {
       "batchId": "3",
@@ -195,8 +185,8 @@
       "lastName": "patel",
       "email": "r@gmail.com",
       "contact": "4563210789",
-      "mentor": "Bhavik",
-      "domain": "Angular",
+      "mentor": "Ravi Sing",
+      "domain": "Data",
       "id": "o1uueeS"
     },
     {

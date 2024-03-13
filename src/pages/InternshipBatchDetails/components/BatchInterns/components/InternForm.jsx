@@ -10,8 +10,8 @@ import { useEffect } from "react";
 import { ValidationSchema } from "../utility/constants/constant";
 import { IconChevronDown } from "@tabler/icons-react";
 import { useParams } from "react-router-dom";
-import useDomain from "../../../mentors/hooks/useDomain";
-import useMentors from "../../../mentors/hooks/useMentors";
+import useDomain from "../../../../mentors/hooks/useDomain";
+import useMentors from "../../../../mentors/hooks/useMentors";
 
 // eslint-disable-next-line react/prop-types
 const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
