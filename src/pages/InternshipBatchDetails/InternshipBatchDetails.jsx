@@ -2,6 +2,7 @@ import { Flex, Box } from "@mantine/core";
 import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 import { Tabs, rem } from "@mantine/core";
 import { useState } from "react";
+import BatchMentor from "./BatchMentor/BatchMentor";
 
 const items = [
   { title: "Internship", href: "#" },
@@ -41,7 +42,7 @@ export function InternshipBatchDetails() {
             Intern panel
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="mentors">
-            Mentor panel
+            <BatchMentor/>
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="roadmaps">
             Roadmap panel
