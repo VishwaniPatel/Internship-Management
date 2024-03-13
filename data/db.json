@@ -101,16 +101,6 @@
   "newIntern": [
     {
       "batchId": "1",
-      "firstName": "vinay",
-      "lastName": "patel",
-      "email": "v@gmail.com",
-      "contact": "1236547890",
-      "mentor": "Nikunj Patel",
-      "domain": "Backend",
-      "id": "1"
-    },
-    {
-      "batchId": "1",
       "firstName": "Bhavik",
       "lastName": "Gajdhar",
       "email": "b@gmail.com",
@@ -208,6 +198,16 @@
       "mentor": "Bhavik Gajdhar",
       "domain": "Frontend",
       "id": "9ZPG-ju"
+    },
+    {
+      "batchId": "1",
+      "firstName": "First",
+      "lastName": "Last",
+      "email": "fl@gmail.com",
+      "contact": "4563217890",
+      "mentor": "null",
+      "domain": "Backend",
+      "id": "xPn-6Uh"
     }
   ],
   "internshipBatch": [
@@ -234,9 +234,9 @@
     {
       "batchId": "1",
       "domain": "Frontend",
-      "mentor": "Vinay Chudasama",
+      "mentor": "Bhavik Gajdhar",
       "domainOwner": "true",
-      "email": "vinaychudasama@1rivet.com",
+      "email": "bhavikgajdhar@1rivet.com",
       "id": "4d66"
     },
     {
@@ -288,12 +288,12 @@
       "email": "ravising@1rivet.com"
     },
     {
-      "id": "a44f",
       "batchId": "1",
       "domain": "Frontend",
-      "mentor": "Bhavik Gajdhar",
-      "domainOwner": false,
-      "email": "bhavikgajdhar@1rivet.com"
+      "mentor": "Vishwani Patel",
+      "domainOwner": "false",
+      "email": "vishwani@1rivet.com",
+      "id": "NqHhrXn"
     }
   ],
   "batchRoadmap": [

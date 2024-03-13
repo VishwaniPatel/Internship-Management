@@ -1,10 +1,10 @@
 import { Box, Button, Checkbox, Group, Select, rem } from '@mantine/core'
-import React, { useEffect, useState } from 'react'
-import useDomain from '../../../mentors/hooks/useDomain'
+import  { useEffect, useState } from 'react'
+import useDomain from '../../../../mentors/hooks/useDomain'
 import { useForm } from '@mantine/form';
 import { useNavigate, useParams } from 'react-router';
 import { IconChevronDown } from '@tabler/icons-react';
-import useMentors from '../../../mentors/hooks/useMentors';
+import useMentors from '../../../../mentors/hooks/useMentors';
 import { addBatchMentor, getBatchMentorById, updateBatchMentor } from '../utility/services/BatchMentor.service';
 import useBatchMentor from '../hooks/useBatchMentor';
 import { updateDomainOwner } from '../utility/helper/updateDomainOwner';
