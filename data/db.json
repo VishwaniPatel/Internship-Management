@@ -215,7 +215,7 @@
       "batchname": "Jan-2025",
       "startdate": "2024-01-31T18:30:00.000Z",
       "enddate": "2024-02-28T18:30:00.000Z",
-      "status": "Not-Started",
+      "status": "Completed",
       "id": "1"
     },
     {
@@ -229,7 +229,7 @@
       "batchname": "April-2024",
       "startdate": "2024-03-31T18:30:00.000Z",
       "enddate": "2024-04-29T18:30:00.000Z",
-      "status": "Completed",
+      "status": "In Progress",
       "id": "3"
     },
     {

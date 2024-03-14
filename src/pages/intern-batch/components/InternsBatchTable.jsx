@@ -1,4 +1,4 @@
-import { Table } from "@mantine/core";
+import { Table, Badge } from "@mantine/core";
 import { DropdownMenu } from "./DropdownMenu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -36,7 +36,20 @@ export function InternsBatchTable() {
       </Table.Td>
       <Table.Td>{formatDateString(tabData.startdate)}</Table.Td>
       <Table.Td>{formatDateString(tabData.enddate)}</Table.Td>
-      <Table.Td>{tabData.status}</Table.Td>
+      <Table.Td>
+        <Badge
+          variant={
+            tabData.status === "Not-Started"
+              ? "notStarted"
+              : tabData.status === "Completed"
+              ? "completed"
+              : "inProgress"
+          }
+          radius="sm"
+        >
+          {tabData.status}
+        </Badge>
+      </Table.Td>
       <Table.Td>
         {
           <DropdownMenu
