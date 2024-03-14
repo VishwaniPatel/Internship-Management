@@ -3,12 +3,10 @@ import { Breadcrumb } from "../../../../../shared/common-components/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getInternDetailsById } from "../utility/service/intern.service";
-import { useAuth0 } from "@auth0/auth0-react";
 import { IconCalendar, IconMail, IconPhone } from "@tabler/icons-react";
 
 export const InternProfile = () => {
   let { id, batchId } = useParams();
-  const { user } = useAuth0();
   const [batchName, setBatchName] = useState();
   const [internProfile, setInternProfile] = useState();
   const items = [
@@ -45,7 +43,10 @@ export const InternProfile = () => {
       <Paper withBorder radius="md" m="lg">
         <Flex style={{ padding: "20px" }} justify="space-between">
           <Box display="flex">
-            <Avatar src={user.picture} radius="sm" size={100} />
+            <Avatar radius="sm" color="cyan" size={100}>
+              {internProfile?.firstName.charAt(0).toUpperCase() +
+                internProfile?.lastName.charAt(0).toUpperCase()}
+            </Avatar>
             <Box ml="lg" align="left" style={{ paddingTop: "5px" }}>
               <Text
                 fw={500}
