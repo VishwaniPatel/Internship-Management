@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useBatchMentor from '../hooks/useBatchMentor';
 import { Table, Text } from '@mantine/core';
 import { useParams } from 'react-router';
 import { DropdownMenu } from './DropDownMenu';
+import InternshipContext from '../../../../../shared/store/Context';
+import useSearch from '../../../../../shared/hooks/useSearch';
 
 const BatchMentorList = ({ toggleDrawer }) => {
   // get param value from URL
@@ -11,13 +13,24 @@ const BatchMentorList = ({ toggleDrawer }) => {
   const batchMentorData = useBatchMentor();
   // set mentors details for selected batch
   const [records, setRecords] = useState([]);
+  const { searchTerm } = useContext(InternshipContext);
+
+  // Filter Records based on batchId
+  const filteredRecords = batchId
+  ? batchMentorData.filter((record) => record.batchId == batchId)
+  : batchMentorData;
+
   useEffect(() => {
-    // Filter Records based on batchId
-    const filteredRecords = batchId
-      ? batchMentorData.filter((record) => record.batchId == batchId)
-      : batchMentorData;
     setRecords(filteredRecords);
   }, [batchId, batchMentorData]);
+
+  useEffect(()=>{
+    // Define the keys for searching
+    const searchKeys = ['mentor', 'email', 'domain'];
+    // Use the useSearch hook with the modified data and searchKeys
+    const filteredMentors = useSearch(filteredRecords, searchTerm, searchKeys);
+    setRecords(filteredMentors);
+    },[searchTerm])
 
   // delete mentor details
   const handleDeleteRecord = (batchId) => {

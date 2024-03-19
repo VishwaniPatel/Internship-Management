@@ -10,11 +10,25 @@ const useSearch = (SearchData, search, key) => {
     }
     else {
       const filterData = SearchData.filter((res) => {
-        return res[key]
-          .toLowerCase()
-          .includes(search.toLowerCase());
+        return key.some(key => {
+          const value = res[key];
+          if (typeof value === "string") {
+            return value.toLowerCase().includes(search.toLowerCase());
+          }
+          return false;
+        });
       });
       return filterData;
     }
   };
   export default useSearch;
+  // const filterData = data.filter(item => {
+  //   return searchKeys.some(key => {
+  //     const value = item[key];
+  //     if (typeof value === "string") {
+  //       return value.toLowerCase().includes(searchTerm.toLowerCase());
+  //     }
+  //     return false;
+  //   });
+  // });
+  // return filterData;

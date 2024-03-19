@@ -1,12 +1,14 @@
 import { Button, Flex, Table, Text, Drawer } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getBatchRoadMap } from "../services/BatchRoadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
 import { useDisclosure } from "@mantine/hooks";
 import AddBatchRoadmapForm from "./AddBatchRoadmapForm";
 import useBatchRoadmap from "../../../../../shared/hooks/useBatchRoadmap";
+import InternshipContext from "../../../../../shared/store/Context";
+import useSearch from "../../../../../shared/hooks/useSearch";
 
 export function BatchRoadmapList() {
   const { batchId, id } = useParams();
@@ -18,22 +20,30 @@ export function BatchRoadmapList() {
   const toggleDrawer = () => {
     setDrawerOpen((prevState) => !prevState);
   };
-
+  const {searchTerm} = useContext(InternshipContext);
+ 
   const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
-
   // Filter Records based on roadmapId.
+  const filteredRecords = batchId
+  ? batchRoadmapData.filter((record) => record.batchId == batchId)
+  : batchRoadmapData;
   useEffect(() => {
-    const filteredRecords = batchId
-      ? batchRoadmapData.filter((record) => record.batchId === batchId)
-      : batchRoadmapData;
     setRecords(filteredRecords);
-  }, [id, batchId, batchRoadmapData]);
+  }, [batchId, batchRoadmapData]);
+
+  useEffect(()=>{
+      // Define the keys for searching
+    const searchKeys = ['topic','domain','mentor','duration']
+     // Use the useSearch hook with the modified data and searchKeys
+    const filterRoadmaps = useSearch(filteredRecords, searchTerm, searchKeys);
+    setRecords(filterRoadmaps)
+  },[searchTerm])
 
   const handleDeleteRecord = (batchId) => {
     setRecords(records.filter((record) => record.id !== batchId));
   };
 
-  const rows = records.map((tabData) => (
+  const rows = records.length > 0 &&  records.map((tabData) => (
     <Table.Tr key={tabData.id}>
       <Table.Td>{tabData.topic}</Table.Td>
       <Table.Td>{tabData.domain}</Table.Td>
