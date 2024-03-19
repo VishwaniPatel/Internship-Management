@@ -1,6 +1,6 @@
 import { Flex, Button } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
-import InternsList from "./components/InternList";
+import BatchInternList from "./components/BatchInternList";
 import { useState } from "react";
 
 export const BatchInterns = () => {
@@ -10,6 +10,7 @@ export const BatchInterns = () => {
   const closeDrawer = () => {
     setDrawerOpen(false);
   };
+  
   return (
     <Flex direction="column">
       <Flex justify="end" align="center" >
@@ -23,7 +24,7 @@ export const BatchInterns = () => {
           Add 
         </Button>
       </Flex>
-      <InternsList openDrawer={drawerOpen} closeDrawer={closeDrawer} />
+      <BatchInternList openDrawer={drawerOpen} closeDrawer={closeDrawer} />
     </Flex>
   );
 };

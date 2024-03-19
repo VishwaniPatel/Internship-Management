@@ -2,16 +2,17 @@ import { Drawer, Menu, Table, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import {
   deleteInternDetails,
-  getInternData,
-} from "../utility/service/intern.service";
+} from "../utility/service/BatchIntern.service";
 import { Link, useParams } from "react-router-dom";
 import { DropdownMenu } from "./DropDownMenu";
 import { useDisclosure } from "@mantine/hooks";
-import InternForm from "./InternForm";
+import AddBatchInternForm from "./AddBatchInternForm";
+import { useBatchIntern } from "../hooks/useBatchIntern";
 
 // eslint-disable-next-line react/prop-types
-const InternList = ({ openDrawer, closeDrawer }) => {
+const BatchInternList = ({ openDrawer, closeDrawer }) => {
   let { batchId } = useParams();
+  const batchInternData = useBatchIntern();
 
   const [internList, setInternList] = useState([]);
   // eslint-disable-next-line no-unused-vars
@@ -26,17 +27,17 @@ const InternList = ({ openDrawer, closeDrawer }) => {
 
   //** getIntern List */
   const getInternList = () => {
-    getInternData().then((response) => {
+    if (batchId) {
       setInternList(
-        response.data.filter((record) => record.batchId == batchId)
+        batchInternData.filter((record) => record.batchId == batchId)
       );
-    });
-    setEditFormId(null);
+      setEditFormId(null);
+    }
   };
 
   useEffect(() => {
     getInternList();
-  }, []);
+  }, [batchId,batchInternData]);
 
   //** set Drawer for open/close  */
   useEffect(() => {
@@ -139,7 +140,7 @@ const InternList = ({ openDrawer, closeDrawer }) => {
           transformOrigin: "center center",
         }}
       >
-        <InternForm
+        <AddBatchInternForm
           editFormId={editFormId}
           getInternList={getInternList}
           closeDrawer={() => setDrawerClose()}
@@ -148,4 +149,4 @@ const InternList = ({ openDrawer, closeDrawer }) => {
     </>
   );
 };
-export default InternList;
+export default BatchInternList;

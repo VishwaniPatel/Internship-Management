@@ -2,10 +2,10 @@ import { Avatar, Box, Flex, Paper, Text, Tooltip } from "@mantine/core";
 import { Breadcrumb } from "../../../../../shared/common-components/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getInternDetailsById } from "../utility/service/intern.service";
+import { getInternDetailsById } from "../utility/service/BatchIntern.service";
 import { IconCalendar, IconMail, IconPhone } from "@tabler/icons-react";
 
-export const InternProfile = () => {
+export const BatchInternProfile = () => {
   let { id, batchId } = useParams();
   const [batchName, setBatchName] = useState();
   const [internProfile, setInternProfile] = useState();
@@ -16,7 +16,9 @@ export const InternProfile = () => {
     {
       title: `${
         internProfile?.firstName.charAt(0).toUpperCase() +
-        internProfile?.firstName.slice(1)
+        internProfile?.firstName.slice(1)+" "+
+        internProfile?.lastName.charAt(0).toUpperCase() +
+        internProfile?.lastName.slice(1)
       }`,
       href: "#",
     },
