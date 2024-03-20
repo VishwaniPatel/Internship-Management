@@ -17,7 +17,7 @@ import {
   addInternsBatch,
   getByIdInternBatchData,
   updateInternsBatch,
-} from "../utility/service/intern-batch.service";
+} from "../utility/service/InternBatch.service";
 import { ValidationSchema } from "../utility/constants/constant";
 
 export default function BatchForm() {

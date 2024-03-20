@@ -3,7 +3,7 @@ import { Menu, rem, UnstyledButton } from "@mantine/core";
 import { IconTrash, IconPencil, IconDotsVertical } from "@tabler/icons-react";
 import ConfirmDelete from "../../../shared/common-components/confirmDelete";
 import { useNavigate } from "react-router-dom";
-import { deleteInternsBatch } from "../utility/service/intern-batch.service";
+import { deleteInternsBatch } from "../utility/service/InternBatch.service";
 import { useState } from "react";
 
 export function DropdownMenu({ id, getInternBatchList }) {
