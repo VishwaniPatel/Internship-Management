@@ -1,8 +1,9 @@
-import { Flex, Button } from "@mantine/core";
+import { Flex, Button, Group } from "@mantine/core";
 import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { IconPlus } from "@tabler/icons-react";
 import { InternsBatchTable } from "./components/InternsBatchTable";
+import SearchBox from "../../shared/common-components/SearchBox";
 
 const items = [
   { title: "Internship", href: "#" },
@@ -17,9 +18,12 @@ export const InternsBatch = () => {
           <Breadcrumb data={items} />
           <h4 className="content-title">InternBatch</h4>
         </div>
+        <Group>
+        <SearchBox/>
         <Link to="batch/add/new">
           <Button leftSection={<IconPlus size={14} />}>Add New Batch</Button>
         </Link>
+        </Group>
       </Flex>
       <InternsBatchTable />
     </Flex>

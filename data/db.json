@@ -225,25 +225,15 @@
       ]
     }
   ],
-  "newIntern": [
+  "batchIntern": [
     {
-      "firstName": "vinay",
-      "lastName": "patel",
-      "email": "v@gmail.com",
-      "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "React",
       "batchId": "1",
-      "id": "1"
-    },
-    {
       "firstName": "Bhavik",
       "lastName": "Gajdhar",
       "email": "b@gmail.com",
       "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "React",
-      "batchId": "1",
+      "mentor": "Ravi Sing",
+      "domain": "Data",
       "id": "2"
     },
     {
@@ -262,8 +252,8 @@
       "lastName": "patel",
       "email": "r@gmail.com",
       "contact": "1236547890",
-      "mentor": "Nikunj Patel",
-      "domain": "Backend",
+      "mentor": "Bhavik Gajdhar",
+      "domain": "Frontend",
       "id": "5"
     },
     {
@@ -272,8 +262,8 @@
       "lastName": "patel",
       "email": "n@gmail.com",
       "contact": "7894561230",
-      "mentor": "Vishwani",
-      "domain": "React",
+      "mentor": "Jinal Tandel",
+      "domain": "Frontend",
       "id": "6"
     },
     {
@@ -282,8 +272,8 @@
       "lastName": "patel",
       "email": "v@gmail.com",
       "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "Angular",
+      "mentor": "Nikunj Patel",
+      "domain": "Backend",
       "id": "OrssiWU"
     },
     {
@@ -292,8 +282,8 @@
       "lastName": "Patel",
       "email": "k@gmail.com",
       "contact": "4563210789",
-      "mentor": "Bhavik",
-      "domain": "Vue",
+      "mentor": "Bhavik Gajdhar",
+      "domain": "Frontend",
       "id": "iFnhwTx"
     },
     {
@@ -302,19 +292,9 @@
       "lastName": "patel",
       "email": "v@gmail.com",
       "contact": "1236547890",
-      "mentor": "Bhavik",
-      "domain": "React",
+      "mentor": "raj patel",
+      "domain": "QA",
       "id": "IU_ewuw"
-    },
-    {
-      "batchId": "2",
-      "firstName": "Yogesh",
-      "lastName": "patel",
-      "email": "y@gmail.com",
-      "contact": "1236547890",
-      "mentor": "Vinay",
-      "domain": "React",
-      "id": "eCw-CIb"
     },
     {
       "batchId": "3",
@@ -322,8 +302,8 @@
       "lastName": "patel",
       "email": "r@gmail.com",
       "contact": "4563210789",
-      "mentor": "Bhavik",
-      "domain": "Angular",
+      "mentor": "Ravi Sing",
+      "domain": "Data",
       "id": "o1uueeS"
     },
     {
@@ -345,6 +325,16 @@
       "mentor": "Bhavik Gajdhar",
       "domain": "Frontend",
       "id": "9ZPG-ju"
+    },
+    {
+      "batchId": "1",
+      "firstName": "First",
+      "lastName": "Last",
+      "email": "fl@gmail.com",
+      "contact": "4563217890",
+      "mentor": "Nidhi Shah",
+      "domain": "Backend",
+      "id": "xPn-6Uh"
     }
   ],
   "internshipBatch": [
@@ -352,19 +342,111 @@
       "batchname": "Jan-2025",
       "startdate": "2024-01-31T18:30:00.000Z",
       "enddate": "2024-02-28T18:30:00.000Z",
+      "status": "Completed",
       "id": "1"
     },
     {
       "batchname": "March-2024",
       "startdate": "2024-02-29T18:30:00.000Z",
       "enddate": "2024-03-28T18:30:00.000Z",
+      "status": "In Progress",
       "id": "2"
     },
     {
       "batchname": "April-2024",
       "startdate": "2024-03-31T18:30:00.000Z",
       "enddate": "2024-04-29T18:30:00.000Z",
+      "status": "In Progress",
       "id": "3"
+    },
+    {
+      "batchname": "May-2024",
+      "startdate": "2024-04-30T18:30:00.000Z",
+      "enddate": "2024-05-30T18:30:00.000Z",
+      "status": "Not-Started",
+      "id": "g2EiTEV"
+    }
+  ],
+  "batchMentor": [
+    {
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Bhavik Gajdhar",
+      "domainOwner": false,
+      "email": "bhavikgajdhar@1rivet.com",
+      "id": "4d66"
+    },
+    {
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Vishwani Patel",
+      "domainOwner": false,
+      "email": "vishwani@1rivet.com",
+      "id": "4077"
+    },
+    {
+      "id": "d279",
+      "batchId": "1",
+      "domain": "Backend",
+      "mentor": "Nikunj Patel",
+      "domainOwner": false,
+      "email": "nikunjpatel@1rivet.com"
+    },
+    {
+      "id": "3edb",
+      "batchId": "1",
+      "domain": "Backend",
+      "mentor": "Amresh Prasad",
+      "domainOwner": false,
+      "email": "amresh@1rivet.com"
+    },
+    {
+      "id": "500f",
+      "batchId": "1",
+      "domain": "Backend",
+      "mentor": "Nidhi Shah",
+      "domainOwner": "true",
+      "email": "nidhi@1rivet.com"
+    },
+    {
+      "id": "8cfd",
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Jinal Tandel",
+      "domainOwner": false,
+      "email": "jinaltandel@1rivet.com"
+    },
+    {
+      "id": "0ece",
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Ravi Sing",
+      "domainOwner": false,
+      "email": "ravising@1rivet.com"
+    },
+    {
+      "batchId": "1",
+      "domain": "Frontend",
+      "mentor": "Vishwani Patel",
+      "domainOwner": false,
+      "email": "vishwani@1rivet.com",
+      "id": "NqHhrXn"
+    },
+    {
+      "id": "2a4c",
+      "batchId": "2",
+      "domain": "Frontend",
+      "mentor": "Vinay Chudasama",
+      "domainOwner": "false",
+      "email": "vinaychudasama@1rivet.com"
+    },
+    {
+      "id": "0d31",
+      "batchId": "2",
+      "domain": "Backend",
+      "mentor": "Nikunj Patel",
+      "domainOwner": "false",
+      "email": "nikunjpatel@1rivet.com"
     }
   ],
   "batchRoadmap": [
@@ -534,11 +616,18 @@
       "id": "b600"
     },
     {
-      "id": "c468",
-      "firstName": "raj",
-      "lastName": "patel",
-      "emailId": "user2@mailinator.com",
-      "domain": "QA"
+      "id": "ad0f",
+      "firstName": "Amresh",
+      "lastName": "Prasad",
+      "emailId": "amresh@1rivet.com",
+      "domain": "Backend"
+    },
+    {
+      "id": "d25f",
+      "firstName": "Nidhi",
+      "lastName": "Shah",
+      "emailId": "nidhi@1rivet.com",
+      "domain": "Backend"
     }
   ],
   "domain": [

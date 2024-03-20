@@ -3,10 +3,11 @@ import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 import { Tabs } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BatchInterns } from "./BatchInterns/BatchInterns";
-import { getByIdInternBatchData } from "../intern-batch/utility/service/intern-batch.service";
+import { BatchInterns } from "./components/BatchInterns/BatchInterns";
+import { getByIdInternBatchData } from "../intern-batch/utility/service/InternBatch.service";
 import { BatchRoadmapList } from "./components/BatchRoadmap/components/BatchRoadmapList";
-
+import BatchMentor from "./components/BatchMentor/BatchMentor";
+import SearchBox from "../../shared/common-components/SearchBox";
 export function InternshipBatchDetails() {
   let { batchId } = useParams();
 
@@ -33,6 +34,7 @@ export function InternshipBatchDetails() {
           <Breadcrumb data={items} />
           <h4 className="content-title">{batchName}</h4>
         </div>
+        <SearchBox/>
       </Flex>
       {/* Tab Container */}
 
@@ -59,7 +61,7 @@ export function InternshipBatchDetails() {
             <BatchInterns/>
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="mentors">
-            Mentor panel
+            <BatchMentor/>
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="roadmaps">
             <BatchRoadmapList />

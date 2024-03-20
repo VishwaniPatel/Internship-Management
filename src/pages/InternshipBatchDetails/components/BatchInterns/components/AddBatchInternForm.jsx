@@ -5,16 +5,16 @@ import {
   addInternDetails,
   getInternDetailsById,
   updateInternDetails,
-} from "../utility/service/intern.service";
+} from "../utility/service/BatchIntern.service";
 import { useEffect } from "react";
 import { ValidationSchema } from "../utility/constants/constant";
 import { IconChevronDown } from "@tabler/icons-react";
 import { useParams } from "react-router-dom";
-import useDomain from "../../../mentors/hooks/useDomain";
-import useMentors from "../../../mentors/hooks/useMentors";
+import useDomain from "../../../../mentors/hooks/useDomain";
+import useMentors from "../../../../mentors/hooks/useMentors";
 
 // eslint-disable-next-line react/prop-types
-const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
+const AddBatchInternForm = ({ closeDrawer, editFormId, getInternList }) => {
   let { batchId } = useParams();
 
   //** Get Domain Data for domain Dropdown */
@@ -152,17 +152,19 @@ const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
             }
             {...form.getInputProps("domain")}
           />
-          <Select
-            mt="md"
-            label="Mentor"
-            checkIconPosition="right"
-            placeholder="Select Mentor"
-            data={mentorDropdownData}
-            rightSection={
-              <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
-            }
-            {...form.getInputProps("mentor")}
-          />
+          {selectedValues.domain && (
+            <Select
+              mt="md"
+              label="Mentor"
+              checkIconPosition="right"
+              placeholder="Select Mentor"
+              data={mentorDropdownData}
+              rightSection={
+                <IconChevronDown style={{ width: rem(16), height: rem(16) }} />
+              }
+              {...form.getInputProps("mentor")}
+            />
+          )}
 
           <Group justify="flex-end" mt="lg">
             <Button variant="default" onClick={handleCancel}>
@@ -175,4 +177,4 @@ const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
     </>
   );
 };
-export default InternForm;
+export default AddBatchInternForm;

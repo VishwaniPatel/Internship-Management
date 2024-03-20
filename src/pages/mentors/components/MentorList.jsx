@@ -5,19 +5,16 @@ import {
   IconDotsVertical,
   IconSelector,
 } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
 import MenuDropdown from "./MenuDropdown";
 import useSort from "../../../shared/hooks/useSort";
 
-const MentorList = ({ mentors }) => {
+const MentorList = ({ mentors, handleDelete }) => {
   const { sortedData, sortColumn, sortDirection, handleSortColumn } = useSort(
     mentors,
     "firstName",
     "asc"
   );
-  // filter deleted data
-  const handleDelete = (id) =>
-    setMentors(mentors.filter((data) => data.id !== id));
+  
 
   const sortIconFirstName =
     sortColumn === "firstName" ? (

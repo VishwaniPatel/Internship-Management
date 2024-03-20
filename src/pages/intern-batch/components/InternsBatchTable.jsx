@@ -1,21 +1,36 @@
-import { Table } from "@mantine/core";
+import { Table, Badge } from "@mantine/core";
 import { DropdownMenu } from "./DropdownMenu";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getInternsBatchData } from "../utility/service/intern-batch.service";
+import { useInternBatch } from "../hooks/useInternBatch";
+import InternshipContext from "../../../shared/store/Context";
+import useSearch from "../../../shared/hooks/useSearch";
 
 export function InternsBatchTable() {
   const [records, setRecords] = useState([]);
-
+  const BatchData = useInternBatch();
+const {searchTerm} = useContext(InternshipContext);
   const getInternBatchList = () => {
-    getInternsBatchData().then((res) => {
-      setRecords(res.data);
-    });
+      setRecords(BatchData);
   };
 
   useEffect(() => {
+    // search keys
+    const searchKeys = ['batchname', 'formattedStartDate', 'formattedEndDate', 'status'];
+    // formatted data for start date and end date
+    const formattedData = BatchData.map(item => ({
+      ...item,
+      formattedStartDate: formatDateString(item.startdate),
+      formattedEndDate: formatDateString(item.enddate),
+    }));
+    // Use the useSearch hook with the modified data and searchKeys
+    const filteredBatch = useSearch(formattedData, searchTerm, searchKeys);
+    setRecords(filteredBatch);
+  }, [searchTerm]);
+
+  useEffect(() => {
     getInternBatchList();
-  }, []);
+  }, [BatchData]);
 
   const formatDateString = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
@@ -37,6 +52,20 @@ export function InternsBatchTable() {
       <Table.Td>{formatDateString(tabData.startdate)}</Table.Td>
       <Table.Td>{formatDateString(tabData.enddate)}</Table.Td>
       <Table.Td>
+        <Badge
+          variant={
+            tabData.status === "Not-Started"
+              ? "notStarted"
+              : tabData.status === "Completed"
+              ? "completed"
+              : "inProgress"
+          }
+          radius="sm"
+        >
+          {tabData.status}
+        </Badge>
+      </Table.Td>
+      <Table.Td>
         {
           <DropdownMenu
             getInternBatchList={getInternBatchList}
@@ -55,6 +84,7 @@ export function InternsBatchTable() {
               <Table.Th>BATCH-NAME</Table.Th>
               <Table.Th>START-DATE</Table.Th>
               <Table.Th>END-DATE</Table.Th>
+              <Table.Th>STATUS</Table.Th>
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>

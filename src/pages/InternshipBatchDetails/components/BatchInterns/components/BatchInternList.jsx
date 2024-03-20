@@ -1,42 +1,61 @@
-import { Drawer, Menu, Table } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { Drawer, Menu, Table, Text } from "@mantine/core";
+import { useContext, useEffect, useState } from "react";
 import {
   deleteInternDetails,
-  getInternData,
-} from "../utility/service/intern.service";
+} from "../utility/service/BatchIntern.service";
 import { Link, useParams } from "react-router-dom";
 import { DropdownMenu } from "./DropDownMenu";
 import { useDisclosure } from "@mantine/hooks";
-import InternForm from "./InternForm";
+import AddBatchInternForm from "./AddBatchInternForm";
+import { useBatchIntern } from "../hooks/useBatchIntern";
+import useSearch from "../../../../../shared/hooks/useSearch";
+import InternshipContext from "../../../../../shared/store/Context";
 
 // eslint-disable-next-line react/prop-types
-const InternList = ({ openDrawer, closeDrawer }) => {
+const BatchInternList = ({ openDrawer, closeDrawer }) => {
   let { batchId } = useParams();
+  const batchInternData = useBatchIntern();
 
   const [internList, setInternList] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [opened, { open, close }] = useDisclosure(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [editFormId, setEditFormId] = useState();
-
-  let title = editFormId ? "Update Intern" : "Add Intern";
+  const { searchTerm } = useContext(InternshipContext);
+  let title = editFormId ? "Update Intern Details" : "Add Intern Details";
   const toggleDrawer = () => {
     setDrawerOpen((prevState) => !prevState);
   };
 
+  useEffect(() => {
+    // filter data according to batch
+    const filteredData = batchInternData.filter((record) => record.batchId == batchId);
+    //  Merge firstName and lastName into fullName for searching
+    const modifiedData = filteredData.map(item => ({
+      ...item,
+      fullName: `${item.firstName} ${item.lastName}` // Concatenate firstName and lastName
+    }))
+    // Define the keys for searching
+    const searchKeys = ['fullName', 'email', 'domain', 'contact'];
+    // Use the useSearch hook with the modified data and searchKeys
+    const filteredInterns = useSearch(modifiedData, searchTerm, searchKeys);
+    setInternList(filteredInterns);
+  }, [searchTerm])
+
+
   //** getIntern List */
   const getInternList = () => {
-    getInternData().then((response) => {
+    if (batchId) {
       setInternList(
-        response.data.filter((record) => record.batchId == batchId)
+        batchInternData.filter((record) => record.batchId == batchId)
       );
-    });
-    setEditFormId(null);
+      setEditFormId(null);
+    }
   };
 
   useEffect(() => {
     getInternList();
-  }, []);
+  }, [batchId, batchInternData]);
 
   //** set Drawer for open/close  */
   useEffect(() => {
@@ -93,7 +112,7 @@ const InternList = ({ openDrawer, closeDrawer }) => {
 
   return (
     <>
-      <div >
+      <div>
         <Table
           stickyHeader
           stickyHeaderOffset={-16}
@@ -111,7 +130,17 @@ const InternList = ({ openDrawer, closeDrawer }) => {
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
-          <Table.Tbody>{rows}</Table.Tbody>
+          <Table.Tbody>
+            {internList.length == 0 ? (
+              <Table.Tr>
+                <Table.Td colSpan="4">
+                  <Text ta="center"> No Records Found</Text>
+                </Table.Td>
+              </Table.Tr>
+            ) : (
+              <>{rows}</>
+            )}
+          </Table.Tbody>
         </Table>
       </div>
       <Drawer
@@ -129,7 +158,7 @@ const InternList = ({ openDrawer, closeDrawer }) => {
           transformOrigin: "center center",
         }}
       >
-        <InternForm
+        <AddBatchInternForm
           editFormId={editFormId}
           getInternList={getInternList}
           closeDrawer={() => setDrawerClose()}
@@ -138,4 +167,4 @@ const InternList = ({ openDrawer, closeDrawer }) => {
     </>
   );
 };
-export default InternList;
+export default BatchInternList;

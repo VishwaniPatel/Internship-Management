@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:3000/newIntern";
+const url = "http://localhost:3000/batchIntern";
 
 /** getById internData Call */
 export const getInternData = () => {
