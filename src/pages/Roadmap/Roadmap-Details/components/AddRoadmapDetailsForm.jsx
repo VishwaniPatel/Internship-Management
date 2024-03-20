@@ -41,7 +41,7 @@ import useRoadmapDetails from "../../../../shared/hooks/useRoadmapDetails";
 export default function AddRoadmapDetailsForm() {
   const navigate = useNavigate();
   const { roadmapId, id } = useParams();
-  const title = id ? "Update Roadmap Detail" : `Add Roadmap Detail-Day ${day}`;
+  const title = id ? "Update Roadmap Detail" : `Add Roadmap Detail-Day 01`;
   const btnText = id ? "Update" : "Add";
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   // Get all mentor details
@@ -55,7 +55,7 @@ export default function AddRoadmapDetailsForm() {
   const form = useForm({
     initialValues: {
       roadmapId: roadmapId,
-      day: day,
+      day: 1,
       topics: [
         {
           id: Math.random()
