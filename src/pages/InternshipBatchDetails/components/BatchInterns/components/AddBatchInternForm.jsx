@@ -5,7 +5,7 @@ import {
   addInternDetails,
   getInternDetailsById,
   updateInternDetails,
-} from "../utility/service/intern.service";
+} from "../utility/service/BatchIntern.service";
 import { useEffect } from "react";
 import { ValidationSchema } from "../utility/constants/constant";
 import { IconChevronDown } from "@tabler/icons-react";
@@ -14,7 +14,7 @@ import useDomain from "../../../../mentors/hooks/useDomain";
 import useMentors from "../../../../mentors/hooks/useMentors";
 
 // eslint-disable-next-line react/prop-types
-const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
+const AddBatchInternForm = ({ closeDrawer, editFormId, getInternList }) => {
   let { batchId } = useParams();
 
   //** Get Domain Data for domain Dropdown */
@@ -177,4 +177,4 @@ const InternForm = ({ closeDrawer, editFormId, getInternList }) => {
     </>
   );
 };
-export default InternForm;
+export default AddBatchInternForm;

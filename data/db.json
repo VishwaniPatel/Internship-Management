@@ -98,7 +98,7 @@
       "id": "9ced"
     }
   ],
-  "newIntern": [
+  "batchIntern": [
     {
       "batchId": "1",
       "firstName": "Bhavik",
@@ -205,7 +205,7 @@
       "lastName": "Last",
       "email": "fl@gmail.com",
       "contact": "4563217890",
-      "mentor": "null",
+      "mentor": "Nidhi Shah",
       "domain": "Backend",
       "id": "xPn-6Uh"
     }
@@ -245,7 +245,7 @@
       "batchId": "1",
       "domain": "Frontend",
       "mentor": "Bhavik Gajdhar",
-      "domainOwner": "true",
+      "domainOwner": false,
       "email": "bhavikgajdhar@1rivet.com",
       "id": "4d66"
     },
@@ -301,7 +301,7 @@
       "batchId": "1",
       "domain": "Frontend",
       "mentor": "Vishwani Patel",
-      "domainOwner": "false",
+      "domainOwner": false,
       "email": "vishwani@1rivet.com",
       "id": "NqHhrXn"
     }

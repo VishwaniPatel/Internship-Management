@@ -2,20 +2,19 @@ import { Table, Badge } from "@mantine/core";
 import { DropdownMenu } from "./DropdownMenu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getInternsBatchData } from "../utility/service/intern-batch.service";
+import { useInternBatch } from "../hooks/useInternBatch";
 
 export function InternsBatchTable() {
   const [records, setRecords] = useState([]);
+  const BatchData = useInternBatch();
 
   const getInternBatchList = () => {
-    getInternsBatchData().then((res) => {
-      setRecords(res.data);
-    });
+      setRecords(BatchData);
   };
 
   useEffect(() => {
     getInternBatchList();
-  }, []);
+  }, [BatchData]);
 
   const formatDateString = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric" };

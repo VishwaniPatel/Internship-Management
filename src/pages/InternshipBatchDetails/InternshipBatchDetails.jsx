@@ -4,7 +4,7 @@ import { Tabs } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BatchInterns } from "./components/BatchInterns/BatchInterns";
-import { getByIdInternBatchData } from "../intern-batch/utility/service/intern-batch.service";
+import { getByIdInternBatchData } from "../intern-batch/utility/service/InternBatch.service";
 import { BatchRoadmapList } from "./components/BatchRoadmap/components/BatchRoadmapList";
 import BatchMentor from "./components/BatchMentor/BatchMentor";
 export function InternshipBatchDetails() {
