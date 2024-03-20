@@ -10,6 +10,7 @@ import AddBatchInternForm from "./AddBatchInternForm";
 import { useBatchIntern } from "../hooks/useBatchIntern";
 import useSearch from "../../../../../shared/hooks/useSearch";
 import InternshipContext from "../../../../../shared/store/Context";
+import useFilterData from "../../../../../shared/hooks/useFilterData";
 
 // eslint-disable-next-line react/prop-types
 const BatchInternList = ({ openDrawer, closeDrawer }) => {
@@ -21,7 +22,7 @@ const BatchInternList = ({ openDrawer, closeDrawer }) => {
   const [opened, { open, close }] = useDisclosure(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [editFormId, setEditFormId] = useState();
-  const { searchTerm } = useContext(InternshipContext);
+  const { searchTerm, selectedDomains } = useContext(InternshipContext);
   let title = editFormId ? "Update Intern Details" : "Add Intern Details";
   const toggleDrawer = () => {
     setDrawerOpen((prevState) => !prevState);
@@ -41,6 +42,13 @@ const BatchInternList = ({ openDrawer, closeDrawer }) => {
     const filteredInterns = useSearch(modifiedData, searchTerm, searchKeys);
     setInternList(filteredInterns);
   }, [searchTerm])
+
+  useEffect(() => {
+    // filter data according to batch
+    const filteredRecords = batchInternData.filter((record) => record.batchId == batchId);
+    const filteredData = useFilterData(filteredRecords, selectedDomains)
+    setInternList(filteredData);
+  }, [selectedDomains])
 
 
   //** getIntern List */

@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { DropdownMenu } from './DropDownMenu';
 import InternshipContext from '../../../../../shared/store/Context';
 import useSearch from '../../../../../shared/hooks/useSearch';
+import useFilterData from '../../../../../shared/hooks/useFilterData';
 
 const BatchMentorList = ({ toggleDrawer }) => {
   // get param value from URL
@@ -13,29 +14,34 @@ const BatchMentorList = ({ toggleDrawer }) => {
   const batchMentorData = useBatchMentor();
   // set mentors details for selected batch
   const [records, setRecords] = useState([]);
-  const { searchTerm } = useContext(InternshipContext);
+  const { searchTerm, selectedDomains } = useContext(InternshipContext);
 
   // Filter Records based on batchId
   const filteredRecords = batchId
-  ? batchMentorData.filter((record) => record.batchId == batchId)
-  : batchMentorData;
+    ? batchMentorData.filter((record) => record.batchId == batchId)
+    : batchMentorData;
 
   useEffect(() => {
     setRecords(filteredRecords);
   }, [batchId, batchMentorData]);
 
-  useEffect(()=>{
+  useEffect(() => {
     // Define the keys for searching
     const searchKeys = ['mentor', 'email', 'domain'];
     // Use the useSearch hook with the modified data and searchKeys
     const filteredMentors = useSearch(filteredRecords, searchTerm, searchKeys);
     setRecords(filteredMentors);
-    },[searchTerm])
+  }, [searchTerm])
 
   // delete mentor details
   const handleDeleteRecord = (batchId) => {
     setRecords(records.filter((record) => record.id !== batchId));
   };
+
+  useEffect(() => {
+    const filteredData = useFilterData(filteredRecords, selectedDomains)
+    setRecords(filteredData);
+  }, [selectedDomains])
 
   //   table data for displaying mentor details
   const rows = records.length > 0 && records.map((tabData) => (

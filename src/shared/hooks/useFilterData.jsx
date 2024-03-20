@@ -1,20 +1,21 @@
-import { useState, useEffect } from 'react';
-
+/**
+ * for searchdata
+ * @param {*} data - data on which filter is performed
+ * @param {*} filterCriteria - selected criteria using filter in performed
+ * @returns filtered data
+ */
 const useFilterData = (data, filterCriteria) => {
-  const [filteredData, setFilteredData] = useState(data);
 
-  useEffect(() => {
     if (!filterCriteria || filterCriteria.length === 0) {
       // If no filter criteria or all criteria are cleared, return the original data
-      setFilteredData(data);
+      return data;
     } else {
       // Filter the data based on the provided filter criteria
-      const filtered = data.filter(item => filterCriteria.includes(item.domain));
-      setFilteredData(filtered);
+      return data.filter(item => filterCriteria.includes(item.domain));
     }
-  }, [data, filterCriteria]);
+  // }, 
 
-  return filteredData;
+  // return data; // Return the original data if no filter is applied
 };
 
 export default useFilterData;

@@ -18,12 +18,12 @@ export const InternsBatch = () => {
           <Breadcrumb data={items} />
           <h4 className="content-title">InternBatch</h4>
         </div>
-        <Group>
+        <Flex>
         <SearchBox/>
         <Link to="batch/add/new">
           <Button leftSection={<IconPlus size={14} />}>Add New Batch</Button>
         </Link>
-        </Group>
+        </Flex>
       </Flex>
       <InternsBatchTable />
     </Flex>

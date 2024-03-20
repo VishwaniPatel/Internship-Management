@@ -1,8 +1,9 @@
 /**
  * for searchdata
- * @param {*} SearchData
- * @param {*} search
- * @returns
+ * @param {*} SearchData - data on which search is performed
+ * @param {*} search - Search term entered in searchbox
+ * @param {*} key - key in database to perform search
+ * @returns filtered data 
  */
 const useSearch = (SearchData, search, key) => {
     if (!search) {

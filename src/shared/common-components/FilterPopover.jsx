@@ -1,5 +1,5 @@
 // FilterPopover.jsx
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Button,
   Checkbox,
@@ -10,9 +10,12 @@ import {
 } from "@mantine/core";
 import { IconFilter } from "@tabler/icons-react";
 import useDomain from "../../pages/mentors/hooks/useDomain";
+import InternshipContext from "../store/Context";
 
-const FilterPopover = ({ selectedDomains, onDomainChange }) => {
+const FilterPopover = ({  onDomainChange }) => {
+  const [opened, setOpened] = useState(false);
   const domains = useDomain();
+  const {selectedDomains, setSelectedDomains} = useContext(InternshipContext);
   const [tempValue, setTempValue] = useState(selectedDomains);
 
   const handleCheckboxChange = (values) => {
@@ -22,16 +25,19 @@ const FilterPopover = ({ selectedDomains, onDomainChange }) => {
   const handleApply = () => {
     onDomainChange(tempValue);
     // applyFilters(); // Apply filters in the parent component
+    setOpened((o) => !o);
   };
 
   const handleCancel = () => {
-    setTempValue(selectedDomains); // Reset to the previous value
+     setTempValue([]); // Reset to an empty array to remove checked data
+    setSelectedDomains([]);
+    setOpened((o) => !o);
   };
 
   return (
-    <Popover position="bottom-end">
+    <Popover position="bottom-end" opened={opened} onChange={setOpened}>
       <PopoverTarget>
-        <Button className="filter-box" variant="outline" mr={12}>
+        <Button className="filter-box" variant="outline" mr={12} onClick={() => setOpened((o) => !o)}>
           <IconFilter size={20} />
         </Button>
       </PopoverTarget>

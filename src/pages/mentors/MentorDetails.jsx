@@ -13,8 +13,8 @@ import { IconPlus } from "@tabler/icons-react";
 const MentorDetails = () => {
   const mentorData = useMentors();
   const [mentors, setMentors] = useState(mentorData);
-  const { searchTerm } = useContext(InternshipContext);
-  const [selectedDomains, setSelectedDomains] = useState([]);
+  const { searchTerm, selectedDomains, setSelectedDomains } = useContext(InternshipContext);
+  // const [selectedDomains, setSelectedDomains] = useState([]);
 
   const Breadcrumbitems = [
     { title: "Internship", href: "#" },
@@ -55,7 +55,6 @@ const MentorDetails = () => {
         <Flex>
           <SearchBox />
           <FilterPopover
-            selectedDomains={selectedDomains}
             onDomainChange={handleDomainChange}
           />
           <Link to="/mentor/add/new">

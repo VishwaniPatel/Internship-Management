@@ -2,7 +2,9 @@ import { createContext } from "react";
 
 const InternshipContext = createContext({
     searchTerm: '',
-    setSearchTerm: () => { },
+    setSearchTerm: () => {},
+    selectedDomains: [],
+    setSelectedDomains: () => {},
 });
 
 export default InternshipContext;

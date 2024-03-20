@@ -1,23 +1,31 @@
-import { Flex, Box } from "@mantine/core";
+import { Flex, Box, Group } from "@mantine/core";
 import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 import { Tabs } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BatchInterns } from "./components/BatchInterns/BatchInterns";
 import { getByIdInternBatchData } from "../intern-batch/utility/service/InternBatch.service";
 import { BatchRoadmapList } from "./components/BatchRoadmap/components/BatchRoadmapList";
 import BatchMentor from "./components/BatchMentor/BatchMentor";
 import SearchBox from "../../shared/common-components/SearchBox";
+import FilterPopover from "../../shared/common-components/FilterPopover";
+import InternshipContext from "../../shared/store/Context";
 export function InternshipBatchDetails() {
   let { batchId } = useParams();
 
   const [activeTab, setActiveTab] = useState("interns");
   const [batchName, setBatchName] = useState();
+  const {selectedDomains, setSelectedDomains} = useContext(InternshipContext);
+
   const items = [
     { title: "Internship", href: "#" },
     { title: "Intern-Batch", href: "/intern-batch" },
     { title: `${batchName}`, href: "#" },
   ];
+
+  const handleDomainChange = (selected) => {
+    setSelectedDomains(selected);
+  };
 
   useEffect(() => {
     getByIdInternBatchData(batchId).then((response) => {
@@ -34,7 +42,11 @@ export function InternshipBatchDetails() {
           <Breadcrumb data={items} />
           <h4 className="content-title">{batchName}</h4>
         </div>
+        <Flex>
         <SearchBox/>
+        <FilterPopover selectedDomains={selectedDomains}
+            onDomainChange={handleDomainChange}/>
+        </Flex>
       </Flex>
       {/* Tab Container */}
 
@@ -61,7 +73,7 @@ export function InternshipBatchDetails() {
             <BatchInterns/>
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="mentors">
-            <BatchMentor/>
+            <BatchMentor />
           </Tabs.Panel>
           <Tabs.Panel className="tab-panel" value="roadmaps">
             <BatchRoadmapList />

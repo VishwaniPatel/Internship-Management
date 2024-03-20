@@ -9,6 +9,7 @@ import AddBatchRoadmapForm from "./AddBatchRoadmapForm";
 import useBatchRoadmap from "../../../../../shared/hooks/useBatchRoadmap";
 import InternshipContext from "../../../../../shared/store/Context";
 import useSearch from "../../../../../shared/hooks/useSearch";
+import useFilterData from "../../../../../shared/hooks/useFilterData";
 
 export function BatchRoadmapList() {
   const { batchId, id } = useParams();
@@ -20,7 +21,7 @@ export function BatchRoadmapList() {
   const toggleDrawer = () => {
     setDrawerOpen((prevState) => !prevState);
   };
-  const {searchTerm} = useContext(InternshipContext);
+  const {searchTerm, selectedDomains} = useContext(InternshipContext);
  
   const title = id ? "Update Roadmap Detail" : "Add Roadmap Detail";
   // Filter Records based on roadmapId.
@@ -42,6 +43,11 @@ export function BatchRoadmapList() {
   const handleDeleteRecord = (batchId) => {
     setRecords(records.filter((record) => record.id !== batchId));
   };
+
+  useEffect(() => {
+    const filteredData = useFilterData(filteredRecords, selectedDomains)
+    setRecords(filteredData);
+  }, [selectedDomains])
 
   const rows = records.length > 0 &&  records.map((tabData) => (
     <Table.Tr key={tabData.id}>
