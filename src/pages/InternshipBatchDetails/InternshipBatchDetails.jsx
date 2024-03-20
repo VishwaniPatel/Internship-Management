@@ -7,6 +7,7 @@ import { BatchInterns } from "./components/BatchInterns/BatchInterns";
 import { getByIdInternBatchData } from "../intern-batch/utility/service/InternBatch.service";
 import { BatchRoadmapList } from "./components/BatchRoadmap/components/BatchRoadmapList";
 import BatchMentor from "./components/BatchMentor/BatchMentor";
+import SearchBox from "../../shared/common-components/SearchBox";
 export function InternshipBatchDetails() {
   let { batchId } = useParams();
 
@@ -33,6 +34,7 @@ export function InternshipBatchDetails() {
           <Breadcrumb data={items} />
           <h4 className="content-title">{batchName}</h4>
         </div>
+        <SearchBox/>
       </Flex>
       {/* Tab Container */}
 

@@ -6,6 +6,7 @@ import { useParams } from 'react-router'
 import DrawerElement from './components/DrawerElement'
 
 const BatchMentor = () => {
+    
     // get param value from URL
     const { id } = useParams();
     // Manage drawer open/close

@@ -304,6 +304,22 @@
       "domainOwner": false,
       "email": "vishwani@1rivet.com",
       "id": "NqHhrXn"
+    },
+    {
+      "id": "2a4c",
+      "batchId": "2",
+      "domain": "Frontend",
+      "mentor": "Vinay Chudasama",
+      "domainOwner": "false",
+      "email": "vinaychudasama@1rivet.com"
+    },
+    {
+      "id": "0d31",
+      "batchId": "2",
+      "domain": "Backend",
+      "mentor": "Nikunj Patel",
+      "domainOwner": "false",
+      "email": "nikunjpatel@1rivet.com"
     }
   ],
   "batchRoadmap": [

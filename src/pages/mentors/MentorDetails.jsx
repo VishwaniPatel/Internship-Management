@@ -22,7 +22,17 @@ const MentorDetails = () => {
   ];
 
   useEffect(() => {
-    const filteredMentors = useSearch(mentorData, searchTerm, "firstName");
+    // Merge firstName and lastName into fullName for searching
+  const modifiedData = mentorData.map(item => ({
+    ...item,
+    fullName: `${item.firstName} ${item.lastName}` // Concatenate firstName and lastName
+  }));
+
+  // Define the keys for searching
+  const searchKeys = ['fullName', 'emailId', 'domain'];
+
+  // Use the useSearch hook with the modified data and searchKeys
+  const filteredMentors = useSearch(modifiedData, searchTerm, searchKeys);
     setMentors(filteredMentors);
   }, [mentorData, searchTerm]);
 

@@ -1,5 +1,5 @@
 import { Drawer, Menu, Table, Text } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   deleteInternDetails,
 } from "../utility/service/BatchIntern.service";
@@ -8,6 +8,8 @@ import { DropdownMenu } from "./DropDownMenu";
 import { useDisclosure } from "@mantine/hooks";
 import AddBatchInternForm from "./AddBatchInternForm";
 import { useBatchIntern } from "../hooks/useBatchIntern";
+import useSearch from "../../../../../shared/hooks/useSearch";
+import InternshipContext from "../../../../../shared/store/Context";
 
 // eslint-disable-next-line react/prop-types
 const BatchInternList = ({ openDrawer, closeDrawer }) => {
@@ -19,11 +21,27 @@ const BatchInternList = ({ openDrawer, closeDrawer }) => {
   const [opened, { open, close }] = useDisclosure(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [editFormId, setEditFormId] = useState();
-
+  const { searchTerm } = useContext(InternshipContext);
   let title = editFormId ? "Update Intern Details" : "Add Intern Details";
   const toggleDrawer = () => {
     setDrawerOpen((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    // filter data according to batch
+    const filteredData = batchInternData.filter((record) => record.batchId == batchId);
+    //  Merge firstName and lastName into fullName for searching
+    const modifiedData = filteredData.map(item => ({
+      ...item,
+      fullName: `${item.firstName} ${item.lastName}` // Concatenate firstName and lastName
+    }))
+    // Define the keys for searching
+    const searchKeys = ['fullName', 'email', 'domain', 'contact'];
+    // Use the useSearch hook with the modified data and searchKeys
+    const filteredInterns = useSearch(modifiedData, searchTerm, searchKeys);
+    setInternList(filteredInterns);
+  }, [searchTerm])
+
 
   //** getIntern List */
   const getInternList = () => {
@@ -37,7 +55,7 @@ const BatchInternList = ({ openDrawer, closeDrawer }) => {
 
   useEffect(() => {
     getInternList();
-  }, [batchId,batchInternData]);
+  }, [batchId, batchInternData]);
 
   //** set Drawer for open/close  */
   useEffect(() => {
