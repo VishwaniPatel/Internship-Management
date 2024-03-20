@@ -7,55 +7,64 @@ import { Breadcrumb } from "../../../../shared/common-components/Breadcrumb";
 import { IconPlus } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { getRoadMapDetails } from "../utility/service/RoadmapDetails.service";
+import useRoadmapDetails from "../../../../shared/hooks/useRoadmapDetails";
 
 function RoadmapDetailsTable() {
   const { roadmapId } = useParams();
   const [records, setRecords] = useState([]);
+  const roadmapDetailsData = useRoadmapDetails();
 
   useEffect(() => {
-    getRoadMapDetails().then((res) => {
-      // Filter Records based on roadmapId.
-      setRecords(res.data.filter((record) => record.roadmapId == roadmapId));
-    });
-  }, []);
+    setRecords(
+      roadmapDetailsData.filter((record) => record.roadmapId == roadmapId)
+    );
+  }, [roadmapDetailsData]);
 
   const handleDeleteRecord = (roadmapId) => {
-    setRecords(records.filter((record) => record.id !== roadmapId));
+    // user.topics = user.topics.filter((record) => record.id !== deleteId);
+    const newRecords = records.filter((record) =>
+      record.topics.filter((data) => data.id !== roadmapId)
+    );
+    setRecords(newRecords);
   };
   const Breadcrumbitems = [
     { title: "Internship", href: "#" },
     { title: "Roadmap", href: "/roadmap" },
     { title: "Roadmap Details", href: "#" },
   ];
-  const rows = records.map((tabData) => (
-    <Table.Tr key={tabData.topic}>
-      <Table.Td>{tabData.topic}</Table.Td>
-      <Table.Td>{tabData.subtopic}</Table.Td>
-      <Table.Td>{tabData.duration}</Table.Td>
-      {/* <Table.Td style={{ textWrap: "nowrap" }}>{tabData.presenter}</Table.Td>
-      <Table.Td>
-        <Badge
-          variant={
-            tabData.status === "Not-Started"
-              ? "notStarted"
-              : tabData.status === "Completed"
-              ? "completed"
-              : "inProgress"
-          }
-          radius="sm"
-        >
-          {tabData.status}
-        </Badge>
-      </Table.Td> */}
-      <Table.Td>
-        <DropdownMenu
-          id={tabData.id}
-          onDelete={handleDeleteRecord}
-          duration={tabData.duration}
-        />
-      </Table.Td>
-    </Table.Tr>
-  ));
+
+  // Creating Table Rows
+  const renderTableRows = () => {
+    let rows = [];
+    records.forEach((user, index) => {
+      const rowspan = user.topics.length;
+
+      user.topics.forEach((topic, topicIndex) => {
+        rows.push(
+          <Table.Tr key={`${user.id}_${topicIndex}`}>
+            {topicIndex === 0 ? (
+              <Table.Td className="day" rowSpan={rowspan}>
+                {user.day}
+              </Table.Td>
+            ) : null}
+
+            <Table.Td className="topic-name">{topic.topicName}</Table.Td>
+            <Table.Td className="subtopic-name">{topic.subtopic}</Table.Td>
+            <Table.Td className="duration">{topic.duration}</Table.Td>
+            <Table.Td>
+              <DropdownMenu
+                user={user}
+                deleteId={topic.id}
+                onDelete={handleDeleteRecord}
+                duration={topic.duration}
+              />
+            </Table.Td>
+          </Table.Tr>
+        );
+      });
+    });
+    return rows;
+  };
 
   return (
     <Flex direction="column" className="content-wrapper">
@@ -72,6 +81,7 @@ function RoadmapDetailsTable() {
       </Flex>
       <div className="table-container">
         <Table
+          className="roadmapDetail-table"
           stickyHeader
           stickyHeaderOffset={-16}
           highlightOnHover
@@ -81,23 +91,22 @@ function RoadmapDetailsTable() {
         >
           <Table.Thead bg="#f1f3f5">
             <Table.Tr>
+              <Table.Th>DAY</Table.Th>
               <Table.Th>TOPIC</Table.Th>
               <Table.Th>SUB-TOPIC</Table.Th>
               <Table.Th>DURATION</Table.Th>
-              {/* <Table.Th>PRESENTER</Table.Th>
-              <Table.Th>STATUS</Table.Th> */}
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
             {records.length == 0 ? (
               <Table.Tr>
-                <Table.Td colSpan="4">
+                <Table.Td colSpan="5">
                   <Text ta="center"> No Records Found</Text>
                 </Table.Td>
               </Table.Tr>
             ) : (
-              <>{rows}</>
+              <>{renderTableRows()}</>
             )}
           </Table.Tbody>
         </Table>

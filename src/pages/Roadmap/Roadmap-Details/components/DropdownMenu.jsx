@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { getRoadmapById, updateRoadmap } from "../../service/Roadmap.service";
 import { subtractDurations } from "../utility/helper/timeConvertion";
 
-export function DropdownMenu({ id, onDelete, duration }) {
+export function DropdownMenu({ user, deleteId, onDelete, duration }) {
   const { roadmapId } = useParams();
   const [open, setOpen] = useState(false);
   // const [deleteData, setDeleteData] = useState("");
@@ -25,9 +25,9 @@ export function DropdownMenu({ id, onDelete, duration }) {
     // Subtract total duration and particular detail duration
     const updatedDuration = subtractDurations(totalDur, duration);
     // Delete Record from List
-    deleteRoadMapDetails(id).then((res) => {
+    deleteRoadMapDetails(user, deleteId).then((res) => {
       setOpen(false);
-      onDelete(id);
+      onDelete(user.id);
     });
     // Update total duration in roadmap
     updateRoadmap(roadmapId, {
@@ -52,7 +52,9 @@ export function DropdownMenu({ id, onDelete, duration }) {
         </Menu.Target>
 
         <Menu.Dropdown>
-          <Link to={"/roadmap-details/" + roadmapId + "/edit-details/" + id}>
+          <Link
+            to={"/roadmap-details/" + roadmapId + "/edit-details/" + user.id}
+          >
             <Menu.Item
               leftSection={
                 <IconPencil style={{ width: rem(14), height: rem(14) }} />

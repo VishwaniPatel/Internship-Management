@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, Table, Box } from "@mantine/core";
 import { Breadcrumb } from "../../shared/common-components/Breadcrumb";
 import useDomain from "../mentors/hooks/useDomain";
+import useBatchRoadmap from "../../shared/hooks/useBatchRoadmap";
 
 const Breadcrumbitems = [
   { title: "Internship", href: "#" },
@@ -42,7 +43,10 @@ const days = dateRange.map((date) => {
 });
 export default function TrainingTracker() {
   const domains = useDomain();
-  console.log(domains);
+  // console.log(domains);
+  const batchRoadmapData = useBatchRoadmap();
+  console.log("Data is :", batchRoadmapData);
+
   const row = domains.map((domain) => (
     <Table.Tr key={domain.id}>
       <Table.Td className="sticky-cell">{domain.value}</Table.Td>
@@ -62,7 +66,7 @@ export default function TrainingTracker() {
         </div>
       </Flex>
       <Box className="timeline-wrapper">
-        <Table className="data-table" stickyHeader stickyHeaderOffset={6}>
+        <Table className="timeline-table" stickyHeader stickyHeaderOffset={6}>
           <Table.Thead>
             <Table.Tr>
               <Table.Th></Table.Th>

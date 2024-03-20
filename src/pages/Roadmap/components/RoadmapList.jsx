@@ -13,16 +13,16 @@ import { getRoadMapData, updateRoadmap } from "../service/Roadmap.service";
 import { DropdownMenu } from "./DropdownMenu";
 import { Link, useParams } from "react-router-dom";
 import { IconFolderCode } from "@tabler/icons-react";
+import useRoadmap from "../../../shared/hooks/useRoadmap";
 
 export function RoadMapList() {
   const { roadmapId } = useParams();
+  const roadmapData = useRoadmap();
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    getRoadMapData().then((res) => {
-      setRecords(res.data);
-    });
-  }, []);
+    setRecords(roadmapData);
+  }, [roadmapData]);
   const handleDeleteRecord = (id) => {
     setRecords(records.filter((record) => record.id !== id));
   };

@@ -43,59 +43,186 @@
   ],
   "newRoadmap": [
     {
-      "name": "Beginner HTML",
-      "domain": "Frontend",
-      "totalDuration": "0hr 45m",
+      "name": "Advanced Javascript",
+      "domain": "Backend",
+      "totalDuration": "7hr 45m",
+      "totalDays": "2",
       "id": "1"
     },
     {
-      "id": "5c39",
-      "name": "Advance Javascript",
-      "domain": "Backend",
-      "totalDuration": "2hr 30m"
+      "name": "Beginner HTML",
+      "domain": "Frontend",
+      "totalDuration": "4hr 30m",
+      "totalDays": "3",
+      "id": "5c39"
     },
     {
       "id": "da7d",
       "name": "Advanced CSS",
       "domain": "Data",
-      "totalDuration": "0hr 30m"
+      "totalDays": "0",
+      "totalDuration": "0hr 0m"
     }
   ],
   "roadmapDetails": [
     {
-      "roadmapId": 1,
-      "topic": "HTML Fundamentals",
-      "subtopic": "Lorem Ipsum Dummy Goes here for the emo periv ",
-      "duration": "15m",
-      "id": "1"
+      "roadmapId": "5c39",
+      "day": "Day 01",
+      "topics": [
+        {
+          "id": "duiuvmb",
+          "topicName": "HTML Fundamental",
+          "subtopic": "Introduction, HTML Document, The Head Element,The Body Element, ID and Class Attributes, Comments, Coding conventions",
+          "duration": "30m"
+        },
+        {
+          "id": "pewvxqvm",
+          "topicName": "Text Elements",
+          "subtopic": "Headings, Block vs Inline Elements, Text Breaking and white space, Additional Text Element, Best Practice",
+          "duration": "30m"
+        },
+        {
+          "id": "nthvgdqav",
+          "topicName": "List Elements",
+          "subtopic": "List Types, Creating Lists, Best Practice",
+          "duration": "30m"
+        }
+      ],
+      "id": "ce06"
     },
     {
-      "id": "596b",
+      "roadmapId": "5c39",
+      "day": "Day 02",
+      "topics": [
+        {
+          "id": "nddzhtce",
+          "topicName": "Link Element",
+          "subtopic": "Link Concepts, Understanding targets, Additional Link Attributes, Best Practice",
+          "duration": "1hr 30m"
+        },
+        {
+          "id": "nddzabce",
+          "topicName": "Table Element",
+          "subtopic": "Table Element, Table Data, Spanning Columns and Rows, Best Practice",
+          "duration": "30m"
+        }
+      ],
+      "id": "2449"
+    },
+    {
+      "id": "6787",
+      "roadmapId": "5c39",
+      "day": "Day 03",
+      "topics": [
+        {
+          "id": "gixizlm",
+          "topicName": "Forms",
+          "subtopic": "Input types, Dropdown, Buttons, Best Practice",
+          "duration": "30m"
+        },
+        {
+          "id": "wilpmpmggnc",
+          "topicName": "Images Element",
+          "subtopic": "Image Types, Include Images in document, Best Practice",
+          "duration": "30m"
+        }
+      ]
+    },
+    {
       "roadmapId": "1",
-      "topic": "new topic",
-      "subtopic": "new description lorem ipsum",
-      "duration": "30m"
+      "day": 1,
+      "topics": [
+        {
+          "id": "xdwkuzw",
+          "topicName": "1",
+          "subtopic": "ertg",
+          "duration": "1hr 30m"
+        },
+        {
+          "id": "yompcec",
+          "topicName": "2",
+          "subtopic": "re5t",
+          "duration": "15m"
+        },
+        {
+          "id": "pqgcultie",
+          "topicName": "3",
+          "subtopic": "re",
+          "duration": "1hr 30m"
+        }
+      ],
+      "id": "d208"
     },
     {
-      "id": "1d00",
-      "roadmapId": "5c39",
-      "topic": "Arrow Function",
-      "subtopic": "Lorem Ipsum dummy text goes here",
-      "duration": "1hr"
+      "roadmapId": "1",
+      "day": 2,
+      "topics": [
+        {
+          "id": "vlboosvth",
+          "topicName": "sd",
+          "subtopic": "gdgd",
+          "duration": "30m"
+        },
+        {
+          "id": "rswmvewvs",
+          "topicName": "we",
+          "subtopic": "sff",
+          "duration": "1hr"
+        }
+      ],
+      "id": "3939"
     },
     {
-      "id": "3fe6",
-      "roadmapId": "5c39",
-      "topic": "demo2",
-      "subtopic": "demo description",
-      "duration": "1hr 30m"
+      "id": "d72d",
+      "roadmapId": "1",
+      "day": 3,
+      "topics": [
+        {
+          "id": "qsafv",
+          "topicName": "yety",
+          "subtopic": "tey",
+          "duration": "30m"
+        }
+      ]
     },
     {
-      "roadmapId": "da7d",
-      "topic": "Importing CSS style",
-      "subtopic": "3 types of exporting styles- Inline, External, Internal",
-      "duration": "30m",
-      "id": "9ced"
+      "id": "ff6e",
+      "roadmapId": "1",
+      "day": 4,
+      "topics": [
+        {
+          "id": "klmieoni",
+          "topicName": "erf",
+          "subtopic": "erf",
+          "duration": "15m"
+        }
+      ]
+    },
+    {
+      "id": "3c74",
+      "roadmapId": "1",
+      "day": 5,
+      "topics": [
+        {
+          "id": "cfdmbkwhci",
+          "topicName": "df",
+          "subtopic": "dv",
+          "duration": "30m"
+        }
+      ]
+    },
+    {
+      "id": "a862",
+      "day": 6,
+      "roadmapId": "1",
+      "topics": [
+        {
+          "id": "ycsyk",
+          "topicName": "ewrgg",
+          "subtopic": "fgrf",
+          "duration": "15m"
+        }
+      ]
     }
   ],
   "newIntern": [
@@ -352,6 +479,14 @@
       "domain": "Data",
       "duration": "0hr 30m",
       "mentor": "Ravi Sing"
+    },
+    {
+      "id": "f3ec",
+      "batchId": "1",
+      "topic": "Beginner HTML",
+      "domain": "Frontend",
+      "duration": "4hr 30m",
+      "mentor": "Vinay Chudasama"
     }
   ],
   "mentors": [
