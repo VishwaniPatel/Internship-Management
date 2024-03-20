@@ -1,16 +1,32 @@
 import { Table, Badge } from "@mantine/core";
 import { DropdownMenu } from "./DropdownMenu";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useInternBatch } from "../hooks/useInternBatch";
+import InternshipContext from "../../../shared/store/Context";
+import useSearch from "../../../shared/hooks/useSearch";
 
 export function InternsBatchTable() {
   const [records, setRecords] = useState([]);
   const BatchData = useInternBatch();
-
+const {searchTerm} = useContext(InternshipContext);
   const getInternBatchList = () => {
       setRecords(BatchData);
   };
+
+  useEffect(() => {
+    // search keys
+    const searchKeys = ['batchname', 'formattedStartDate', 'formattedEndDate', 'status'];
+    // formatted data for start date and end date
+    const formattedData = BatchData.map(item => ({
+      ...item,
+      formattedStartDate: formatDateString(item.startdate),
+      formattedEndDate: formatDateString(item.enddate),
+    }));
+    // Use the useSearch hook with the modified data and searchKeys
+    const filteredBatch = useSearch(formattedData, searchTerm, searchKeys);
+    setRecords(filteredBatch);
+  }, [searchTerm]);
 
   useEffect(() => {
     getInternBatchList();
